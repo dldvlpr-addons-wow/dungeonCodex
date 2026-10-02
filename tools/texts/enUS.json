@@ -1,0 +1,793 @@
+{
+ "blackfathom-deeps": {
+  "fights": {
+   "ghamoo-ra": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Trample",
+      "text": "Hits everyone standing near him."
+     }
+    ]
+   },
+   "lady-sarevess": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Forked Lightning",
+      "text": "Nature damage in a cone in front of her (2-second cast). Stay out of the cone."
+     },
+     {
+      "name": "Frost Nova",
+      "text": "Freezes everyone near her in place for up to 8 seconds."
+     },
+     {
+      "name": "Slow",
+      "text": "Slows a player's movement and attacks for 10 seconds."
+     }
+    ]
+   },
+   "gelihast": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Net",
+      "text": "Roots a player in place for 10 seconds."
+     }
+    ]
+   },
+   "lorgus-jett": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Lightning Shield",
+      "text": "Lightning strikes anyone who touches him. A priest or shaman can remove it."
+     },
+     {
+      "name": "Lightning Bolt",
+      "text": "He keeps his distance to cast it. Interrupt him."
+     }
+    ]
+   },
+   "baron-aquanis": {
+    "trigger": "Click the Fathom Stone in the water: he rises from it.",
+    "abilities": [
+     {
+      "name": "Frostbolt",
+      "text": "He keeps his distance to cast it: Frost damage and a slow."
+     },
+     {
+      "name": "Frost Nova",
+      "text": "Roots everyone near him for up to 8 seconds."
+     }
+    ]
+   },
+   "twilight-lord-kelris": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Sleep",
+      "text": "Puts everyone near him to sleep for up to 10 seconds. Damage wakes a sleeper."
+     },
+     {
+      "name": "Mind Blast",
+      "text": "Shadow damage on a player (1.5-second cast)."
+     }
+    ]
+   },
+   "old-serra-kis": {
+    "trigger": "He waits in an underwater cave beneath Twilight Lord Kelris's temple, and many groups miss him. Swim under the temple to reach him.",
+    "abilities": []
+   },
+   "aku-mai": {
+    "trigger": "Once Twilight Lord Kelris is dead, light the four Aku'Mai fires in his room, one after the other. Each one brings a wave of creatures. When they are all dead, Aku'Mai's door opens.",
+    "abilities": [
+     {
+      "name": "Poison Cloud",
+      "text": "Nature damage every 5 seconds for 45 seconds to everyone nearby."
+     },
+     {
+      "name": "Frenzied Rage",
+      "text": "Below 30% health: bursts of attacks 75% faster, over and over."
+     }
+    ]
+   }
+  }
+ },
+ "gnomeregan": {
+  "fights": {
+   "techbot": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Net",
+      "text": "Roots everyone near him for 10 seconds."
+     },
+     {
+      "name": "Slow",
+      "text": "Slows a player's attacks and movement for 10 seconds, and can stun them."
+     },
+     {
+      "name": "Summon Mechanical Roach",
+      "text": "Calls mechanical roaches. His Update kills them and heals him."
+     }
+    ]
+   },
+   "grubbis": {
+    "trigger": "Talk to Blastmaster Emi Shortfuse and protect her while she blows up the two cave entrances. Troggs come in waves, then Grubbis arrives with Chomper.",
+    "abilities": []
+   },
+   "electrocutioner-6000": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Megavolt",
+      "text": "Nature damage in a cone in front of him (2-second cast). Only the tank stands in front."
+     },
+     {
+      "name": "Chain Lightning",
+      "text": "A bolt that bounces between nearby players (2.5-second cast). Interrupt him."
+     }
+    ]
+   },
+   "crowd-pummeler-9-60": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Crowd Pummel",
+      "text": "Hits everyone near him and interrupts their spells. Casters and healers, keep your distance."
+     },
+     {
+      "name": "Arcing Smash",
+      "text": "Hits everyone in a cone in front of him."
+     },
+     {
+      "name": "Trample",
+      "text": "Hits everyone standing near him."
+     }
+    ]
+   },
+   "dark-iron-ambassador": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Summon Fiery Servant",
+      "text": "Calls two fiery servants at the start of the fight."
+     },
+     {
+      "name": "Fireball",
+      "text": "He keeps his distance to cast it. Interrupt him."
+     },
+     {
+      "name": "Fire Shield II",
+      "text": "Fire damage to everyone near him for one minute. A priest or shaman can remove it."
+     }
+    ]
+   },
+   "mekgineer-thermaplugg": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Walking Bombs",
+      "text": "He lights the gnome heads around the room one by one, and each one drops walking bombs that explode when they reach a player. The button next to a head turns it off. Below half health, he lights them faster."
+     },
+     {
+      "name": "Knock Away",
+      "text": "Knocks the tank back. Below half health, it hits everyone around him."
+     }
+    ]
+   }
+  }
+ },
+ "hall-of-thanes": {
+  "fights": {
+   "faldrim-anvilmar": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Curses and Diseases",
+      "text": "Being able to remove a curse or cure a disease helps. Otherwise an easy fight: clear the room before engaging."
+     }
+    ]
+   },
+   "magmatus": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "The Summoner",
+      "text": "Kill the summoner first: he brings in reinforcements. Then the elemental."
+     },
+     {
+      "name": "Fire Everywhere",
+      "text": "Area damage on the group, worse when the group fights a lot in melee."
+     }
+    ]
+   },
+   "plunder": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Sent Across the Room",
+      "text": "He sends players flying across the room. Clear the nearest groups and tank him near the tunnel, so nobody lands in another group."
+     }
+    ]
+   },
+   "durgen-dirgehammer": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Fear When Weakened",
+      "text": "As his health drops, he terrifies the whole group. Bring something to break it, or clear the room beforehand so nobody runs into other enemies."
+     },
+     {
+      "name": "The Locked Vaults",
+      "text": "After the fight, open the vaults in the room: about 24 Dwarven Heirlooms for Important Heirlooms, and the tablet for The Treaty of Understanding."
+     }
+    ]
+   }
+  }
+ },
+ "ragefire-chasm": {
+  "fights": {
+   "oggleflint": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Cleave",
+      "text": "Hits his target and the player nearest to it."
+     }
+    ]
+   },
+   "taragaman-the-hungerer": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Fire Nova",
+      "text": "Fire damage to everyone near him, several times per fight. Healers, keep the melee topped up."
+     },
+     {
+      "name": "Uppercut",
+      "text": "A heavy blow that knocks the tank back."
+     }
+    ]
+   },
+   "jergosh-the-invoker": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Immolate",
+      "text": "Burns a player, then Fire damage every few seconds for 21 seconds. Interrupt the spell or dispel the burn."
+     },
+     {
+      "name": "Curse of Weakness",
+      "text": "Reduces a player's physical damage for 30 seconds. A mage or druid can remove it."
+     }
+    ]
+   },
+   "bazzalan": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Poison",
+      "text": "His hits poison: Nature damage over time. Cure the poison if you can."
+     },
+     {
+      "name": "Sinister Strike",
+      "text": "Extra damage on the tank every 5 to 15 seconds."
+     }
+    ]
+   }
+  }
+ },
+ "ruins-of-lordaeron": {
+  "fights": {
+   "the-baron": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Thrown Into the Air",
+      "text": "Throws the tank into the air and stuns them for 5 seconds. Watch your threat as damage dealer: the tank only holds him for about half the fight."
+     },
+     {
+      "name": "A Patrol",
+      "text": "Clear his room before engaging: a patrol passes through. His head can be picked up for the quests Abominable Creatures and Unending Torment."
+     }
+    ]
+   },
+   "witherfang": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "The Courtyard Spiders",
+      "text": "Nothing special on the boss himself. Clear the other spiders in the courtyard first, or they join the fight."
+     }
+    ]
+   },
+   "the-abandoned": {
+    "trigger": "Clear the courtyard, click the statue and hold on through the waves: she arrives afterward.",
+    "abilities": [
+     {
+      "name": "Frost Nova",
+      "text": "Frost damage on the whole group. If you heal, save mana for all the waves."
+     }
+    ]
+   },
+   "bjork": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Knockback",
+      "text": "He knocks back: clear the groups around him first, or you land in one of them."
+     },
+     {
+      "name": "Anti-Magic Shield",
+      "text": "Protects himself against spells for a while."
+     },
+     {
+      "name": "Mighty Blows",
+      "text": "He hits hard: keep the tank topped up."
+     }
+    ]
+   },
+   "rath-mael": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Flame Shock",
+      "text": "His main spell. It can be interrupted and stunned: coordinate interrupts and stuns with the group."
+     },
+     {
+      "name": "Lots of Health",
+      "text": "The longest fight in the dungeon. Keep interrupting until the end."
+     }
+    ]
+   },
+   "viktor-the-vile": {
+    "trigger": "Clear the house and the statue, click the fireplace and hold on through the waves. He arrives after the last flesh golem.",
+    "abilities": [
+     {
+      "name": "Poison",
+      "text": "Poisons his target. Watch the health bars."
+     },
+     {
+      "name": "Mighty Blows",
+      "text": "He hits hard: keep the tank alive. Bring mana potions for the waves before him."
+     }
+    ]
+   }
+  }
+ },
+ "shadowfang-keep": {
+  "fights": {
+   "rethilgore": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Soul Drain",
+      "text": "Roots a player for 10 seconds and drains their health to heal himself. Interrupt the 2-second cast or dispel it."
+     }
+    ]
+   },
+   "fel-steed-shadow-charger": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Crooked Blow",
+      "text": "The Fel Steed stuns everyone near it for 3 seconds, and they take more physical damage. The Shadow Charger has no special abilities."
+     }
+    ]
+   },
+   "razorclaw-the-butcher": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Butcher Drain",
+      "text": "Drains 350 mana from his target in melee: a tank with mana will feel it."
+     }
+    ]
+   },
+   "baron-silverlaine": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Veil of Shadow",
+      "text": "Curses a player: healing they receive is reduced by 75% for 15 seconds. Remove it, especially on the tank."
+     }
+    ]
+   },
+   "commander-springvale": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Holy Light",
+      "text": "Heals himself or an ally (2.5-second cast). Interrupt him."
+     },
+     {
+      "name": "Divine Shield",
+      "text": "Makes him immune to all damage and spells for 10 seconds."
+     },
+     {
+      "name": "Hammer of Justice",
+      "text": "Stuns a player for 4 seconds."
+     }
+    ]
+   },
+   "odo-the-blindwatcher": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Call for Help",
+      "text": "When you engage him, he calls creatures within 30 yards. Clear around him first."
+     },
+     {
+      "name": "Howling Rage",
+      "text": "At 60%, 40% and 20% health, his hits get stronger."
+     }
+    ]
+   },
+   "deathsworn-captain": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Cleave",
+      "text": "Hits his target and the player nearest to it."
+     },
+     {
+      "name": "Hamstring",
+      "text": "Slows his target's movement for 10 seconds."
+     }
+    ]
+   },
+   "arugal-s-voidwalker": {
+    "trigger": "They arrive as a group of four after Fenrus the Devourer dies: Arugal appears briefly and summons them.",
+    "abilities": [
+     {
+      "name": "Dark Offering",
+      "text": "Heals another Voidwalker. Kill them one at a time."
+     }
+    ]
+   },
+   "fenrus-the-devourer": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Toxic Saliva",
+      "text": "Nature damage every 6 seconds and drained mana, for 2 minutes. Cure the poison."
+     }
+    ]
+   },
+   "wolf-master-nandos": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Worg Reinforcements",
+      "text": "The longer the fight lasts, the more worgs he has with him: a Bleak Worg after 30 to 45 seconds, then a Slavering Worg, then a Lupine Horror."
+     }
+    ]
+   },
+   "archmage-arugal": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Void Bolt",
+      "text": "A 3-second Shadow bolt on the tank, over and over. Interrupt him."
+     },
+     {
+      "name": "Arugal's Curse",
+      "text": "Turns a player other than the tank into a Shadowfang Glutton that fights for him for 10 seconds. Remove the curse."
+     },
+     {
+      "name": "Shadow Port",
+      "text": "He teleports between his ledge, the upper ledge and the stairs."
+     },
+     {
+      "name": "Thunderclap",
+      "text": "When the tank reaches him: Nature damage and a 5-second stun around him."
+     }
+    ]
+   }
+  }
+ },
+ "the-deadmines": {
+  "fights": {
+   "rhahk-zor": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Rhahk'Zor Slam",
+      "text": "Hits the tank hard and stuns them for 3 seconds."
+     }
+    ]
+   },
+   "miner-johnson": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Pierce Armor",
+      "text": "Reduces the tank's armor by 75% for 20 seconds."
+     },
+     {
+      "name": "Runs for Help",
+      "text": "At 15% health, he runs off to get help. Finish him before he gets away."
+     }
+    ]
+   },
+   "sneed-s-shredder": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Terrify",
+      "text": "Makes a player flee in fear for 4 seconds."
+     },
+     {
+      "name": "Overwhelming Pain",
+      "text": "Slows a player's casting by 35% for 15 seconds."
+     }
+    ]
+   },
+   "sneed": {
+    "trigger": "He pilots Sneed's Shredder and climbs out when it is destroyed.",
+    "abilities": [
+     {
+      "name": "Disarm",
+      "text": "Disarms the tank for 6 seconds."
+     }
+    ]
+   },
+   "gilnid": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Molten Metal",
+      "text": "Fire damage every 3 seconds for 15 seconds, with attacks and movement slowed. Interrupt the 2-second cast."
+     }
+    ]
+   },
+   "mr-smite": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Smite Slam",
+      "text": "At 66% then 33% health, he stuns everyone around him, then goes to his chest to swap weapons."
+     },
+     {
+      "name": "Thrash",
+      "text": "With his two axes, from 66% health: extra attacks on the tank."
+     },
+     {
+      "name": "Smite's Mighty Blow",
+      "text": "With his hammer, below 33% health: a heavy blow that stuns the tank for 3 seconds."
+     }
+    ]
+   },
+   "captain-greenskin": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Poisoned Harpoon",
+      "text": "A 2-second cast: a hit, then Nature damage for one minute. Cure the poison."
+     },
+     {
+      "name": "Cleave",
+      "text": "Hits his target and the player nearest to it."
+     }
+    ]
+   },
+   "edwin-vancleef": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Thrash",
+      "text": "Now and then, two extra attacks: heavy hits on the tank."
+     },
+     {
+      "name": "VanCleef's Allies",
+      "text": "At half health, he calls two Defias Blackguards."
+     }
+    ]
+   },
+   "cookie": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Acid Splash",
+      "text": "Nature damage every 5 seconds for 30 seconds to everyone near him."
+     },
+     {
+      "name": "Cookie's Cooking",
+      "text": "Below half health, he heals himself (2-second cast). Interrupt him."
+     },
+     {
+      "name": "Runs for Help",
+      "text": "At 15% health, he runs off to get help. Finish him before he gets away."
+     }
+    ]
+   }
+  }
+ },
+ "the-stockade": {
+  "fights": {
+   "kam-deepfury": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Shield Bash",
+      "text": "Hits the tank and stuns them for 2 seconds."
+     },
+     {
+      "name": "Runs for Help",
+      "text": "At 15% health, he runs off to get help. Finish him before he gets away."
+     }
+    ]
+   },
+   "bruegal-ironknuckle": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Runs for Help",
+      "text": "At 15% health, he runs off to get help. Finish him before he gets away."
+     }
+    ]
+   },
+   "targorr-the-dread": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Thrash",
+      "text": "Now and then, two extra attacks: heavy hits on the tank."
+     },
+     {
+      "name": "Enrage",
+      "text": "At 30% health, he attacks 30% faster until the end of the fight."
+     }
+    ]
+   },
+   "hamhock": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Chain Lightning",
+      "text": "A bolt that bounces from player to player (2-second cast). Interrupt him."
+     },
+     {
+      "name": "Bloodlust",
+      "text": "Speeds up his attacks or an ally's by 30% for 30 seconds. A priest or shaman can remove it."
+     }
+    ]
+   },
+   "bazil-thredd": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Smoke Bomb",
+      "text": "Stuns everyone near him for 4 seconds."
+     },
+     {
+      "name": "Battle Shout",
+      "text": "More attack power for him and his allies for 2 minutes."
+     },
+     {
+      "name": "Runs for Help",
+      "text": "At 15% health, he runs off to get help. Finish him before he gets away."
+     }
+    ]
+   }
+  }
+ },
+ "wailing-caverns": {
+  "fights": {
+   "lord-cobrahn": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Lightning Bolt",
+      "text": "He keeps his distance to cast it. Interrupt him."
+     },
+     {
+      "name": "Healing Touch",
+      "text": "Heals himself or an ally (3-second cast). Interrupt him."
+     },
+     {
+      "name": "Cobrahn's Serpent Form",
+      "text": "At 30% health, he turns into a snake: slower but heavier hits, and he starts putting players to sleep."
+     }
+    ]
+   },
+   "lady-anacondra": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Healing Touch",
+      "text": "Heals herself or an ally. Interrupt her."
+     },
+     {
+      "name": "Sleep",
+      "text": "Puts a player to sleep for up to 20 seconds. Damage wakes them, and a Dispel Magic removes it."
+     },
+     {
+      "name": "Thorns",
+      "text": "Nature damage to anyone who hits her in melee."
+     }
+    ]
+   },
+   "lord-pythas": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Thunderclap",
+      "text": "Nature damage to everyone near him, then attacks and movement slowed for 10 seconds."
+     },
+     {
+      "name": "Healing Touch",
+      "text": "Heals himself or an ally. Interrupt him."
+     },
+     {
+      "name": "Sleep",
+      "text": "Puts a player to sleep for up to 20 seconds."
+     }
+    ]
+   },
+   "kresh": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Shell Shield",
+      "text": "For 12 seconds, he takes 60% less damage and attacks slower but harder."
+     }
+    ]
+   },
+   "skum": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Chained Bolt",
+      "text": "A bolt that bounces to a second player. Interrupt him."
+     }
+    ]
+   },
+   "lord-serpentis": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Healing Touch",
+      "text": "A slow heal (3.5 seconds) on himself or an ally. Interrupt him."
+     },
+     {
+      "name": "Sleep",
+      "text": "Puts a player to sleep for up to 20 seconds."
+     },
+     {
+      "name": "Lightning Bolt",
+      "text": "He keeps his distance to cast it. Interrupt him."
+     }
+    ]
+   },
+   "verdan-the-everliving": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Grasping Vines",
+      "text": "When his target is close, he knocks down and roots everyone near him for 10 seconds. At range, keep your distance."
+     }
+    ]
+   },
+   "mutanus-the-devourer": {
+    "trigger": "Kill Lady Anacondra, Lord Cobrahn, Lord Pythas and Lord Serpentis, then talk to the Disciple of Naralex at the entrance and escort him to Naralex. Protect him during the ritual: Mutanus arrives at the end.",
+    "abilities": [
+     {
+      "name": "Thunderclap",
+      "text": "Nature damage to everyone near him and a 2.5-second stun."
+     },
+     {
+      "name": "Naralex's Nightmare",
+      "text": "Puts a player to sleep for up to 15 seconds."
+     },
+     {
+      "name": "Terrify",
+      "text": "Makes a player flee in fear for 4 seconds."
+     }
+    ]
+   }
+  }
+ }
+}

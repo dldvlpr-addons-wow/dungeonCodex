@@ -1,0 +1,39 @@
+## Interface: 16001
+## Title: Dungeon Codex
+## Notes: Dungeon journal like retail: dungeon maps with boss markers, and boss loot. /codex
+## Notes-frFR: Journal des donjons comme sur retail : cartes des donjons avec les boss, et leur butin. /codex
+## Notes-deDE: Dungeonkompendium wie in Retail: Dungeonkarten mit Bossmarkierungen und Bossbeute. /codex
+## Notes-esES: Diario de mazmorras como en retail: mapas de mazmorras con marcadores de jefes y su botín. /codex
+## Notes-esMX: Diario de calabozos como en retail: mapas de calabozos con marcadores de jefes y su botín. /codex
+## Notes-itIT: Diario dei dungeon come su retail: mappe dei dungeon con i boss e il loro bottino. /codex
+## Notes-ptBR: Diário de masmorras como no retail: mapas das masmorras com marcadores de chefes e seus saques. /codex
+## Notes-ruRU: Журнал подземелий, как в актуальной версии игры: карты подземелий с метками боссов и их добыча. /codex
+## Notes-koKR: 본 서버 방식의 던전 도감: 우두머리 표시가 있는 던전 지도와 우두머리 전리품. /codex
+## Notes-zhCN: 类似正式服的地下城手册：带首领标记的地下城地图和首领掉落。/codex
+## Notes-zhTW: 類似正式服的地城導覽：帶首領標記的地城地圖與首領掉落。/codex
+## IconTexture: Interface\Icons\INV_Misc_Map_01
+## Version: 1.0.0
+## X-Curse-Project-ID: 1715265
+## SavedVariables: AeonDungeonJournalDB
+## Category: Map
+## Category-frFR: Carte
+## X-License: GPL-2.0
+
+# Data.lua et Tactics\ sont générés par tools/generate_data.py (voir README.md) : ne pas les éditer à la main.
+# Mirror.lua est identique à celui des autres addons solo (AeonSwingTimer, AeonQuickdraw, AeonTracker).
+# Tactics\enUS.lua d'abord : c'est la base. Les autres ne s'appliquent que sur un client de leur langue.
+Locale.lua
+Mirror.lua
+Data.lua
+Tactics\enUS.lua
+Tactics\frFR.lua
+Tactics\deDE.lua
+Tactics\esES.lua
+Tactics\itIT.lua
+Tactics\ptBR.lua
+Tactics\ruRU.lua
+Tactics\koKR.lua
+Tactics\zhCN.lua
+Tactics\zhTW.lua
+Journal.lua
+Tooltip.lua

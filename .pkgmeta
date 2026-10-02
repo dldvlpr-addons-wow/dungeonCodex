@@ -1,0 +1,6 @@
+package-as: AeonDungeonJournal
+
+ignore:
+  - tests
+  - tools
+  - "*.zip"

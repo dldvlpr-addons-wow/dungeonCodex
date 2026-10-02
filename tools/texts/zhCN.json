@@ -1,0 +1,793 @@
+{
+ "blackfathom-deeps": {
+  "fights": {
+   "ghamoo-ra": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "践踏",
+      "text": "打击站在他身边的所有人。"
+     }
+    ]
+   },
+   "lady-sarevess": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "叉状闪电",
+      "text": "对她面前锥形范围内造成自然伤害（2秒施法）。别站在锥形范围内。"
+     },
+     {
+      "name": "冰霜新星",
+      "text": "将她身边所有人冻结在原地，最多8秒。"
+     },
+     {
+      "name": "减速术",
+      "text": "减慢一名玩家的移动和攻击速度，持续10秒。"
+     }
+    ]
+   },
+   "gelihast": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "捕网",
+      "text": "将一名玩家定身在原地，持续10秒。"
+     }
+    ]
+   },
+   "lorgus-jett": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "闪电之盾",
+      "text": "触碰他的人会被闪电击中。牧师或萨满可以驱散它。"
+     },
+     {
+      "name": "闪电箭",
+      "text": "他会保持距离施放此法术。打断他。"
+     }
+    ]
+   },
+   "baron-aquanis": {
+    "trigger": "点击水中的 Fathom Stone，他就会现身。",
+    "abilities": [
+     {
+      "name": "寒冰箭",
+      "text": "他会保持距离施放：造成冰霜伤害并减速。"
+     },
+     {
+      "name": "冰霜新星",
+      "text": "冻结他身边所有人，最多8秒。"
+     }
+    ]
+   },
+   "twilight-lord-kelris": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "睡眠",
+      "text": "使他身边所有人沉睡，最多10秒。受到伤害会唤醒睡眠者。"
+     },
+     {
+      "name": "心灵震爆",
+      "text": "对一名玩家造成暗影伤害（1.5秒施法）。"
+     }
+    ]
+   },
+   "old-serra-kis": {
+    "trigger": "他藏在暮光领主凯尔里斯神殿下方的水下洞穴里，很多队伍会错过他。从神殿下方游过去找到他。",
+    "abilities": []
+   },
+   "aku-mai": {
+    "trigger": "击杀暮光领主凯尔里斯后，依次点燃他房间里的四堆阿库麦尔之火。每堆火都会引来一波生物。全部消灭后，阿库麦尔的大门就会打开。",
+    "abilities": [
+     {
+      "name": "毒云",
+      "text": "每5秒对附近所有人造成自然伤害，持续45秒。"
+     },
+     {
+      "name": "狂暴之怒",
+      "text": "生命值低于30%时：不断爆发攻击速度提高75%的连击。"
+     }
+    ]
+   }
+  }
+ },
+ "gnomeregan": {
+  "fights": {
+   "techbot": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "捕网",
+      "text": "定身他身边所有人，持续10秒。"
+     },
+     {
+      "name": "减速",
+      "text": "减慢一名玩家的攻击和移动速度，持续10秒，还可能将其击晕。"
+     },
+     {
+      "name": "召唤机械蟑螂",
+      "text": "召唤机械蟑螂。他的“更新”会杀死蟑螂并为他治疗。"
+     }
+    ]
+   },
+   "grubbis": {
+    "trigger": "与爆破专家艾米·短芯交谈，并在她炸开两个洞穴入口时保护她。穿梭者会一波波涌来，随后格鲁比斯带着 Chomper 出现。",
+    "abilities": []
+   },
+   "electrocutioner-6000": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "巨伏",
+      "text": "对他面前锥形范围内造成自然伤害（2秒施法）。只有坦克站在他面前。"
+     },
+     {
+      "name": "连环闪电",
+      "text": "在附近玩家之间跳跃的闪电（2.5秒施法）。打断他。"
+     }
+    ]
+   },
+   "crowd-pummeler-9-60": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "横扫人群",
+      "text": "打击他身边所有人并打断其施法。法师和治疗者保持距离。"
+     },
+     {
+      "name": "弧形打击",
+      "text": "打击他面前锥形范围内的所有人。"
+     },
+     {
+      "name": "践踏",
+      "text": "打击站在他身边的所有人。"
+     }
+    ]
+   },
+   "dark-iron-ambassador": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "召唤火焰仆从",
+      "text": "战斗开始时召唤两名火焰仆从。"
+     },
+     {
+      "name": "火球术",
+      "text": "他会保持距离施放此法术。打断他。"
+     },
+     {
+      "name": "火焰之盾 II",
+      "text": "对他身边所有人造成火焰伤害，持续一分钟。牧师或萨满可以驱散它。"
+     }
+    ]
+   },
+   "mekgineer-thermaplugg": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "行走炸弹",
+      "text": "他会逐个点亮房间四周的侏儒头像，每个头像都会放出行走炸弹，炸弹接触玩家后爆炸。头像旁边的按钮可以将其关闭。生命值低于一半时，他点亮得更快。"
+     },
+     {
+      "name": "击退",
+      "text": "击退坦克。生命值低于一半时，会影响他周围的所有人。"
+     }
+    ]
+   }
+  }
+ },
+ "hall-of-thanes": {
+  "fights": {
+   "faldrim-anvilmar": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "诅咒与疾病",
+      "text": "能解除诅咒或治疗疾病会很有帮助。除此之外是一场简单的战斗：开战前先清理房间。"
+     }
+    ]
+   },
+   "magmatus": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "召唤者",
+      "text": "先击杀召唤者：它会召来援军。然后再杀元素生物。"
+     },
+     {
+      "name": "遍地烈焰",
+      "text": "对队伍造成范围伤害，近战混战越激烈伤害越高。"
+     }
+    ]
+   },
+   "plunder": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "被击飞到房间另一头",
+      "text": "他会把玩家击飞到房间各处。先清理最近的几群怪，并在隧道附近坦住他，免得有人落进别的怪群。"
+     }
+    ]
+   },
+   "durgen-dirgehammer": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "生命值降低时恐惧",
+      "text": "他的生命值下降时，会恐惧整个队伍。准备好解除恐惧的手段，或先清理房间，免得有人冲进其他敌人中。"
+     },
+     {
+      "name": "封闭的宝库",
+      "text": "战斗结束后，打开房间里的宝库：约24件 Dwarven Heirlooms（用于 Important Heirlooms），以及 The Treaty of Understanding 的石板。"
+     }
+    ]
+   }
+  }
+ },
+ "ragefire-chasm": {
+  "fights": {
+   "oggleflint": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "顺劈斩",
+      "text": "打击他的目标以及离目标最近的玩家。"
+     }
+    ]
+   },
+   "taragaman-the-hungerer": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "火焰新星",
+      "text": "每场战斗中多次对他身边所有人造成火焰伤害。治疗者要让近战保持高生命值。"
+     },
+     {
+      "name": "上勾拳",
+      "text": "一记重击，击退坦克。"
+     }
+    ]
+   },
+   "jergosh-the-invoker": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "献祭",
+      "text": "点燃一名玩家，随后每隔几秒造成火焰伤害，持续21秒。打断该法术或驱散灼烧。"
+     },
+     {
+      "name": "虚弱诅咒",
+      "text": "降低一名玩家的物理伤害，持续30秒。法师或德鲁伊可以解除。"
+     }
+    ]
+   },
+   "bazzalan": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "毒药",
+      "text": "他的攻击会使人中毒：持续造成自然伤害。能解毒就解毒。"
+     },
+     {
+      "name": "邪恶攻击",
+      "text": "每5到15秒对坦克造成额外伤害。"
+     }
+    ]
+   }
+  }
+ },
+ "ruins-of-lordaeron": {
+  "fights": {
+   "the-baron": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "被抛向空中",
+      "text": "将坦克抛向空中并击晕5秒。注意输出的仇恨：坦克只在大约一半的战斗时间里拥有仇恨。"
+     },
+     {
+      "name": "一队巡逻兵",
+      "text": "开战前先清理他的房间：会有一队巡逻兵经过。他的头颅可用于任务 Abominable Creatures 和 Unending Torment。"
+     }
+    ]
+   },
+   "witherfang": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "庭院里的蜘蛛",
+      "text": "首领本身没有特别之处。先清理庭院里的其他蜘蛛，否则它们会加入战斗。"
+     }
+    ]
+   },
+   "the-abandoned": {
+    "trigger": "清理庭院，点击雕像并撑过一波波怪物：它会在之后现身。",
+    "abilities": [
+     {
+      "name": "冰霜新星",
+      "text": "对整个队伍造成冰霜伤害。如果你是治疗者，要为所有波次保留法力。"
+     }
+    ]
+   },
+   "bjork": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "击退",
+      "text": "他会击退：先清理他周围的怪群，否则你会落进其中一群里。"
+     },
+     {
+      "name": "魔法护盾",
+      "text": "短时间内保护自己免受法术伤害。"
+     },
+     {
+      "name": "重击",
+      "text": "他打得很重：让坦克保持高生命值。"
+     }
+    ]
+   },
+   "rath-mael": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "烈焰冲击",
+      "text": "他的主要法术。可以被打断和击晕：和队伍安排好打断与击晕。"
+     },
+     {
+      "name": "生命值很高",
+      "text": "这是副本里最长的战斗。一直打断到最后。"
+     }
+    ]
+   },
+   "viktor-the-vile": {
+    "trigger": "清理房屋和雕像，点击壁炉并撑过一波波怪物。他会在最后一个血肉傀儡之后现身。",
+    "abilities": [
+     {
+      "name": "毒药",
+      "text": "使目标中毒。留意生命值条。"
+     },
+     {
+      "name": "重击",
+      "text": "他打得很重：保证坦克存活。为他之前的几波怪准备好法力药水。"
+     }
+    ]
+   }
+  }
+ },
+ "shadowfang-keep": {
+  "fights": {
+   "rethilgore": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "灵魂虹吸",
+      "text": "将一名玩家定身10秒，并吸取其生命为自己治疗。打断2秒的施法，或驱散它。"
+     }
+    ]
+   },
+   "fel-steed-shadow-charger": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "扭曲打击",
+      "text": "邪能战马会击晕他身边所有人3秒，且他们受到的物理伤害增加。暗影冲锋者没有任何技能。"
+     }
+    ]
+   },
+   "razorclaw-the-butcher": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "屠夫吸取",
+      "text": "近战时吸取目标350点法力：有法力的坦克会感觉到。"
+     }
+    ]
+   },
+   "baron-silverlaine": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "暗影之幕",
+      "text": "诅咒一名玩家：其受到的治疗效果降低75%，持续15秒。把它解除，尤其是坦克身上的。"
+     }
+    ]
+   },
+   "commander-springvale": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "圣光术",
+      "text": "治疗自己或一名盟友（2.5秒施法）。打断他。"
+     },
+     {
+      "name": "圣盾术",
+      "text": "使他免疫所有伤害和法术，持续10秒。"
+     },
+     {
+      "name": "制裁之锤",
+      "text": "击晕一名玩家4秒。"
+     }
+    ]
+   },
+   "odo-the-blindwatcher": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "呼叫援助",
+      "text": "你开战时，他会召集30码内的生物。开战前先清理他周围的怪。"
+     },
+     {
+      "name": "狂怒嚎叫",
+      "text": "生命值为60%、40%和20%时，他的攻击变得更强。"
+     }
+    ]
+   },
+   "deathsworn-captain": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "顺劈斩",
+      "text": "打击他的目标以及离目标最近的玩家。"
+     },
+     {
+      "name": "断筋",
+      "text": "减慢目标的移动速度，持续10秒。"
+     }
+    ]
+   },
+   "arugal-s-voidwalker": {
+    "trigger": "吞噬者芬鲁斯死后，它们会一起四只出现：阿鲁高短暂现身并召唤它们。",
+    "abilities": [
+     {
+      "name": "黑暗祭品",
+      "text": "治疗另一只虚空行者。一只一只地击杀它们。"
+     }
+    ]
+   },
+   "fenrus-the-devourer": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "毒性唾液",
+      "text": "每6秒造成自然伤害并吸取法力，持续2分钟。解除毒素。"
+     }
+    ]
+   },
+   "wolf-master-nandos": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "狼群援军",
+      "text": "战斗持续越久，他身边的狼越多：30到45秒后出现一只苍白座狼，然后是一只泡沫座狼，再然后是一只狼之恐魔。"
+     }
+    ]
+   },
+   "archmage-arugal": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "虚空箭",
+      "text": "对坦克反复施放3秒的暗影箭。打断他。"
+     },
+     {
+      "name": "阿鲁高的诅咒",
+      "text": "将坦克以外的一名玩家变成影牙恶狼，为他战斗10秒。解除诅咒。"
+     },
+     {
+      "name": "暗影传送",
+      "text": "他会在自己的平台、上层平台和楼梯之间传送。"
+     },
+     {
+      "name": "雷霆一击",
+      "text": "坦克走到他身边时：在他周围造成自然伤害并击晕5秒。"
+     }
+    ]
+   }
+  }
+ },
+ "the-deadmines": {
+  "fights": {
+   "rhahk-zor": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "拉克佐重击",
+      "text": "重击坦克并将其击晕3秒。"
+     }
+    ]
+   },
+   "miner-johnson": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "穿甲",
+      "text": "降低坦克75%的护甲，持续20秒。"
+     },
+     {
+      "name": "逃跑求援",
+      "text": "生命值15%时，他会逃跑求援。在他跑远前解决他。"
+     }
+    ]
+   },
+   "sneed-s-shredder": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "恐吓",
+      "text": "使一名玩家恐惧逃跑4秒。"
+     },
+     {
+      "name": "极度痛苦",
+      "text": "使一名玩家的施法速度降低35%，持续15秒。"
+     }
+    ]
+   },
+   "sneed": {
+    "trigger": "他驾驶着斯尼德的伐木机，被摧毁后会从中出来。",
+    "abilities": [
+     {
+      "name": "缴械",
+      "text": "缴械坦克6秒。"
+     }
+    ]
+   },
+   "gilnid": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "熔金",
+      "text": "每3秒造成火焰伤害，持续15秒，并减慢攻击和移动速度。打断2秒的施法。"
+     }
+    ]
+   },
+   "mr-smite": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "重踏",
+      "text": "生命值66%和33%时，他会击晕身边所有人，然后去箱子那里换武器。"
+     },
+     {
+      "name": "痛击",
+      "text": "生命值低于66%、使用双斧时：对坦克增加攻击次数。"
+     },
+     {
+      "name": "强力重击",
+      "text": "生命值低于33%、使用锤子时：一记重击，击晕坦克3秒。"
+     }
+    ]
+   },
+   "captain-greenskin": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "毒镖",
+      "text": "2秒施法：一次打击，随后持续一分钟造成自然伤害。解除毒素。"
+     },
+     {
+      "name": "顺劈斩",
+      "text": "打击他的目标以及离目标最近的玩家。"
+     }
+    ]
+   },
+   "edwin-vancleef": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "痛击",
+      "text": "不时额外攻击两次：对坦克造成沉重打击。"
+     },
+     {
+      "name": "范克里夫的盟友",
+      "text": "生命值一半时，他会召唤两名迪菲亚歹徒。"
+     }
+    ]
+   },
+   "cookie": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "酸液飞溅",
+      "text": "每5秒对他身边所有人造成自然伤害，持续30秒。"
+     },
+     {
+      "name": "曲奇的烹饪",
+      "text": "生命值低于一半时，他会为自己治疗（2秒施法）。打断他。"
+     },
+     {
+      "name": "逃跑求援",
+      "text": "生命值15%时，他会逃跑求援。在他跑远前解决他。"
+     }
+    ]
+   }
+  }
+ },
+ "the-stockade": {
+  "fights": {
+   "kam-deepfury": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "盾击",
+      "text": "打击坦克并将其击晕2秒。"
+     },
+     {
+      "name": "逃跑求援",
+      "text": "生命值15%时，他会逃跑求援。在他跑远前解决他。"
+     }
+    ]
+   },
+   "bruegal-ironknuckle": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "逃跑求援",
+      "text": "生命值15%时，他会逃跑求援。在他跑远前解决他。"
+     }
+    ]
+   },
+   "targorr-the-dread": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "痛击",
+      "text": "不时额外攻击两次：对坦克造成沉重打击。"
+     },
+     {
+      "name": "激怒",
+      "text": "生命值30%时，他的攻击速度提高30%，直到战斗结束。"
+     }
+    ]
+   },
+   "hamhock": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "连环闪电",
+      "text": "在玩家之间跳跃的闪电（2秒施法）。打断他。"
+     },
+     {
+      "name": "嗜血",
+      "text": "使他自己或一名盟友的攻击速度提高30%，持续30秒。牧师或萨满可以驱散它。"
+     }
+    ]
+   },
+   "bazil-thredd": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "烟雾弹",
+      "text": "击晕他身边所有人4秒。"
+     },
+     {
+      "name": "战斗怒吼",
+      "text": "提高他和盟友的攻击强度，持续2分钟。"
+     },
+     {
+      "name": "逃跑求援",
+      "text": "生命值15%时，他会逃跑求援。在他跑远前解决他。"
+     }
+    ]
+   }
+  }
+ },
+ "wailing-caverns": {
+  "fights": {
+   "lord-cobrahn": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "闪电箭",
+      "text": "他会保持距离施放此法术。打断他。"
+     },
+     {
+      "name": "治疗之触",
+      "text": "治疗自己或一名盟友（3秒施法）。打断他。"
+     },
+     {
+      "name": "考布莱恩的蛇形",
+      "text": "生命值30%时，他会变成蛇：攻击更慢但更重，并开始使玩家沉睡。"
+     }
+    ]
+   },
+   "lady-anacondra": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "治疗之触",
+      "text": "治疗自己或一名盟友。打断她。"
+     },
+     {
+      "name": "睡眠",
+      "text": "使一名玩家沉睡，最多20秒。受到伤害会唤醒，驱散魔法可以解除。"
+     },
+     {
+      "name": "荆棘光环",
+      "text": "近战攻击她的人会受到自然伤害。"
+     }
+    ]
+   },
+   "lord-pythas": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "雷霆一击",
+      "text": "对他身边所有人造成自然伤害，然后减慢攻击和移动速度，持续10秒。"
+     },
+     {
+      "name": "治疗之触",
+      "text": "治疗自己或一名盟友。打断他。"
+     },
+     {
+      "name": "睡眠",
+      "text": "使一名玩家沉睡，最多20秒。"
+     }
+    ]
+   },
+   "kresh": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "盾壳",
+      "text": "持续12秒，他受到的伤害减少60%，攻击更慢但更重。"
+     }
+    ]
+   },
+   "skum": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "连锁闪电箭",
+      "text": "一道闪电会跳到第二名玩家身上。打断他。"
+     }
+    ]
+   },
+   "lord-serpentis": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "治疗之触",
+      "text": "对自己或一名盟友施放的缓慢治疗（3.5秒）。打断他。"
+     },
+     {
+      "name": "睡眠",
+      "text": "使一名玩家沉睡，最多20秒。"
+     },
+     {
+      "name": "闪电箭",
+      "text": "他会保持距离施放此法术。打断他。"
+     }
+    ]
+   },
+   "verdan-the-everliving": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "缠绕藤蔓",
+      "text": "当他的目标在近处时，会击倒并定身他身边所有人10秒。在远处时，保持距离。"
+     }
+    ]
+   },
+   "mutanus-the-devourer": {
+    "trigger": "击杀安娜科德拉女士、考布莱恩领主、皮萨斯领主和瑟芬迪斯领主，然后与入口处纳拉雷克斯的信徒交谈，并护送他到纳拉雷克斯那里。仪式期间保护他：穆坦努斯会在最后出现。",
+    "abilities": [
+     {
+      "name": "雷霆震击",
+      "text": "对他身边所有人造成自然伤害，并击晕2.5秒。"
+     },
+     {
+      "name": "纳拉雷克斯的梦魇",
+      "text": "使一名玩家沉睡，最多15秒。"
+     },
+     {
+      "name": "恐吓",
+      "text": "使一名玩家恐惧逃跑4秒。"
+     }
+    ]
+   }
+  }
+ }
+}

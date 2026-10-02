@@ -1,0 +1,793 @@
+{
+ "blackfathom-deeps": {
+  "fights": {
+   "ghamoo-ra": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Zertrampeln",
+      "text": "Trifft alle, die in seiner Nähe stehen."
+     }
+    ]
+   },
+   "lady-sarevess": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Gegabelter Blitz",
+      "text": "Naturschaden in einem Kegel vor ihr (2 Sekunden Zauberzeit). Bleib aus dem Kegel."
+     },
+     {
+      "name": "Frostnova",
+      "text": "Friert alle in ihrer Nähe bis zu 8 Sekunden lang fest."
+     },
+     {
+      "name": "Verlangsamen",
+      "text": "Verlangsamt Bewegung und Angriffe eines Spielers für 10 Sekunden."
+     }
+    ]
+   },
+   "gelihast": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Netz",
+      "text": "Hält einen Spieler 10 Sekunden lang an Ort und Stelle fest."
+     }
+    ]
+   },
+   "lorgus-jett": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Blitzschild",
+      "text": "Der Blitz trifft jeden, der ihn berührt. Ein Priester oder Schamane kann es entfernen."
+     },
+     {
+      "name": "Blitzschlag",
+      "text": "Er hält Abstand, um ihn zu wirken. Unterbrich ihn."
+     }
+    ]
+   },
+   "baron-aquanis": {
+    "trigger": "Klick auf den Stein der Brasse im Wasser: Er taucht daraus auf.",
+    "abilities": [
+     {
+      "name": "Frostblitz",
+      "text": "Er hält Abstand, um ihn zu wirken: Frostschaden und Verlangsamung."
+     },
+     {
+      "name": "Frostnova",
+      "text": "Hält alle in seiner Nähe bis zu 8 Sekunden lang fest."
+     }
+    ]
+   },
+   "twilight-lord-kelris": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Schlaf",
+      "text": "Versetzt alle in seiner Nähe bis zu 10 Sekunden lang in Schlaf. Schaden weckt einen Schläfer auf."
+     },
+     {
+      "name": "Gedankenschlag",
+      "text": "Schattenschaden auf einen Spieler (1,5 Sekunden Zauberzeit)."
+     }
+    ]
+   },
+   "old-serra-kis": {
+    "trigger": "Er wartet in einer Unterwasserhöhle unter dem Tempel von Twilight Lord Kelris, und viele Gruppen verpassen ihn. Schwimm unter den Tempel, um ihn zu erreichen.",
+    "abilities": []
+   },
+   "aku-mai": {
+    "trigger": "Sobald Twilight Lord Kelris tot ist, entzünde nacheinander die vier Feuer von Aku'mai in seinem Raum. Jedes bringt eine Welle von Kreaturen. Wenn alle tot sind, öffnet sich Aku'mais Tür.",
+    "abilities": [
+     {
+      "name": "Giftwolke",
+      "text": "Naturschaden alle 5 Sekunden für 45 Sekunden an allen in der Nähe."
+     },
+     {
+      "name": "Rasende Wut",
+      "text": "Unter 30 % Leben: immer wieder Angriffssalven, die 75 % schneller sind."
+     }
+    ]
+   }
+  }
+ },
+ "gnomeregan": {
+  "fights": {
+   "techbot": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Netz",
+      "text": "Hält alle in seiner Nähe 10 Sekunden lang fest."
+     },
+     {
+      "name": "Verlangsamen",
+      "text": "Verlangsamt Angriffe und Bewegung eines Spielers für 10 Sekunden und kann ihn betäuben."
+     },
+     {
+      "name": "Mechanische Schabe beschwören",
+      "text": "Ruft mechanische Schaben. Sein Update tötet sie und heilt ihn."
+     }
+    ]
+   },
+   "grubbis": {
+    "trigger": "Sprich mit Sprengmeisterin Emi Shortfuse und beschütze sie, während sie die beiden Höhleneingänge sprengt. Troggs kommen in Wellen, dann erscheint Grubbis mit Chomper.",
+    "abilities": []
+   },
+   "electrocutioner-6000": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Megavolt",
+      "text": "Naturschaden in einem Kegel vor ihm (2 Sekunden Zauberzeit). Nur der Tank steht davor."
+     },
+     {
+      "name": "Kettenblitzschlag",
+      "text": "Ein Blitz, der auf Spieler in der Nähe überspringt (2,5 Sekunden Zauberzeit). Unterbrich ihn."
+     }
+    ]
+   },
+   "crowd-pummeler-9-60": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Niedermähen",
+      "text": "Trifft alle in seiner Nähe und unterbricht ihre Zauber. Zauberer und Heiler, haltet Abstand."
+     },
+     {
+      "name": "Kegelförmiger Schlag",
+      "text": "Trifft alle in einem Kegel vor ihm."
+     },
+     {
+      "name": "Zertrampeln",
+      "text": "Trifft alle, die in seiner Nähe stehen."
+     }
+    ]
+   },
+   "dark-iron-ambassador": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Flammendiener beschwören",
+      "text": "Ruft zu Beginn des Kampfes zwei Flammendiener."
+     },
+     {
+      "name": "Feuerball",
+      "text": "Er hält Abstand, um ihn zu wirken. Unterbrich ihn."
+     },
+     {
+      "name": "Feuerschild II",
+      "text": "Feuerschaden an allen in seiner Nähe für eine Minute. Ein Priester oder Schamane kann es entfernen."
+     }
+    ]
+   },
+   "mekgineer-thermaplugg": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Laufende Bomben",
+      "text": "Er entzündet nacheinander die Gnomenköpfe rund um den Raum, und jeder lässt laufende Bomben los, die beim Erreichen eines Spielers explodieren. Der Knopf neben einem Kopf schaltet ihn aus. Unter der Hälfte seines Lebens entzündet er sie schneller."
+     },
+     {
+      "name": "Wegstoßen",
+      "text": "Stößt den Tank weg. Unter der Hälfte seines Lebens trifft es alle um ihn herum."
+     }
+    ]
+   }
+  }
+ },
+ "hall-of-thanes": {
+  "fights": {
+   "faldrim-anvilmar": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Flüche und Krankheiten",
+      "text": "Etwas, das einen Fluch aufhebt oder eine Krankheit heilt, hilft sehr. Sonst ein leichter Kampf: Säubere den Raum, bevor du ihn angehst."
+     }
+    ]
+   },
+   "magmatus": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Der Beschwörer",
+      "text": "Töte zuerst den Beschwörer: Er ruft Verstärkung. Danach den Elementar."
+     },
+     {
+      "name": "Feuer überall",
+      "text": "Flächenschaden auf die Gruppe, schlimmer, wenn die Gruppe viel im Nahkampf kämpft."
+     }
+    ]
+   },
+   "plunder": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Quer durch den Raum geschleudert",
+      "text": "Er schleudert Spieler quer durch den Raum. Säubere die nächsten Gruppen und tanke ihn nahe am Tunnel, damit niemand in einer anderen Gruppe landet."
+     }
+    ]
+   },
+   "durgen-dirgehammer": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Furcht bei schwindendem Leben",
+      "text": "Wenn sein Leben sinkt, versetzt er die ganze Gruppe in Furcht. Plane etwas ein, um sie zu brechen, oder säubere vorher den Raum, damit niemand in andere Gegner rennt."
+     },
+     {
+      "name": "Die verschlossenen Gewölbe",
+      "text": "Öffne nach dem Kampf die Gewölbe des Raums: etwa 24 Dwarven Heirlooms für Important Heirlooms und die Tafel von The Treaty of Understanding."
+     }
+    ]
+   }
+  }
+ },
+ "ragefire-chasm": {
+  "fights": {
+   "oggleflint": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Spalten",
+      "text": "Trifft sein Ziel und den Spieler, der ihm am nächsten steht."
+     }
+    ]
+   },
+   "taragaman-the-hungerer": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Feuernova",
+      "text": "Feuerschaden an allen in seiner Nähe, mehrmals pro Kampf. Als Heiler: Halte den Nahkampf bei vollem Leben."
+     },
+     {
+      "name": "Aufwärtshaken",
+      "text": "Ein heftiger Schlag, der den Tank wegstößt."
+     }
+    ]
+   },
+   "jergosh-the-invoker": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Feuerbrand",
+      "text": "Verbrennt einen Spieler, dann alle paar Sekunden Feuerschaden für 21 Sekunden. Unterbrich den Zauber oder bann das Brennen."
+     },
+     {
+      "name": "Fluch der Schwäche",
+      "text": "Verringert den körperlichen Schaden eines Spielers für 30 Sekunden. Ein Magier oder Druide kann ihn entfernen."
+     }
+    ]
+   },
+   "bazzalan": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Gift",
+      "text": "Seine Schläge vergiften: Naturschaden über Zeit. Heile das Gift, wenn du kannst."
+     },
+     {
+      "name": "Heimtückischer Angriff",
+      "text": "Zusätzlicher Schaden auf den Tank alle 5 bis 15 Sekunden."
+     }
+    ]
+   }
+  }
+ },
+ "ruins-of-lordaeron": {
+  "fights": {
+   "the-baron": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "In die Luft geschleudert",
+      "text": "Schleudert den Tank in die Luft und betäubt ihn 5 Sekunden lang. Achte als Schadensverursacher auf die Bedrohung: Der Tank hält ihn nur etwa den halben Kampf."
+     },
+     {
+      "name": "Eine Patrouille",
+      "text": "Säubere seinen Raum, bevor du ihn angehst: Eine Patrouille kommt dort vorbei. Sein Kopf wird für die Quests Abominable Creatures und Unending Torment aufgesammelt."
+     }
+    ]
+   },
+   "witherfang": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Die Spinnen im Hof",
+      "text": "Nichts Besonderes am Boss selbst. Säubere zuerst die anderen Spinnen im Hof, sonst schließen sie sich dem Kampf an."
+     }
+    ]
+   },
+   "the-abandoned": {
+    "trigger": "Säubere den Hof, klick auf die Statue und halte während der Wellen durch: Sie kommt danach.",
+    "abilities": [
+     {
+      "name": "Frostnova",
+      "text": "Frostschaden auf die ganze Gruppe. Wenn du heilst, spar Mana für alle Wellen."
+     }
+    ]
+   },
+   "bjork": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Zurückstoßen",
+      "text": "Er stößt zurück: Säubere zuerst die Gruppen um ihn herum, sonst landest du in einer davon."
+     },
+     {
+      "name": "Antimagieschild",
+      "text": "Schützt sich eine Weile vor Zaubern."
+     },
+     {
+      "name": "Kräftige Schläge",
+      "text": "Er haut hart zu: Halte den Tank bei vollem Leben."
+     }
+    ]
+   },
+   "rath-mael": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Flammenschock",
+      "text": "Sein Hauptzauber. Er kann unterbrochen und betäubt werden: Koordiniere Unterbrechungen und Betäubungen mit der Gruppe."
+     },
+     {
+      "name": "Viele Lebenspunkte",
+      "text": "Der längste Kampf des Dungeons. Unterbrich bis zum Schluss weiter."
+     }
+    ]
+   },
+   "viktor-the-vile": {
+    "trigger": "Säubere das Haus und die Statue, klick auf den Kamin und halte während der Wellen durch. Er kommt nach dem letzten Fleischgolem.",
+    "abilities": [
+     {
+      "name": "Gift",
+      "text": "Vergiftet sein Ziel. Behalte die Lebensbalken im Auge."
+     },
+     {
+      "name": "Kräftige Schläge",
+      "text": "Er haut hart zu: Halte den Tank am Leben. Plane Manatränke für die Wellen vor ihm ein."
+     }
+    ]
+   }
+  }
+ },
+ "shadowfang-keep": {
+  "fights": {
+   "rethilgore": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Seelenentzug",
+      "text": "Hält einen Spieler 10 Sekunden lang fest und entzieht ihm Leben, um sich zu heilen. Unterbrich die Zauberzeit von 2 Sekunden oder bann ihn."
+     }
+    ]
+   },
+   "fel-steed-shadow-charger": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Verdrehter Schlag",
+      "text": "Das Teufelsross betäubt alle in seiner Nähe für 3 Sekunden, und sie erleiden mehr körperlichen Schaden. Das Schattenross hat keine Fähigkeit."
+     }
+    ]
+   },
+   "razorclaw-the-butcher": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Entzug des Schlächters",
+      "text": "Entzieht seinem Ziel im Nahkampf 350 Mana: Ein Tank mit Mana spürt es."
+     }
+    ]
+   },
+   "baron-silverlaine": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Schleier der Schatten",
+      "text": "Verflucht einen Spieler: Die Heilung, die er erhält, ist 15 Sekunden lang um 75 % schwächer. Entferne ihn, vor allem beim Tank."
+     }
+    ]
+   },
+   "commander-springvale": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Heiliges Licht",
+      "text": "Heilt sich oder einen Verbündeten (2,5 Sekunden Zauberzeit). Unterbrich ihn."
+     },
+     {
+      "name": "Gottesschild",
+      "text": "Macht ihn 10 Sekunden lang immun gegen allen Schaden und alle Zauber."
+     },
+     {
+      "name": "Hammer der Gerechtigkeit",
+      "text": "Betäubt einen Spieler für 4 Sekunden."
+     }
+    ]
+   },
+   "odo-the-blindwatcher": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Ruft um Hilfe",
+      "text": "Wenn du ihn angreifst, ruft er die Kreaturen im Umkreis von 30 Metern. Säubere vorher die Umgebung."
+     },
+     {
+      "name": "Heulende Wut",
+      "text": "Bei 60 %, 40 % und 20 % Leben werden seine Schläge stärker."
+     }
+    ]
+   },
+   "deathsworn-captain": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Spalten",
+      "text": "Trifft sein Ziel und den Spieler, der ihm am nächsten steht."
+     },
+     {
+      "name": "Kniesehne",
+      "text": "Verlangsamt die Bewegung seines Ziels für 10 Sekunden."
+     }
+    ]
+   },
+   "arugal-s-voidwalker": {
+    "trigger": "Sie kommen zu viert, nachdem Fenrus der Verschlinger gestorben ist: Arugal erscheint kurz und ruft sie.",
+    "abilities": [
+     {
+      "name": "Dunkles Opfer",
+      "text": "Heilt einen anderen Leerwandler. Tötet sie nacheinander."
+     }
+    ]
+   },
+   "fenrus-the-devourer": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Giftiger Speichel",
+      "text": "Naturschaden alle 6 Sekunden und Manaentzug, 2 Minuten lang. Heile das Gift."
+     }
+    ]
+   },
+   "wolf-master-nandos": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Worgs zur Verstärkung",
+      "text": "Je länger der Kampf dauert, desto mehr Worgs hat er bei sich: nach 30 bis 45 Sekunden ein blasser Worg, dann ein schäumender Worg, dann ein Wolfsschrecken."
+     }
+    ]
+   },
+   "archmage-arugal": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Leerenblitz",
+      "text": "Ein 3 Sekunden langer Schattenblitz auf den Tank, immer wieder. Unterbrich ihn."
+     },
+     {
+      "name": "Arugals Fluch",
+      "text": "Verwandelt einen Spieler, der nicht der Tank ist, für 10 Sekunden in einen Shadowfang-Vielfraß, der für ihn kämpft. Entferne den Fluch."
+     },
+     {
+      "name": "Schattenschritt",
+      "text": "Er teleportiert sich zwischen seinem Sims, dem oberen Sims und der Treppe."
+     },
+     {
+      "name": "Donnerschlag",
+      "text": "Wenn der Tank bei ihm ankommt: Naturschaden und eine Betäubung von 5 Sekunden um ihn herum."
+     }
+    ]
+   }
+  }
+ },
+ "the-deadmines": {
+  "fights": {
+   "rhahk-zor": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Rhahk'Zors Schlag",
+      "text": "Schlägt den Tank hart und betäubt ihn 3 Sekunden lang."
+     }
+    ]
+   },
+   "miner-johnson": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Rüstung durchbohren",
+      "text": "Verringert die Rüstung des Tanks 20 Sekunden lang um 75 %."
+     },
+     {
+      "name": "Flieht um Hilfe",
+      "text": "Bei 15 % Leben flieht er, um Hilfe zu holen. Erledige ihn, bevor er sich entfernt."
+     }
+    ]
+   },
+   "sneed-s-shredder": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Schrecken",
+      "text": "Lässt einen Spieler 4 Sekunden lang in Furcht fliehen."
+     },
+     {
+      "name": "Lähmender Schmerz",
+      "text": "Verlangsamt das Zaubern eines Spielers 15 Sekunden lang um 35 %."
+     }
+    ]
+   },
+   "sneed": {
+    "trigger": "Er steuert Sneeds Schredder und steigt aus, wenn dieser zerstört wird.",
+    "abilities": [
+     {
+      "name": "Entwaffnen",
+      "text": "Entwaffnet den Tank für 6 Sekunden."
+     }
+    ]
+   },
+   "gilnid": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Geschmolzenes Metall",
+      "text": "Feuerschaden alle 3 Sekunden für 15 Sekunden, mit verlangsamten Angriffen und Bewegungen. Unterbrich die Zauberzeit von 2 Sekunden."
+     }
+    ]
+   },
+   "mr-smite": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Heftiges Stampfen",
+      "text": "Bei 66 % und dann bei 33 % Leben betäubt er alle um sich herum und geht dann zu seiner Truhe, um die Waffen zu wechseln."
+     },
+     {
+      "name": "Verprügeln",
+      "text": "Mit seinen zwei Äxten, ab 66 % Leben: zusätzliche Angriffe auf den Tank."
+     },
+     {
+      "name": "Mächtiger Schlag",
+      "text": "Mit seinem Hammer, unter 33 % Leben: ein heftiger Schlag, der den Tank 3 Sekunden lang betäubt."
+     }
+    ]
+   },
+   "captain-greenskin": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Vergifteter Harpunenspeer",
+      "text": "Eine Zauberzeit von 2 Sekunden: ein Treffer, dann eine Minute lang Naturschaden. Heile das Gift."
+     },
+     {
+      "name": "Spalten",
+      "text": "Trifft sein Ziel und den Spieler, der ihm am nächsten steht."
+     }
+    ]
+   },
+   "edwin-vancleef": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Zweimal zuschlagen",
+      "text": "Gelegentlich zwei Zusatzangriffe: harte Treffer auf den Tank."
+     },
+     {
+      "name": "VanCleefs Verbündete",
+      "text": "Bei der Hälfte seines Lebens ruft er zwei Defias-Schurken."
+     }
+    ]
+   },
+   "cookie": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Säurespritzer",
+      "text": "Naturschaden alle 5 Sekunden für 30 Sekunden an allen in seiner Nähe."
+     },
+     {
+      "name": "Kochkünste",
+      "text": "Unter der Hälfte seines Lebens heilt er sich (2 Sekunden Zauberzeit). Unterbrich ihn."
+     },
+     {
+      "name": "Flieht um Hilfe",
+      "text": "Bei 15 % Leben flieht er, um Hilfe zu holen. Erledige ihn, bevor er sich entfernt."
+     }
+    ]
+   }
+  }
+ },
+ "the-stockade": {
+  "fights": {
+   "kam-deepfury": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Schildschlag",
+      "text": "Schlägt den Tank und betäubt ihn 2 Sekunden lang."
+     },
+     {
+      "name": "Flieht um Hilfe",
+      "text": "Bei 15 % Leben flieht er, um Hilfe zu holen. Erledige ihn, bevor er sich entfernt."
+     }
+    ]
+   },
+   "bruegal-ironknuckle": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Flieht um Hilfe",
+      "text": "Bei 15 % Leben flieht er, um Hilfe zu holen. Erledige ihn, bevor er sich entfernt."
+     }
+    ]
+   },
+   "targorr-the-dread": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Zweimal zuschlagen",
+      "text": "Gelegentlich zwei Zusatzangriffe: harte Treffer auf den Tank."
+     },
+     {
+      "name": "Wutanfall",
+      "text": "Bei 30 % Leben greift er bis zum Ende des Kampfes 30 % schneller an."
+     }
+    ]
+   },
+   "hamhock": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Kettenblitzschlag",
+      "text": "Ein Blitz, der von Spieler zu Spieler springt (2 Sekunden Zauberzeit). Unterbrich ihn."
+     },
+     {
+      "name": "Blutrausch",
+      "text": "Beschleunigt seine Angriffe oder die eines Verbündeten 30 Sekunden lang um 30 %. Ein Priester oder Schamane kann ihn entfernen."
+     }
+    ]
+   },
+   "bazil-thredd": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Rauchbombe",
+      "text": "Betäubt alle in seiner Nähe für 4 Sekunden."
+     },
+     {
+      "name": "Schlachtruf",
+      "text": "Mehr Angriffskraft für ihn und seine Verbündeten für 2 Minuten."
+     },
+     {
+      "name": "Flieht um Hilfe",
+      "text": "Bei 15 % Leben flieht er, um Hilfe zu holen. Erledige ihn, bevor er sich entfernt."
+     }
+    ]
+   }
+  }
+ },
+ "wailing-caverns": {
+  "fights": {
+   "lord-cobrahn": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Blitzschlag",
+      "text": "Er hält Abstand, um ihn zu wirken. Unterbrich ihn."
+     },
+     {
+      "name": "Heilende Berührung",
+      "text": "Heilt sich oder einen Verbündeten (3 Sekunden Zauberzeit). Unterbrich ihn."
+     },
+     {
+      "name": "Cobrahns Schlangengestalt",
+      "text": "Bei 30 % Leben verwandelt er sich in eine Schlange: langsamere, aber schwerere Schläge, und er beginnt, Spieler einzuschläfern."
+     }
+    ]
+   },
+   "lady-anacondra": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Heilende Berührung",
+      "text": "Heilt sich oder einen Verbündeten. Unterbrich sie."
+     },
+     {
+      "name": "Schlaf",
+      "text": "Versetzt einen Spieler bis zu 20 Sekunden lang in Schlaf. Schaden weckt ihn, und Magie bannen entfernt ihn."
+     },
+     {
+      "name": "Dornenaura",
+      "text": "Naturschaden an jedem, der sie im Nahkampf schlägt."
+     }
+    ]
+   },
+   "lord-pythas": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Donnerschlag",
+      "text": "Naturschaden an allen in seiner Nähe, dann 10 Sekunden lang verlangsamte Angriffe und Bewegungen."
+     },
+     {
+      "name": "Heilende Berührung",
+      "text": "Heilt sich oder einen Verbündeten. Unterbrich ihn."
+     },
+     {
+      "name": "Schlaf",
+      "text": "Versetzt einen Spieler bis zu 20 Sekunden lang in Schlaf."
+     }
+    ]
+   },
+   "kresh": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Panzerschild",
+      "text": "12 Sekunden lang erleidet er 60 % weniger Schaden und greift langsamer, aber härter an."
+     }
+    ]
+   },
+   "skum": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Kettenblitz",
+      "text": "Ein Blitz, der auf einen zweiten Spieler überspringt. Unterbrich ihn."
+     }
+    ]
+   },
+   "lord-serpentis": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Heilende Berührung",
+      "text": "Eine langsame Heilung (3,5 Sekunden) auf sich oder einen Verbündeten. Unterbrich ihn."
+     },
+     {
+      "name": "Schlaf",
+      "text": "Versetzt einen Spieler bis zu 20 Sekunden lang in Schlaf."
+     },
+     {
+      "name": "Blitzschlag",
+      "text": "Er hält Abstand, um ihn zu wirken. Unterbrich ihn."
+     }
+    ]
+   },
+   "verdan-the-everliving": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Packende Ranken",
+      "text": "Wenn sein Ziel nah ist, wirft er alle in seiner Nähe um und hält sie 10 Sekunden lang fest. Bleib auf Abstand, wenn du weit weg bist."
+     }
+    ]
+   },
+   "mutanus-the-devourer": {
+    "trigger": "Töte Lady Anacondra, Lord Cobrahn, Lord Pythas und Lord Serpentis, sprich dann am Eingang mit Naralex' Schüler und eskortiere ihn zu Naralex. Beschütze ihn während des Rituals: Mutanus kommt am Ende.",
+    "abilities": [
+     {
+      "name": "Donnerknall",
+      "text": "Naturschaden an allen in seiner Nähe und eine Betäubung von 2,5 Sekunden."
+     },
+     {
+      "name": "Naralex' Alptraum",
+      "text": "Versetzt einen Spieler bis zu 15 Sekunden lang in Schlaf."
+     },
+     {
+      "name": "Schrecken",
+      "text": "Lässt einen Spieler 4 Sekunden lang in Furcht fliehen."
+     }
+    ]
+   }
+  }
+ }
+}

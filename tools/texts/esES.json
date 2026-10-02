@@ -1,0 +1,793 @@
+{
+ "blackfathom-deeps": {
+  "fights": {
+   "ghamoo-ra": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Pisotón",
+      "text": "Golpea a todos los que estén cerca de él."
+     }
+    ]
+   },
+   "lady-sarevess": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Rayo bifurcado",
+      "text": "Daño de Naturaleza en un cono frente a ella (lanzamiento de 2 segundos). Quédate fuera del cono."
+     },
+     {
+      "name": "Nova de escarcha",
+      "text": "Congela en el sitio a todos los que estén cerca de ella hasta 8 segundos."
+     },
+     {
+      "name": "Ralentizar",
+      "text": "Reduce la velocidad de movimiento y de ataque de un jugador durante 10 segundos."
+     }
+    ]
+   },
+   "gelihast": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Red",
+      "text": "Inmoviliza a un jugador en el sitio durante 10 segundos."
+     }
+    ]
+   },
+   "lorgus-jett": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Escudo de relámpagos",
+      "text": "El rayo golpea a quien lo toque. Un sacerdote o un chamán puede quitárselo."
+     },
+     {
+      "name": "Descarga de relámpagos",
+      "text": "Mantiene la distancia para lanzarla. Interrúmpelo."
+     }
+    ]
+   },
+   "baron-aquanis": {
+    "trigger": "Haz clic en la piedra de la Brasse en el agua: sale de ella.",
+    "abilities": [
+     {
+      "name": "Descarga de escarcha",
+      "text": "Mantiene la distancia para lanzarla: daño de Escarcha y ralentización."
+     },
+     {
+      "name": "Nova de escarcha",
+      "text": "Inmoviliza a todos los que estén cerca de él hasta 8 segundos."
+     }
+    ]
+   },
+   "twilight-lord-kelris": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Dormir",
+      "text": "Duerme a todos los que estén cerca de él hasta 10 segundos. El daño despierta al que duerme."
+     },
+     {
+      "name": "Explosión mental",
+      "text": "Daño de Sombras a un jugador (lanzamiento de 1,5 segundos)."
+     }
+    ]
+   },
+   "old-serra-kis": {
+    "trigger": "Espera en una cueva bajo el agua, debajo del templo del Señor del Crepúsculo Kelris, y muchos grupos se lo pierden. Nada bajo el templo para llegar hasta él.",
+    "abilities": []
+   },
+   "aku-mai": {
+    "trigger": "Con el Señor del Crepúsculo Kelris muerto, enciende uno tras otro los cuatro fuegos de Aku'mai de su sala. Cada uno trae una oleada de criaturas. Cuando están todas muertas, se abre la puerta de Aku'mai.",
+    "abilities": [
+     {
+      "name": "Nube venenosa",
+      "text": "Daño de Naturaleza cada 5 segundos durante 45 segundos a todos los que estén cerca."
+     },
+     {
+      "name": "Rabia frenética",
+      "text": "Por debajo del 30% de salud: ráfagas de ataques un 75% más rápidos, una y otra vez."
+     }
+    ]
+   }
+  }
+ },
+ "gnomeregan": {
+  "fights": {
+   "techbot": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Red",
+      "text": "Inmoviliza a todos los que estén cerca de él durante 10 segundos."
+     },
+     {
+      "name": "Ralentización",
+      "text": "Reduce la velocidad de ataque y de movimiento de un jugador durante 10 segundos, y puede aturdirlo."
+     },
+     {
+      "name": "Invocar cucaracha mecánica",
+      "text": "Llama a cucarachas mecánicas. Su Actualización las mata y lo cura."
+     }
+    ]
+   },
+   "grubbis": {
+    "trigger": "Habla con la maestra dinamitera Emi Mechacorta y protégela mientras vuela las dos entradas de la cueva. Llegan troggs en oleadas y después viene Grubbis con Chomper.",
+    "abilities": []
+   },
+   "electrocutioner-6000": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Megavoltio",
+      "text": "Daño de Naturaleza en un cono frente a él (lanzamiento de 2 segundos). Solo el tanque se pone delante."
+     },
+     {
+      "name": "Cadena de relámpagos",
+      "text": "Un rayo que rebota entre los jugadores cercanos (lanzamiento de 2,5 segundos). Interrúmpelo."
+     }
+    ]
+   },
+   "crowd-pummeler-9-60": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Segar a la multitud",
+      "text": "Golpea a todos los que estén cerca de él e interrumpe sus hechizos. Lanzadores y sanadores, manteneos a distancia."
+     },
+     {
+      "name": "Golpe en arco",
+      "text": "Golpea a todos en un cono frente a él."
+     },
+     {
+      "name": "Pisotón",
+      "text": "Golpea a todos los que estén cerca de él."
+     }
+    ]
+   },
+   "dark-iron-ambassador": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Invocar sirviente de fuego",
+      "text": "Llama a dos sirvientes de fuego al empezar el combate."
+     },
+     {
+      "name": "Bola de fuego",
+      "text": "Mantiene la distancia para lanzarla. Interrúmpelo."
+     },
+     {
+      "name": "Escudo de fuego II",
+      "text": "Daño de Fuego a todos los que estén cerca de él durante un minuto. Un sacerdote o un chamán puede quitárselo."
+     }
+    ]
+   },
+   "mekgineer-thermaplugg": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Bombas andantes",
+      "text": "Va encendiendo una a una las cabezas de gnomo alrededor de la sala, y cada una suelta bombas andantes que explotan al llegar a un jugador. El botón junto a una cabeza la apaga. Por debajo de la mitad de su salud, las enciende más rápido."
+     },
+     {
+      "name": "Empujar",
+      "text": "Empuja al tanque. Por debajo de la mitad de su salud, alcanza a todos los que tiene alrededor."
+     }
+    ]
+   }
+  }
+ },
+ "hall-of-thanes": {
+  "fights": {
+   "faldrim-anvilmar": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Maldiciones y enfermedades",
+      "text": "Ayuda llevar algo para eliminar una maldición o curar una enfermedad. Por lo demás, un combate fácil: limpia la sala antes de iniciarlo."
+     }
+    ]
+   },
+   "magmatus": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "El invocador",
+      "text": "Mata primero al invocador: trae refuerzos. Después, al elemental."
+     },
+     {
+      "name": "Fuego por todas partes",
+      "text": "Daño de área al grupo, peor cuando el grupo pelea mucho cuerpo a cuerpo."
+     }
+    ]
+   },
+   "plunder": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Lanzado por la sala",
+      "text": "Lanza por los aires a los jugadores por la sala. Limpia los grupos más cercanos y tanquéalo cerca del túnel, para que nadie caiga en otro grupo."
+     }
+    ]
+   },
+   "durgen-dirgehammer": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Miedo al debilitarse",
+      "text": "Cuando baja su salud, aterroriza a todo el grupo. Prepara algo para romperlo, o limpia la sala antes para que nadie corra hacia otros enemigos."
+     },
+     {
+      "name": "Las cámaras cerradas",
+      "text": "Tras el combate, abre las cámaras de la sala: unos 24 Dwarven Heirlooms para Important Heirlooms, y la tablilla de The Treaty of Understanding."
+     }
+    ]
+   }
+  }
+ },
+ "ragefire-chasm": {
+  "fights": {
+   "oggleflint": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Hendedura",
+      "text": "Golpea a su objetivo y al jugador más cercano a este."
+     }
+    ]
+   },
+   "taragaman-the-hungerer": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Nova de fuego",
+      "text": "Daño de Fuego a todos los que estén cerca de él, varias veces por combate. Como sanador, mantén con la salud llena al cuerpo a cuerpo."
+     },
+     {
+      "name": "Gancho",
+      "text": "Un golpe fuerte que empuja al tanque."
+     }
+    ]
+   },
+   "jergosh-the-invoker": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Inmolar",
+      "text": "Quema a un jugador, y luego daño de Fuego cada pocos segundos durante 21 segundos. Interrumpe el hechizo o disipa la quemadura."
+     },
+     {
+      "name": "Maldición de debilidad",
+      "text": "Reduce el daño físico de un jugador durante 30 segundos. Un mago o un druida puede quitarla."
+     }
+    ]
+   },
+   "bazzalan": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Veneno",
+      "text": "Sus golpes envenenan: daño de Naturaleza con el tiempo. Cura el veneno si puedes."
+     },
+     {
+      "name": "Ataque insidioso",
+      "text": "Daño adicional al tanque cada 5 a 15 segundos."
+     }
+    ]
+   }
+  }
+ },
+ "ruins-of-lordaeron": {
+  "fights": {
+   "the-baron": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Lanzado por los aires",
+      "text": "Lanza al tanque por los aires y lo aturde 5 segundos. Ojo con la amenaza del daño: el tanque solo lo mantiene aproximadamente la mitad del combate."
+     },
+     {
+      "name": "Una patrulla",
+      "text": "Limpia su sala antes de iniciar el combate: pasa una patrulla por allí. Su cabeza se recoge para las misiones Abominable Creatures y Unending Torment."
+     }
+    ]
+   },
+   "witherfang": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Las arañas del patio",
+      "text": "Nada especial en el jefe en sí. Limpia primero las otras arañas del patio, o se unirán al combate."
+     }
+    ]
+   },
+   "the-abandoned": {
+    "trigger": "Limpia el patio, haz clic en la estatua y aguanta durante las oleadas: aparece después.",
+    "abilities": [
+     {
+      "name": "Nova de escarcha",
+      "text": "Daño de escarcha a todo el grupo. Si sanas, guarda maná para todas las oleadas."
+     }
+    ]
+   },
+   "bjork": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Empujón",
+      "text": "Empuja: limpia primero los grupos que lo rodean, o aterrizarás en uno de ellos."
+     },
+     {
+      "name": "Escudo antimagia",
+      "text": "Se protege un rato contra los hechizos."
+     },
+     {
+      "name": "Golpes poderosos",
+      "text": "Pega fuerte: mantén al tanque con la salud llena."
+     }
+    ]
+   },
+   "rath-mael": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Choque de llamas",
+      "text": "Su hechizo principal. Se le puede interrumpir y aturdir: organiza las interrupciones y los aturdimientos con el grupo."
+     },
+     {
+      "name": "Muchos puntos de salud",
+      "text": "El combate más largo de la mazmorra. Sigue interrumpiendo hasta el final."
+     }
+    ]
+   },
+   "viktor-the-vile": {
+    "trigger": "Limpia la casa y la estatua, haz clic en la chimenea y aguanta durante las oleadas. Llega después del último gólem de carne.",
+    "abilities": [
+     {
+      "name": "Veneno",
+      "text": "Envenena a su objetivo. Vigila las barras de salud."
+     },
+     {
+      "name": "Golpes poderosos",
+      "text": "Pega fuerte: mantén vivo al tanque. Prepara pociones de maná para las oleadas anteriores a él."
+     }
+    ]
+   }
+  }
+ },
+ "shadowfang-keep": {
+  "fights": {
+   "rethilgore": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Drenar alma",
+      "text": "Inmoviliza a un jugador 10 segundos y le drena la salud para curarse. Interrumpe el lanzamiento de 2 segundos o disípalo."
+     }
+    ]
+   },
+   "fel-steed-shadow-charger": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Golpe retorcido",
+      "text": "El corcel vil aturde a todos los que estén cerca de él durante 3 segundos, y reciben más daño físico. El corcel de sombra no tiene ninguna técnica."
+     }
+    ]
+   },
+   "razorclaw-the-butcher": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Drenaje del carnicero",
+      "text": "Drena 350 puntos de maná a su objetivo en cuerpo a cuerpo: un tanque con maná lo nota."
+     }
+    ]
+   },
+   "baron-silverlaine": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Velo de sombras",
+      "text": "Maldice a un jugador: las curaciones que recibe son un 75% menores durante 15 segundos. Quítala, sobre todo al tanque."
+     }
+    ]
+   },
+   "commander-springvale": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Luz sagrada",
+      "text": "Se cura a sí mismo o a un aliado (lanzamiento de 2,5 segundos). Interrúmpelo."
+     },
+     {
+      "name": "Escudo divino",
+      "text": "Lo vuelve inmune a todo el daño y a todos los hechizos durante 10 segundos."
+     },
+     {
+      "name": "Martillo de justicia",
+      "text": "Aturde a un jugador durante 4 segundos."
+     }
+    ]
+   },
+   "odo-the-blindwatcher": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Pide ayuda",
+      "text": "Al iniciar el combate, llama a las criaturas a menos de 30 metros. Limpia a su alrededor antes."
+     },
+     {
+      "name": "Rabia aullante",
+      "text": "Al 60%, 40% y 20% de salud, sus golpes se vuelven más fuertes."
+     }
+    ]
+   },
+   "deathsworn-captain": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Hendedura",
+      "text": "Golpea a su objetivo y al jugador más cercano a este."
+     },
+     {
+      "name": "Desjarretar",
+      "text": "Reduce la velocidad de movimiento de su objetivo durante 10 segundos."
+     }
+    ]
+   },
+   "arugal-s-voidwalker": {
+    "trigger": "Llegan de cuatro en cuatro tras la muerte de Fenrus el Devorador: Arugal aparece un instante y los llama.",
+    "abilities": [
+     {
+      "name": "Ofrenda oscura",
+      "text": "Cura a otro abisario. Matadlos de uno en uno."
+     }
+    ]
+   },
+   "fenrus-the-devourer": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Baba tóxica",
+      "text": "Daño de Naturaleza cada 6 segundos y maná drenado, durante 2 minutos. Cura el veneno."
+     }
+    ]
+   },
+   "wolf-master-nandos": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Huargos de refuerzo",
+      "text": "Cuanto más dura el combate, más huargos tiene con él: un huargo pálido a los 30 a 45 segundos, luego un huargo espumeante y después un horror lupino."
+     }
+    ]
+   },
+   "archmage-arugal": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Descarga del Vacío",
+      "text": "Un virote de Sombras de 3 segundos sobre el tanque, una y otra vez. Interrúmpelo."
+     },
+     {
+      "name": "Maldición de Arugal",
+      "text": "Convierte a un jugador que no sea el tanque en un Glotón Colmillo Oscuro que lucha por él durante 10 segundos. Quita la maldición."
+     },
+     {
+      "name": "Puerto de las Sombras",
+      "text": "Se teletransporta entre su saliente, el saliente de arriba y la escalera."
+     },
+     {
+      "name": "Choque de trueno",
+      "text": "Cuando el tanque llega hasta él: daño de Naturaleza y un aturdimiento de 5 segundos a su alrededor."
+     }
+    ]
+   }
+  }
+ },
+ "the-deadmines": {
+  "fights": {
+   "rhahk-zor": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Golpe de Rhahk'Zor",
+      "text": "Golpea fuerte al tanque y lo aturde 3 segundos."
+     }
+    ]
+   },
+   "miner-johnson": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Perforar armadura",
+      "text": "Reduce la armadura del tanque un 75% durante 20 segundos."
+     },
+     {
+      "name": "Huye a buscar ayuda",
+      "text": "Al 15% de salud, huye a buscar ayuda. Remátalo antes de que se aleje."
+     }
+    ]
+   },
+   "sneed-s-shredder": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Aterrorizar",
+      "text": "Hace huir de miedo a un jugador durante 4 segundos."
+     },
+     {
+      "name": "Dolor abrumador",
+      "text": "Reduce la velocidad de lanzamiento de un jugador un 35% durante 15 segundos."
+     }
+    ]
+   },
+   "sneed": {
+    "trigger": "Pilota la Trituradora de Sneed y sale de ella cuando la destruyen.",
+    "abilities": [
+     {
+      "name": "Desarmar",
+      "text": "Desarma al tanque durante 6 segundos."
+     }
+    ]
+   },
+   "gilnid": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Metal fundido",
+      "text": "Daño de Fuego cada 3 segundos durante 15 segundos, con ataques y movimiento ralentizados. Interrumpe el lanzamiento de 2 segundos."
+     }
+    ]
+   },
+   "mr-smite": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Pisotón violento",
+      "text": "Al 66% y luego al 33% de salud, aturde a todos los que tiene alrededor y va a su cofre a cambiar de armas."
+     },
+     {
+      "name": "Aporrear",
+      "text": "Con sus dos hachas, desde el 66% de salud: ataques adicionales sobre el tanque."
+     },
+     {
+      "name": "Poderoso bofetón",
+      "text": "Con su martillo, por debajo del 33% de salud: un golpe fuerte que aturde al tanque 3 segundos."
+     }
+    ]
+   },
+   "captain-greenskin": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Arpón envenenado",
+      "text": "Un lanzamiento de 2 segundos: un golpe y después daño de Naturaleza durante un minuto. Cura el veneno."
+     },
+     {
+      "name": "Hendedura",
+      "text": "Golpea a su objetivo y al jugador más cercano a este."
+     }
+    ]
+   },
+   "edwin-vancleef": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Aporrear",
+      "text": "De vez en cuando, dos ataques adicionales: golpes fuertes sobre el tanque."
+     },
+     {
+      "name": "Aliados de VanCleef",
+      "text": "A la mitad de su salud, llama a dos pícaros defias."
+     }
+    ]
+   },
+   "cookie": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Salpicadura de ácido",
+      "text": "Daño de Naturaleza cada 5 segundos durante 30 segundos a todos los que estén cerca de él."
+     },
+     {
+      "name": "Cocina de Cookie",
+      "text": "Por debajo de la mitad de su salud, se cura (lanzamiento de 2 segundos). Interrúmpelo."
+     },
+     {
+      "name": "Huye a buscar ayuda",
+      "text": "Al 15% de salud, huye a buscar ayuda. Remátalo antes de que se aleje."
+     }
+    ]
+   }
+  }
+ },
+ "the-stockade": {
+  "fights": {
+   "kam-deepfury": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Azote con escudo",
+      "text": "Golpea al tanque y lo aturde 2 segundos."
+     },
+     {
+      "name": "Huye a buscar ayuda",
+      "text": "Al 15% de salud, huye a buscar ayuda. Remátalo antes de que se aleje."
+     }
+    ]
+   },
+   "bruegal-ironknuckle": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Huye a buscar ayuda",
+      "text": "Al 15% de salud, huye a buscar ayuda. Remátalo antes de que se aleje."
+     }
+    ]
+   },
+   "targorr-the-dread": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Aporrear",
+      "text": "De vez en cuando, dos ataques adicionales: golpes fuertes sobre el tanque."
+     },
+     {
+      "name": "Enfurecer",
+      "text": "Al 30% de salud, ataca un 30% más rápido hasta el final del combate."
+     }
+    ]
+   },
+   "hamhock": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Cadena de relámpagos",
+      "text": "Un rayo que rebota de jugador en jugador (lanzamiento de 2 segundos). Interrúmpelo."
+     },
+     {
+      "name": "Sed de sangre",
+      "text": "Acelera sus ataques o los de un aliado un 30% durante 30 segundos. Un sacerdote o un chamán puede quitarla."
+     }
+    ]
+   },
+   "bazil-thredd": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Bomba de humo",
+      "text": "Aturde a todos los que estén cerca de él durante 4 segundos."
+     },
+     {
+      "name": "Grito de batalla",
+      "text": "Más poder de ataque para él y sus aliados durante 2 minutos."
+     },
+     {
+      "name": "Huye a buscar ayuda",
+      "text": "Al 15% de salud, huye a buscar ayuda. Remátalo antes de que se aleje."
+     }
+    ]
+   }
+  }
+ },
+ "wailing-caverns": {
+  "fights": {
+   "lord-cobrahn": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Descarga de relámpagos",
+      "text": "Mantiene la distancia para lanzarla. Interrúmpelo."
+     },
+     {
+      "name": "Toque de sanación",
+      "text": "Se cura a sí mismo o a un aliado (lanzamiento de 3 segundos). Interrúmpelo."
+     },
+     {
+      "name": "Forma de serpiente de Cobrahn",
+      "text": "Al 30% de salud, se transforma en serpiente: golpes más lentos pero más pesados, y empieza a dormir a jugadores."
+     }
+    ]
+   },
+   "lady-anacondra": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Toque de sanación",
+      "text": "Se cura a sí misma o a un aliado. Interrúmpela."
+     },
+     {
+      "name": "Dormir",
+      "text": "Duerme a un jugador hasta 20 segundos. El daño lo despierta, y disipar magia lo libera."
+     },
+     {
+      "name": "Aura de espinas",
+      "text": "Daño de Naturaleza a quien la golpee cuerpo a cuerpo."
+     }
+    ]
+   },
+   "lord-pythas": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Atronar",
+      "text": "Daño de Naturaleza a todos los que estén cerca de él, y luego ataques y movimiento ralentizados durante 10 segundos."
+     },
+     {
+      "name": "Toque de sanación",
+      "text": "Se cura a sí mismo o a un aliado. Interrúmpelo."
+     },
+     {
+      "name": "Dormir",
+      "text": "Duerme a un jugador hasta 20 segundos."
+     }
+    ]
+   },
+   "kresh": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Caparazón escudo",
+      "text": "Durante 12 segundos, recibe un 60% menos de daño y ataca más lento pero más fuerte."
+     }
+    ]
+   },
+   "skum": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Relámpagos en cadena",
+      "text": "Un rayo que rebota en un segundo jugador. Interrúmpelo."
+     }
+    ]
+   },
+   "lord-serpentis": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Toque de sanación",
+      "text": "Una curación lenta (3,5 segundos) sobre sí mismo o un aliado. Interrúmpelo."
+     },
+     {
+      "name": "Dormir",
+      "text": "Duerme a un jugador hasta 20 segundos."
+     },
+     {
+      "name": "Descarga de relámpagos",
+      "text": "Mantiene la distancia para lanzarla. Interrúmpelo."
+     }
+    ]
+   },
+   "verdan-the-everliving": {
+    "trigger": null,
+    "abilities": [
+     {
+      "name": "Enredaderas ávidas",
+      "text": "Cuando su objetivo está cerca, derriba e inmoviliza a todos los que estén cerca de él durante 10 segundos. A distancia, mantente lejos."
+     }
+    ]
+   },
+   "mutanus-the-devourer": {
+    "trigger": "Mata a Dama Anacondra, al Señor Cobrahn, al Señor Pythas y al Señor Serpentis, luego habla con el discípulo de Naralex en la entrada y escóltalo hasta Naralex. Protégelo durante el ritual: Mutanus llega al final.",
+    "abilities": [
+     {
+      "name": "Estruendo de trueno",
+      "text": "Daño de Naturaleza a todos los que estén cerca de él y un aturdimiento de 2,5 segundos."
+     },
+     {
+      "name": "Pesadilla de Naralex",
+      "text": "Duerme a un jugador hasta 15 segundos."
+     },
+     {
+      "name": "Aterrorizar",
+      "text": "Hace huir de miedo a un jugador durante 4 segundos."
+     }
+    ]
+   }
+  }
+ }
+}
