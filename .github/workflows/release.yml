@@ -1,0 +1,26 @@
+name: Release
+
+# Pousser un tag (ex. 1.2.0) construit le zip avec le packager BigWigs et le
+# publie sur CurseForge et en release GitHub.
+# Secret du dépôt : CF_API_KEY (GITHUB_TOKEN est fourni).
+# Identifiant de projet dans le .toc : ## X-Curse-Project-ID.
+# Une plateforme sans secret ou sans identifiant est ignorée.
+
+on:
+  push:
+    tags: ["*"]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      CF_API_KEY: ${{ secrets.CF_API_KEY }}
+      GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: BigWigsMods/packager@v2
