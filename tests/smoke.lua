@@ -73,6 +73,7 @@ GetCursorPosition = function() return 300, 300 end
 IsShiftKeyDown = function() return true end
 GameTooltip_Hide = NOOP
 HandleModifiedItemClick = NOOP
+IsModifiedClick = function() return false end
 tinsert = table.insert
 wipe = function(t) for k in pairs(t) do t[k] = nil end return t end
 strsplit = function(sep, text)
@@ -247,6 +248,16 @@ for i, card in ipairs(dungeonRows) do
     if expected then advised = advised + 1 end
 end
 assert(advised > 0 and advised < #dungeonRows, "donjons conseillés : " .. advised)
+-- Donjons sans image : miniature faite des tuiles de leur premier étage.
+for i, dungeon in ipairs(NS.Dungeons) do
+    if dungeon.instance == 2999 or dungeon.instance == 3065 then
+        local shown = 0
+        for _, tile in ipairs(dungeonRows[i].tiles) do
+            if tile.shown then shown = shown + 1 end
+        end
+        assert(shown > 0, "miniature de " .. dungeon.key)
+    end
+end
 
 local tabs, shareButton = {}, nil
 for _, button in ipairs(buttons) do
@@ -400,6 +411,17 @@ assert(#printed == printedBefore + 1, "une seule alerte par minute")
 now = now + 120
 Fire("START_LOOT_ROLL", 1, 60)
 assert(#printed == printedBefore + 2 and printed[#printed]:find("item:5202", 1, true), "alerte au jet de groupe, la minute passée")
+SlashCmdList.AEONDUNGEONJOURNAL("wishlist")
+assert(#printed == printedBefore + 3 and printed[#printed]:find("5202", 1, true), "/codex wishlist liste l'objet")
+printedBefore = printedBefore + 1
+Click(Visible(NS.L.WISHLIST .. "$")[1])
+local wishRow
+for _, row in ipairs(LootRows()) do
+    if row.text.text == "Objet5202" and tostring(row.slot.text):find("^Zone36, ") then wishRow = row end
+end
+assert(wishRow, "bouton liste de souhaits : l'objet, son donjon et son boss")
+wishRow.scripts.OnClick(wishRow, "LeftButton")
+assert(#Visible("^Zone36$") == 1, "clic sur l'objet : ouvre son donjon")
 OpenDeadminesLoot()
 wished = LootRow("Objet5202")
 wished.scripts.OnClick(wished, "RightButton")
@@ -407,6 +429,8 @@ assert(db.wishlist[5202] == nil and Starred(LootRows()) == 0 and Starred(BossRow
 now = now + 120
 Fire("LOOT_OPENED")
 assert(#printed == printedBefore + 2, "pas d'alerte pour un objet hors de la liste")
+SlashCmdList.AEONDUNGEONJOURNAL("wishlist")
+assert(printed[#printed]:find(NS.L.MSG_WISHLIST_EMPTY, 1, true), "/codex wishlist : liste vide")
 
 -- Quêtes : celles de la Horde cachées à un joueur de l'Alliance, quête du journal de quêtes marquée « en cours ».
 local function QuestLevels(pattern)

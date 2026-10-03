@@ -62,7 +62,8 @@ local homeButton, dungeonCrumb, bossCrumb, pageTitle, floorText, previousButton,
 local dungeonTitle, dungeonLevels, loreArt, emptyText, noMapText
 local gridScroll, gridContent, bossScroll, bossContent, lootScroll, lootContent
 local abilityScroll, abilityContent, questScroll, questContent
-local dungeonCards, bossButtons, lootRows, abilityRows, questRows = {}, {}, {}, {}, {}
+local wishView, wishScroll, wishContent, wishEmpty, wishButton
+local dungeonCards, bossButtons, lootRows, abilityRows, questRows, wishRows = {}, {}, {}, {}, {}, {}
 local pins, tiles, sideTabs, pages = {}, {}, {}, {}
 local current = { floor = 1, tab = "map" }
 local filter = { search = "", menus = {} }   -- butin : texte cherché, slot et kind choisis (nil = tous)
@@ -168,6 +169,25 @@ local function HasWish(boss)
     return false
 end
 
+--- Objets de la liste de souhaits, une entrée par boss qui les donne. Objet hors de toute liste de boss : sans boss.
+local function WishList()
+    local items, listed = {}, {}
+    for _, dungeon in ipairs(NS.Dungeons) do
+        for _, boss in ipairs(dungeon.bosses) do
+            for _, item in ipairs(BossItems(boss)) do
+                if db.wishlist[item.id] then
+                    listed[item.id] = true
+                    items[#items + 1] = item
+                end
+            end
+        end
+    end
+    for itemID in pairs(db.wishlist) do
+        if not listed[itemID] then items[#items + 1] = { id = itemID } end
+    end
+    return items
+end
+
 --- Filtres du butin : emplacement et type affichés, texte cherché dans le nom.
 local function ItemMatches(item)
     local slot, kind = ItemSlotAndType(item.id)
@@ -215,11 +235,11 @@ local function TemplatedFrame(kind, name, parent, template)
     return CreateFrame(kind, name, parent)
 end
 
-local function AddBorder(region, r, g, b, a)
+local function AddBorder(region, r, g, b, a, layer)
     local EDGES = { { "TOPLEFT", "TOPRIGHT" }, { "BOTTOMLEFT", "BOTTOMRIGHT" }, { "TOPLEFT", "BOTTOMLEFT" }, { "TOPRIGHT", "BOTTOMRIGHT" } }
     local edges = {}
     for i, corners in ipairs(EDGES) do
-        local edge = region:CreateTexture(nil, "BORDER")
+        local edge = region:CreateTexture(nil, layer or "BORDER")
         edge:SetColorTexture(r, g, b, a)
         edge:SetPoint(corners[1])
         edge:SetPoint(corners[2])
@@ -379,7 +399,7 @@ local function SelectBoss(boss)
 end
 
 local function SelectDungeon(dungeon)
-    current.dungeon, current.boss, current.floor, current.tab = dungeon, nil, 1, "map"
+    current.dungeon, current.boss, current.floor, current.tab, current.wishlist = dungeon, nil, 1, "map", nil
     filter.slot, filter.kind = nil, nil   -- les choix des menus changent d'un donjon à l'autre
     for _, menu in ipairs(filter.menus) do menu:GenerateMenu() end
     ScrollTo(bossScroll, 0)
@@ -406,6 +426,7 @@ local function DungeonCard(index)
     card.image = card:CreateTexture(nil, "ARTWORK")
     card.image:SetAllPoints()
     card.image:SetTexCoord(0, 0.68359375, 0, 0.7421875)
+    card.tiles = {}
     local top = card:CreateTexture(nil, "ARTWORK", nil, 1)
     top:SetPoint("TOPLEFT")
     top:SetPoint("TOPRIGHT")
@@ -416,7 +437,7 @@ local function DungeonCard(index)
     bottom:SetPoint("BOTTOMRIGHT")
     bottom:SetHeight(26)
     Gradient(bottom, { 0, 0, 0 }, 0.8, 0)
-    card.edges = AddBorder(card, 0, 0, 0, 1)
+    card.edges = AddBorder(card, 0, 0, 0, 1, "OVERLAY")
     Highlight(card, 0.15)
     card.text = card:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
     card.text:SetPoint("TOPLEFT", 8, -8)
@@ -432,6 +453,31 @@ local function DungeonCard(index)
     return card
 end
 
+--- Miniature d'un donjon sans image : son premier étage, tuiles rognées au cadre de la carte.
+local function SetCardMap(card, art)
+    if not art then return end
+    local cols, left, top = art.cols or 4, art.left or 0, art.top or 0
+    local size = TILE * CARD_WIDTH / ART_WIDTH * (art.scale or 1)
+    local shift = (CARD_WIDTH * ART_HEIGHT / ART_WIDTH - CARD_HEIGHT) / 2
+    for i, fileID in ipairs(art) do
+        local tile = card.tiles[i] or card:CreateTexture(nil, "ARTWORK")
+        card.tiles[i] = tile
+        local x0 = ((i - 1) % cols - left) * size
+        local y0 = (math.floor((i - 1) / cols) - top) * size - shift
+        local x1, y1 = math.min(x0 + size, CARD_WIDTH), math.min(y0 + size, CARD_HEIGHT)
+        local cx, cy = math.max(x0, 0), math.max(y0, 0)
+        local visible = x1 > cx and y1 > cy
+        tile:SetShown(visible)
+        if visible then
+            tile:SetTexture(fileID)
+            tile:ClearAllPoints()
+            tile:SetPoint("TOPLEFT", cx, -cy)
+            tile:SetSize(x1 - cx, y1 - cy)
+            tile:SetTexCoord((cx - x0) / size, (x1 - x0) / size, (cy - y0) / size, (y1 - y0) / size)
+        end
+    end
+end
+
 local function RefreshDungeons()
     local level = _G.UnitLevel and UnitLevel("player")
     if isSecret(level) or type(level) ~= "number" then level = nil end
@@ -445,6 +491,7 @@ local function RefreshDungeons()
         local art = INSTANCE_ART[dungeon.instance]
         card.image:SetTexture(art and art[1])
         card.image:SetShown(art ~= nil)
+        if not art then SetCardMap(card, NS.Floors[dungeon.floors[1]]) end
         local wished = false
         for _, boss in ipairs(dungeon.bosses) do wished = wished or HasWish(boss) end
         card.text:SetText((wished and WISH_MARK or "") .. DungeonName(dungeon))
@@ -518,11 +565,12 @@ local function RefreshBossList()
     UpdateScroll(bossScroll, #dungeon.bosses * BOSS_STEP)
 end
 
-local function LootRow(index)
-    local row = lootRows[index]
+local function LootRow(index, rows, content)
+    rows, content = rows or lootRows, content or lootContent
+    local row = rows[index]
     if row then row:Show() return row end
-    row = CreateFrame("Button", nil, lootContent)
-    row:SetSize(lootContent:GetWidth(), LOOT_HEIGHT)
+    row = CreateFrame("Button", nil, content)
+    row:SetSize(content:GetWidth(), LOOT_HEIGHT)
     row:SetPoint("TOPLEFT", 0, -(index - 1) * LOOT_HEIGHT)
     row.stripe = Fill(row, 1, 1, 1, 0.035)
     Highlight(row, 0.1)
@@ -550,26 +598,32 @@ local function LootRow(index)
     row.kind:SetTextColor(0.75, 0.75, 0.75)
     row:RegisterForClicks("LeftButtonUp", "RightButtonUp")
     row:SetScript("OnLeave", GameTooltip_Hide)
-    lootRows[index] = row
+    rows[index] = row
     row:Show()
     return row
+end
+
+--- Bande alternée, icône et couleur de qualité de l'objet sur la ligne. Rend le nom et le lien.
+local function ShowItem(row, index, itemID)
+    row.stripe:SetShown(index % 2 == 0)
+    local name, link, quality, icon = ItemInfo(itemID)
+    row.icon:SetTexture(icon or 134400)
+    local color = quality and ITEM_QUALITY_COLORS and ITEM_QUALITY_COLORS[quality]
+    if color and color.r then
+        row.iconBorder:SetVertexColor(color.r, color.g, color.b)
+        row.text:SetTextColor(color.r, color.g, color.b)
+    else
+        row.iconBorder:SetVertexColor(0.5, 0.5, 0.5)
+        row.text:SetTextColor(1, 1, 1)
+    end
+    return name, link
 end
 
 local function RefreshLoot()
     local items = LootList()
     for i, item in ipairs(items) do
         local row = LootRow(i)
-        row.stripe:SetShown(i % 2 == 0)
-        local name, link, quality, icon = ItemInfo(item.id)
-        row.icon:SetTexture(icon or 134400)
-        local color = quality and ITEM_QUALITY_COLORS and ITEM_QUALITY_COLORS[quality]
-        if color and color.r then
-            row.iconBorder:SetVertexColor(color.r, color.g, color.b)
-            row.text:SetTextColor(color.r, color.g, color.b)
-        else
-            row.iconBorder:SetVertexColor(0.5, 0.5, 0.5)
-            row.text:SetTextColor(1, 1, 1)
-        end
+        local name, link = ShowItem(row, i, item.id)
         row.text:SetText((db.wishlist[item.id] and WISH_MARK or "") .. (name or "...") .. (item.recorded and " |cff3fa9f5*|r" or ""))
         local slot, kind = ItemSlotAndType(item.id)
         row.slot:SetText(slot ~= "" and kind ~= "" and slot .. ", " .. kind or slot .. kind)
@@ -597,6 +651,40 @@ local function RefreshLoot()
     HideFrom(lootRows, #items + 1)
     UpdateScroll(lootScroll, #items * LOOT_HEIGHT)
     return #items
+end
+
+local function RefreshWishlist()
+    local items = WishList()
+    for i, item in ipairs(items) do
+        local row = LootRow(i, wishRows, wishContent)
+        local name, link = ShowItem(row, i, item.id)
+        local boss = item.boss
+        row.text:SetText(name or "...")
+        row.slot:SetText(boss and DungeonName(boss.dungeon) .. ", " .. BossName(boss) or "")
+        local chance = boss and boss.drops and boss.drops[item.id]
+        row.kind:SetText(chance and chance .. " %" or "")
+        row.source:SetText("")
+        row:SetScript("OnClick", function(_, button)
+            if button == "RightButton" then
+                db.wishlist[item.id] = nil
+                Refresh()
+            elseif IsModifiedClick() then
+                if link then HandleModifiedItemClick(link) end
+            elseif boss then
+                SelectDungeon(boss.dungeon)
+                SelectBoss(boss)
+            end
+        end)
+        row:SetScript("OnEnter", function(self)
+            GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+            GameTooltip:SetItemByID(item.id)
+            GameTooltip:AddLine(L.WISHLIST_HINT, 0.6, 0.6, 0.6)
+            GameTooltip:Show()
+        end)
+    end
+    HideFrom(wishRows, #items + 1)
+    UpdateScroll(wishScroll, #items * LOOT_HEIGHT)
+    wishEmpty:SetShown(#items == 0)
 end
 
 local function FlagIcons(flags)
@@ -962,8 +1050,10 @@ end
 --- Fil d'Ariane : Accueil > donjon > boss, chaque bouton à la largeur de son texte.
 local function RefreshNavigation()
     local dungeon = current.dungeon
-    homeButton:SetEnabled(dungeon ~= nil)
+    homeButton:SetEnabled(dungeon ~= nil or current.wishlist == true)
     homeButton:Show()
+    wishButton:SetEnabled(not current.wishlist)
+    wishButton:Show()
     dungeonCrumb:SetShown(dungeon ~= nil)
     bossCrumb:SetShown(current.boss ~= nil)
     if dungeon then
@@ -975,13 +1065,19 @@ end
 
 function Refresh()
     if not (frame and frame:IsShown()) then return end
-    local home = current.dungeon == nil
+    local inDungeon = current.dungeon ~= nil
+    local home = not inDungeon and not current.wishlist
     homeView:SetShown(home)
-    instanceView:SetShown(not home)
+    wishView:SetShown(current.wishlist == true)
+    instanceView:SetShown(inDungeon)
     RefreshNavigation()
     for _, tab in ipairs(sideTabs) do
-        tab:SetShown(not home)
+        tab:SetShown(inDungeon)
         tab.selected:SetShown(tab.key == current.tab)
+    end
+    if current.wishlist then
+        RefreshWishlist()
+        return
     end
     if home then
         RefreshDungeons()
@@ -1110,6 +1206,16 @@ local function CreateHome(inset)
     local atlas = C_Texture and C_Texture.GetAtlasInfo and C_Texture.GetAtlasInfo(TIER_ATLAS)
     if atlas then background:SetAtlas(TIER_ATLAS) else background:SetColorTexture(0.1, 0.08, 0.06, 1) end
     gridScroll, gridContent = CreateScrollList(homeView, INSET_WIDTH, INSET_HEIGHT)
+end
+
+local function CreateWishlist(inset)
+    wishView = CreateFrame("Frame", nil, inset)
+    wishView:SetAllPoints()
+    Fill(wishView, 0.05, 0.045, 0.04, 1)
+    wishScroll, wishContent = CreateScrollList(wishView, INSET_WIDTH, INSET_HEIGHT)
+    wishEmpty = wishView:CreateFontString(nil, "OVERLAY", "GameFontDisable")
+    wishEmpty:SetPoint("TOP", 0, -40)
+    wishEmpty:SetText(L.MSG_WISHLIST_EMPTY)
 end
 
 local function CreateInstance(inset)
@@ -1244,7 +1350,7 @@ local function CreateJournal()
     if frame.SetPortraitToAsset then frame:SetPortraitToAsset(PORTRAIT) end
 
     homeButton = NavigationButton(L.HOME, function()
-        current.dungeon, current.boss = nil, nil
+        current.dungeon, current.boss, current.wishlist = nil, nil, nil
         Refresh()
     end)
     homeButton:SetPoint("TOPLEFT", 64, -30)
@@ -1252,11 +1358,17 @@ local function CreateJournal()
     dungeonCrumb:SetPoint("LEFT", homeButton, "RIGHT", 2, 0)
     bossCrumb = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
     bossCrumb:SetPoint("LEFT", dungeonCrumb, "RIGHT", 8, 0)
+    wishButton = NavigationButton(WISH_MARK .. L.WISHLIST, function()
+        current.dungeon, current.boss, current.wishlist = nil, nil, true
+        Refresh()
+    end)
+    wishButton:SetPoint("TOPRIGHT", -12, -30)
 
     local inset = TemplatedFrame("Frame", nil, frame, "InsetFrameTemplate")
     inset:SetPoint("TOPLEFT", 6, -60)
     inset:SetSize(INSET_WIDTH, INSET_HEIGHT)
     CreateHome(inset)
+    CreateWishlist(inset)
     CreateInstance(inset)
     SideTab(1, "map", ICON, L.MAP)
     SideTab(2, "loot", LOOT_ICON, L.LOOT)
@@ -1433,7 +1545,7 @@ events:SetScript("OnEvent", function(_, event, first, second)
         if boss then MarkKilled(boss) end
     elseif event == "BOSS_KILL" then   -- (encounterID, encounterName)
         MarkKilledByName(second)
-    elseif (DELAYED_REFRESH[event] or event == "GET_ITEM_INFO_RECEIVED" and second and current.dungeon)
+    elseif (DELAYED_REFRESH[event] or event == "GET_ITEM_INFO_RECEIVED" and second and (current.dungeon or current.wishlist))
         and not refreshPending then
         refreshPending = true
         C_Timer.After(0.2, function()
@@ -1444,6 +1556,7 @@ events:SetScript("OnEvent", function(_, event, first, second)
 end)
 
 SLASH_AEONDUNGEONJOURNAL1 = "/codex"
+SLASH_AEONDUNGEONJOURNAL2 = "/aeondungeonjournal"
 SlashCmdList.AEONDUNGEONJOURNAL = function(message)
     message = (message or ""):lower():match("^%s*(.-)%s*$")
     if message == "resetpins" then
@@ -1457,9 +1570,18 @@ SlashCmdList.AEONDUNGEONJOURNAL = function(message)
     elseif message == "tooltip" then
         db.hideTooltip = not db.hideTooltip or nil
         Print(db.hideTooltip and L.MSG_TOOLTIP_OFF or L.MSG_TOOLTIP_ON)
+    elseif message == "wishlist" then
+        local items = WishList()
+        for _, item in ipairs(items) do
+            local name, link = ItemInfo(item.id)
+            local boss = item.boss
+            Print((link or name or ("item:" .. item.id)) .. (boss and " - " .. DungeonName(boss.dungeon) .. ", " .. BossName(boss) or ""))
+        end
+        if #items == 0 then Print(L.MSG_WISHLIST_EMPTY) end
     elseif message == "help" then
         Print(L.HELP)
         Print(L.HELP_TOOLTIP)
+        Print(L.HELP_WISHLIST)
     else
         Toggle()
     end

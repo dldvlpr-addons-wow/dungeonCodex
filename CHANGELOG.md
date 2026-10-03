@@ -1,5 +1,17 @@
 # Dungeon Codex
 
+## 1.3
+
+### New
+- **Wishlist button** at the top right of the window: every wished item with its dungeon, boss and drop chance.
+  Click opens the boss loot, Shift-click links the item in chat, right-click removes it from the wishlist.
+- `/codex wishlist` lists the wishlist in the chat.
+- `/aeondungeonjournal` opens the window, like `/codex`.
+
+### Fixed
+- Ruins of Lordaeron and Hall of Thanes now have a thumbnail in the dungeon grid: the map of their first floor.
+- The gold border on the dungeons that fit the character's level is visible again.
+
 ## 1.1
 
 First release on CurseForge.

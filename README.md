@@ -2,12 +2,12 @@
 
 Journal des donjons pour WoW Forever (1.60.1), sur le modèle du Guide de l'aventurier de retail. Il couvre les 25 donjons Classic à 5 joueurs (ailes de Scarlet, de Dire Maul et de Blackrock Spire comprises), et Ruins of Lordaeron et Hall of Thanes, propres à Forever.
 
-- Accueil en grille de donjons illustrés, avec leur tranche de niveaux Forever. Bordure dorée sur les donjons dont la tranche contient le niveau du personnage.
+- Accueil en grille de donjons illustrés, avec leur tranche de niveaux Forever. Bordure dorée sur les donjons dont la tranche contient le niveau du personnage. Ruins of Lordaeron et Hall of Thanes, sans image dans le client, ont pour miniature la carte de leur premier étage.
 - Page du donjon : boss avec portrait et niveau, puis quatre onglets : carte, butin, capacités des boss, quêtes.
 - Carte de chaque étage, avec un repère numéroté par boss. Clic sur un repère ou sur un nom : butin du boss.
 - Butin : icône, nom et qualité fournis par le client, chance de butin, objets nouveaux ou modifiés dans Forever, infobulle, Maj+clic pour le lien dans le chat.
 - Filtres du butin : recherche par nom, menus des emplacements et des types présents dans le donjon. Les menus reviennent à « tous » quand on change de donjon ; le texte cherché reste.
-- Liste de souhaits : clic droit sur un objet du butin. Une étoile marque l'objet, son boss et son donjon. Quand l'objet tombe (butin ouvert ou jet de groupe), une alerte s'affiche à l'écran et dans le chat, une fois par minute au plus.
+- Liste de souhaits : clic droit sur un objet du butin. Une étoile marque l'objet, son boss et son donjon. Quand l'objet tombe (butin ouvert ou jet de groupe), une alerte s'affiche à l'écran et dans le chat, une fois par minute au plus. Le bouton « Liste de souhaits », en haut à droite, liste les objets avec leur donjon et leur boss : clic pour ouvrir le butin du boss, clic droit pour retirer l'objet.
 - Infobulles d'objet du jeu : donjon, boss et chance de butin de l'objet (3 sources au plus).
 - Capacités : rôle visé (tank, soigneur, magie…) et conseil, dans la langue du client (anglais, français, allemand, espagnol, italien, portugais, russe, coréen, chinois simplifié et traditionnel). Le nom d'un sort est celui du client.
 - Quêtes du donjon : niveau, faction, donneur et récompenses. Une quête déjà rendue par le personnage est cochée et en vert vif ; une quête du journal de quêtes porte la mention « En cours ». Les quêtes de la faction adverse sont cachées.
@@ -21,6 +21,7 @@ Journal des donjons pour WoW Forever (1.60.1), sur le modèle du Guide de l'aven
 - `/codex` ou `/aeondungeonjournal` : ouvrir ou fermer la fenêtre (elle s'ouvre sur le donjon en cours).
 - `/codex resetpins` : remettre les repères à leur place d'origine.
 - `/codex wipe` : oublier le butin relevé en jeu.
+- `/codex wishlist` : lister dans le chat les objets de la liste de souhaits, avec leur donjon et leur boss.
 - `/codex tooltip` : masquer ou réafficher la source du butin dans les infobulles d'objet.
 - `/codex help` : rappel des commandes.
 
