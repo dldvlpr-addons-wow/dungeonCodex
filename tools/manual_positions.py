@@ -4,6 +4,8 @@ FLOORS    : étages (UiMapID retail) de chaque donjon, dans l'ordre d'affichage.
 MINIMAP_FLOORS : étages faits de tuiles de minicarte du client, pour les donjons sans carte d'étage.
 WINGS     : aile d'une instance partagée (clé de locale, instanceID si AtlasLoot ne le donne pas).
 ALIASES   : noms du journal retail pour un boss nommé autrement dans AtlasLoot.
+SITE_DUNGEONS : donjons Forever décrits par le site seul (instanceID 0 : à venir, sans carte). DUNGEON_NAMES : leur nom.
+ENTRANCES : entrée de chaque donjon (UiMapID de zone, x, y), quand elle est connue.
 POSITIONS : npcID -> (UiMapID, x, y) quand le journal retail n'a pas le boss ; placé à vue sur la carte.
 HIDDEN    : npcID écartés du journal.
 """
@@ -36,6 +38,8 @@ FLOORS = {
     "Stratholme": [317, 318],
     "RuinsOfLordaeron": [2999],   # donjon Forever : aucune carte d'étage, tuiles de minicarte (MINIMAP_FLOORS)
     "HallOfThanes": [3065],
+    "CityOfDalaran": [2959],
+    "ExcavationSite": [2998],
 }
 
 # Étages faits des tuiles de minicarte du client (512 px), pour les donjons sans carte d'étage.
@@ -44,13 +48,25 @@ FLOORS = {
 #   cols      : tuiles par ligne
 #   scale     : taille d'une tuile, en multiple d'une tuile de carte retail
 #   left, top : coin haut gauche de la vue, en tuiles depuis la première
-#   pins      : (ax, bx, ay, by), du repère du site (posé sur une carte dessinée) à la vue : ax * x + bx, ay * y + by
+#   pins      : (ax, bx, ay, by), du repère du site (posé sur une carte dessinée) à la vue : ax * x + bx, ay * y + by.
+#               Sans `pins`, les repères du site ne sont pas posés (carte non calée) : les boss restent sans position.
+# Le journal ne dispose que de 12 textures de carte (Journal.lua) : une fenêtre de 12 tuiles au plus, prise dans
+# la grille réelle du WDT (index = ligne * 64 + colonne dans le chunk MAID).
 MINIMAP_FLOORS = {
-    2999: {   # WDT 7255103, tuiles 30-32 x 28-29
-        "tiles": [7255730, 7255736, 7255742, 7255748, 7255754, 7255760],
-        "cols": 3, "scale": 2.33, "left": 0.695, "top": 0.42, "pins": (1.108, -0.070, 1.098, -0.062),
+    2998: {   # WDT 7252920, grille réelle lignes 36-42 x colonnes 33-39 ; fenêtre lignes 38-40 x colonnes 34-37 (vue à régler en jeu)
+        "tiles": [7287260, 7287262, 7287264, 7473476, 7287266, 7287268, 7287270, 7473482,
+                  7287272, 7287274, 7287276, 7473484],
+        "cols": 4, "scale": 0.97, "left": 0, "top": 0,
     },
-    3065: {   # WDT 7713294, tuiles 30-33 x 30-32
+    2959: {   # WDT 6982267, grille réelle lignes 29-33 x colonnes 29-33 ; fenêtre lignes 30-32 x colonnes 30-32, sur la cité
+        "tiles": [6982326, 6982322, 6982391, 6982332, 6982328, 6982395, 6982439, 6982441, 6982489],
+        "cols": 3, "scale": 1.8, "left": 0.315, "top": 0.875,
+    },
+    2999: {   # WDT 7255103, grille réelle lignes 27-29 x colonnes 30-32 (9 tuiles, toutes prises)
+        "tiles": [7255712, 7255718, 7255724, 7255730, 7255736, 7255742, 7255748, 7255754, 7255760],
+        "cols": 3, "scale": 2.33, "left": 0.695, "top": 1.42, "pins": (1.108, -0.070, 1.098, -0.062),
+    },
+    3065: {   # WDT 7713294, grille réelle lignes 25-33 x colonnes 27-35 (81 tuiles, presque toutes vides) ; fenêtre lignes 30-32 x colonnes 30-33
         "tiles": [7726080, 7726086, 7726092, 7726098, 7726134, 7726140, 7726146, 7726152,
                   7726188, 7726194, 7726200, 7726206],
         "cols": 4, "scale": 1.673, "left": 0.83, "top": 0.745, "pins": (0.690, 0.147, 0.732, 0.253),
@@ -81,11 +97,56 @@ SITE_SLUGS = {
     "Zul'Farrak": ["zulfarrak"], "BlackrockDepths": ["blackrock-depths"], "TheTempleOfAtal'Hakkar": ["sunken-temple"],
     "Scholomance": ["scholomance"], "LowerBlackrockSpire": ["lower-blackrock-spire"],
     "UpperBlackrockSpire": ["upper-blackrock-spire"], "HallOfThanes": ["hall-of-thanes"],
+    "CityOfDalaran": ["city-of-dalaran"], "ExcavationSite": ["excavation-site"], "TheDrownedCity": ["the-drowned-city"],
+    "KroldokStronghold": ["kroldok-stronghold"], "AlcazPrison": ["alcaz-prison"], "BlackmawHold": ["blackmaw-hold"],
+    "ShapersTerrace": ["shapers-terrace"],
 }
 
 # Donjons Forever décrits seulement par le site : clé -> (page du site, instanceID de la DB2 Map du client).
+# instanceID 0 : donjon à venir (aucune ligne Map dans le build), sans carte ; le générateur pose `upcoming = true`.
 SITE_DUNGEONS = {
     "HallOfThanes": ("hall-of-thanes", 3065),
+    "CityOfDalaran": ("city-of-dalaran", 2959),
+    "ExcavationSite": ("excavation-site", 2998),
+    "TheDrownedCity": ("the-drowned-city", 0),
+    "KroldokStronghold": ("kroldok-stronghold", 0),
+    "AlcazPrison": ("alcaz-prison", 0),
+    "BlackmawHold": ("blackmaw-hold", 0),
+    "ShapersTerrace": ("shapers-terrace", 0),
+}
+
+# Nom (enUS) des donjons Forever absents du client : `name` dans Data.lua (le client n'a pas leur nom de zone).
+DUNGEON_NAMES = {
+    "CityOfDalaran": "City of Dalaran", "ExcavationSite": "Excavation Site", "TheDrownedCity": "The Drowned City",
+    "KroldokStronghold": "Krol'dok Stronghold", "AlcazPrison": "Alcaz Prison", "BlackmawHold": "Blackmaw Hold",
+    "ShapersTerrace": "The Shaper's Terrace",
+}
+
+# Entrée du donjon : (UiMapID de zone Forever, x, y entre 0 et 1).
+# Classic : JournalInstanceEntrance retail 12.1.5.70688 (Position_0/1 en coordonnées monde), converti par la
+# UiMapAssignment Forever 1.60.1.70753 (Region_0/1 = minimum, Region_3/4 = maximum) :
+#   x = (ymax - y) / (ymax - ymin), y = (xmax - x) / (xmax - xmin).
+# Zone : celle de l'AreaTableID de l'entrée ; Razorfen Kraul et Downs : Barrens, à la main (l'aire retail est fausse sur Forever).
+# Dire Maul : trois points sans attribution dans les tables, répartis selon la géographie (ouest, nord, est).
+# Maraudon : trois points, le premier de la table. Scarlet Monastery : Halls (bibliothèque, armurerie), Monastery (cimetière, cathédrale).
+# Forever : Hall of Thanes seul (wowforeverguides.com, Dun Morogh d'après foreverchanges.pro) ; aucune entrée connue pour les autres.
+ENTRANCES = {
+    "Ragefire": (1454, 0.532, 0.487), "WailingCaverns": (1413, 0.477, 0.350), "TheDeadmines": (1436, 0.382, 0.775),
+    "ShadowfangKeep": (1421, 0.446, 0.677), "BlackfathomDeeps": (1439, 0.334, 0.934), "TheStockade": (1453, 0.503, 0.661),
+    "Gnomeregan": (1426, 0.180, 0.389), "RazorfenKraul": (1413, 0.422, 0.898), "RazorfenDowns": (1413, 0.509, 0.929),
+    "ScarletMonasteryGraveyard": (1420, 0.848, 0.303), "ScarletMonasteryCathedral": (1420, 0.848, 0.303),
+    "ScarletMonasteryLibrary": (1420, 0.854, 0.323), "ScarletMonasteryArmory": (1420, 0.854, 0.323),
+    "Uldaman": (1432, 0.348, 0.852), "Zul'Farrak": (1446, 0.387, 0.199), "Maraudon": (1443, 0.305, 0.545),
+    "TheTempleOfAtal'Hakkar": (1435, 0.770, 0.439), "BlackrockDepths": (1427, 0.276, 0.724),
+    "LowerBlackrockSpire": (1428, 0.365, 0.254), "UpperBlackrockSpire": (1428, 0.360, 0.227),
+    "DireMaulEast": (1444, 0.648, 0.301), "DireMaulNorth": (1444, 0.626, 0.249), "DireMaulWest": (1444, 0.603, 0.314),
+    "Scholomance": (1422, 0.690, 0.727), "Stratholme": (1423, 0.263, 0.104),
+    "HallOfThanes": (1426, 0.435, 0.520),
+    # Relevés web du 2026-11-03, non vérifiés en jeu. Excavation : pierre de rencontre (warcraft.wiki.gg 53.4, 65.3 ;
+    # warcrafttavern 53.9, 65.3). Dalaran : grille d'égout du mur ouest (warcraft.wiki.gg seul).
+    "ExcavationSite": (1437, 0.534, 0.653), "CityOfDalaran": (1416, 0.080, 0.610),
+    # Ruins : devant l'entrée d'Undercity, cour des ruines (indication de l'utilisateur, position estimée à relever en jeu).
+    "RuinsOfLordaeron": (1420, 0.619, 0.690),
 }
 
 ALIASES = {
@@ -224,3 +285,46 @@ POSITIONS = {
 }
 
 HIDDEN = set()
+
+# npcID des boss Forever absents de foreverNpcDB.lua (QuestieDB), par nom anglais. Source : warcraft.wiki.gg,
+# recoupé avec wowhead.com/forever/npc=ID (relevé le 2026-11-03).
+MANUAL_NPCS = {
+    "Faldrim Anvilmar": 261306, "Magmatus": 261316, "Plunder": 261311, "Durgen Dirgehammer": 261319,
+    "Saltspine": 260322, "Shadetooth": 260325, "Highland Horror": 260808, "Relic Guardian": 260326,
+    "Atrexis the Grave Knight": 247126, "Lyn the Ignored": 247032, "Arcane Anomaly": 245999,
+    "Arcanic Enigma": 246016, "Unstable Sentinel": 246017, "Mana Devourer": 246008, "Fel Ancient": 246003,
+    "Shade of the Archmage": 246020,
+}
+
+# Noms localisés des boss Forever absents de Questie, relevés sur nether.wowhead.com/forever/tooltip/npc/ID?locale=N.
+# Complètent une langue sans traduction (ou traduite à l'identique de l'anglais) ; zhTW et itIT non traduits sur wowhead.
+MANUAL_BOSS_NAMES = {
+    261306: {"frFR": "Faldrim Courbenclume", "esES": "Faldrim Yunquemar", "ptBR": "Faldrim Sidermar", "ruRU": "Фалдрим Старая Наковальня", "koKR": "팔드림 앤빌마", "zhCN": "法德林·安威玛尔"},  # Faldrim Anvilmar
+    261316: {"ruRU": "Магматий", "koKR": "마그마투스", "zhCN": "玛格马图斯"},  # Magmatus
+    261311: {"deDE": "Schleppweg", "esES": "Pillaje", "ptBR": "Pilhar", "ruRU": "Крад", "koKR": "약탈골렘", "zhCN": "劫掠者"},  # Plunder
+    261319: {"frFR": "Durgen Mornemartel", "esES": "Durgen Martillo Funesto", "ptBR": "Durgen Martelúgubre", "ruRU": "Дурген Горемолот", "koKR": "드루겐 더지해머", "zhCN": "杜根·挽锤"},  # Durgen Dirgehammer
+    250483: {"frFR": "Croc-Flétri", "deDE": "Welkzahn", "esES": "Colmimarchito", "ptBR": "Sugapresa", "ruRU": "Сухожвал", "koKR": "쇠퇴송곳니", "zhCN": "枯牙"},  # Witherfang
+    250631: {"frFR": "L'Abandonné", "deDE": "Der Verlassene", "esES": "El Abandonado", "ptBR": "O Abandonado", "ruRU": "Покинутый", "koKR": "버려진 자", "zhCN": "被遗弃者"},  # The Abandoned
+    250660: {"frFR": "Le baron", "deDE": "Der Baron", "esES": "El barón", "ptBR": "O Barão", "ruRU": "Барон", "koKR": "남작", "zhCN": "男爵"},  # The Baron
+    250657: {"ruRU": "Рат'маэль", "koKR": "라스마엘", "zhCN": "拉斯玛尔"},  # Rath'mael
+    255699: {"frFR": "Capitaine de Lordaeron", "deDE": "Hauptmann von Lordaeron", "esES": "Capitán de Lordaeron", "ptBR": "Capitão de Lordaeron", "ruRU": "Лордеронский капитан"},  # Lordaeron Captain
+    256035: {"frFR": "Viktor le Vil", "deDE": "Viktor der Üble", "esES": "Viktor el Abyecto", "ptBR": "Viktor, o Vil", "ruRU": "Виктор Вероломный", "koKR": "비열한 빅토르", "zhCN": "邪恶的维克多"},  # Viktor the Vile
+    256097: {"ruRU": "Бьорк", "koKR": "비요크", "zhCN": "比约克"},  # Bjork
+    260322: {"frFR": "Seléchine", "deDE": "Salzrücken", "esES": "Espinasal", "ptBR": "Salespino", "ruRU": "Солеспин", "zhCN": "盐脊"},  # Saltspine
+    260325: {"frFR": "Dent-Sombre", "deDE": "Schemenzahn", "esES": "Sombradiente", "ptBR": "Caninumbra", "ruRU": "Тенезуб", "zhCN": "暗齿"},  # Shadetooth
+    260808: {"frFR": "Horreur des hautes-terres", "deDE": "Hochlandschrecken", "esES": "Horror de las Tierras Altas", "ptBR": "Horror do Planalto", "ruRU": "Ужас нагорья"},  # Highland Horror
+    260326: {"frFR": "Gardien des reliques", "deDE": "Reliktwächter", "esES": "Guardián de reliquias", "ruRU": "Страж реликвий", "zhCN": "遗迹守卫者"},  # Relic Guardian
+    247126: {"frFR": "Atrexis le Chevalier de la tombe", "deDE": "Atrexis der Grabritter", "esES": "Atrexis el Caballero de la Tumba", "ptBR": "Atrexis, o Cavaleiro da Sepultura", "ruRU": "Атрексий Могильный Рыцарь", "koKR": "무덤 기사 아트렉시스"},  # Atrexis the Grave Knight
+    247032: {"frFR": "Lyn l'Ignoré", "deDE": "Lyn der Ignorierte", "esES": "Lyn el Ignorado", "ptBR": "Lyn, o Ignorado", "ruRU": "Лин Забытый"},  # Lyn the Ignored
+    245999: {"frFR": "Anomalie arcanique", "deDE": "Arkananomalie", "esES": "Anomalía Arcana", "ruRU": "Волшебная аномалия"},  # Arcane Anomaly
+    246016: {"deDE": "Arkanes Mysterium", "esES": "Enigma Arcano"},  # Arcanic Enigma
+    246017: {"frFR": "Sentinelle instable", "deDE": "Instabile Schildwache", "esES": "Centinela inestable", "ruRU": "Нестабильный часовой"},  # Unstable Sentinel
+    246008: {"frFR": "Dévoreur de mana", "deDE": "Manaschlinger", "esES": "Devorador de maná", "ruRU": "Пожиратель маны"},  # Mana Devourer
+    246003: {"frFR": "Ancien gangrené", "deDE": "Teufelsurtum", "esES": "Anciano vil", "ruRU": "Древень Скверны"},  # Fel Ancient
+    246020: {"frFR": "Ombre de l'archimage", "deDE": "Schemen des Erzmagiers", "esES": "Sombra del archimago", "ruRU": "Тень верховного мага"},  # Shade of the Archmage
+}
+
+# Donneurs de quête absents de foreverNpcDB.lua (Questie les cite dans startedBy) : npcID -> nom anglais (wowhead forever).
+MANUAL_NPC_NAMES = {
+    269127: "Image of Archmage Modera",  # 92457, 92458, 96984
+}

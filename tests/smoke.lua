@@ -23,7 +23,9 @@ local function Region()
         if key == "GetWidth" then return function(r) return r.width end end
         if key == "GetHeight" then return function(r) return r.height end end
         if key == "GetText" then return function(r) return r.text end end
-        if key == "SetText" then return function(r, t) r.text = t end end
+        if key == "SetText" then   -- comme le client : une zone de saisie annonce le changement
+            return function(r, t) r.text = t local s = r.scripts.OnTextChanged if s then s(r) end end
+        end
         if key == "GetName" then return function(r) return r.name end end
         if key == "GetFrameLevel" then return function() return 1 end end
         if key == "GetEffectiveScale" then return function() return 1 end end
@@ -90,13 +92,16 @@ C_Item = {
     RequestLoadItemDataByID = NOOP,
     GetItemInfoInstant = function(item)
         local id = tonumber(tostring(item):match("(%d+)"))
-        return id, "Armure", id % 2 == 0 and "Tissu" or "Cuir", id % 3 == 0 and "INVTYPE_HEAD" or ""
+        -- Armure (classID 4) : tissu (1) pour les pairs, cuir (2) pour les impairs.
+        return id, "Armure", id % 2 == 0 and "Tissu" or "Cuir", id % 3 == 0 and "INVTYPE_HEAD" or "", 134400, 4, 1 + id % 2
     end,
 }
 local activeQuest
 C_QuestLog = { IsQuestFlaggedCompleted = function(id) return id % 2 == 0 end,
                IsOnQuest = function(id) return id == activeQuest or id % 2 == 0 end }   -- pair : rendue, jamais « en cours »
 UnitLevel = function() return 20 end
+UnitClass = function() return "Mage", "MAGE", 8 end
+INSTANCE_RESET_SUCCESS = "%s has been reset."
 UnitFactionGroup = function() return "Alliance", "Alliance" end
 local clock = 100000
 time = function() return clock end
@@ -158,7 +163,8 @@ for _, locale in ipairs(textLocales) do
 end
 GetLocale = function() return "frFR" end
 for _, event in ipairs({ "ADDON_LOADED", "LOOT_OPENED", "GET_ITEM_INFO_RECEIVED", "QUEST_TURNED_IN", "START_LOOT_ROLL",
-                         "QUEST_ACCEPTED", "QUEST_REMOVED", "PLAYER_LEVEL_UP", "UNIT_DIED", "BOSS_KILL" }) do
+                         "QUEST_ACCEPTED", "QUEST_REMOVED", "PLAYER_LEVEL_UP", "UNIT_DIED", "BOSS_KILL",
+                         "ENCOUNTER_END", "PLAYER_ENTERING_WORLD", "CHAT_MSG_SYSTEM" }) do
     assert(events[event], "événement enregistré : " .. event)
 end
 Fire("LOOT_OPENED")   -- avant le chargement des réglages : ignoré
@@ -237,8 +243,19 @@ end
 
 assert(#BossRows() > 0, "ouverture sur le donjon en cours")
 Click(Visible("^" .. NS.L.HOME .. "$")[1])
-local dungeonRows = Visible("^Zone%d+")
-assert(#dungeonRows == 27, "27 donjons listés, vu " .. #dungeonRows)
+local dungeonRows, upcoming = {}, 0
+for _, button in ipairs(buttons) do
+    if button.shown and rawget(button, "edges") and rawget(button, "levels") then dungeonRows[#dungeonRows + 1] = button end
+end
+for i, dungeon in ipairs(NS.Dungeons) do
+    if dungeon.upcoming then
+        upcoming = upcoming + 1
+        assert(dungeonRows[i].text.text == dungeon.name and dungeonRows[i].levels.text:find(NS.L.UPCOMING, 1, true),
+            "donjon annoncé : nom et badge, " .. dungeon.key)
+    end
+end
+assert(#dungeonRows == #NS.Dungeons and #Visible("^Zone%d+") == #NS.Dungeons - upcoming and upcoming == 5,
+    "34 donjons listés, dont 5 annoncés : " .. #dungeonRows)
 -- Donjons conseillés : bordure dorée sur ceux dont la tranche contient le niveau du joueur (20), et eux seuls.
 local advised = 0
 for i, card in ipairs(dungeonRows) do
@@ -266,13 +283,19 @@ for _, button in ipairs(buttons) do
 end
 assert(shareButton and not shareButton.shown, "bouton de partage caché sans boss choisi")
 assert(#tabs == 4, "4 onglets latéraux")
+local function OpenTab(key)
+    for _, tab in ipairs(tabs) do
+        if tab.key == key then Click(tab) end
+    end
+end
 local bossesSeen, lootRows, markedSeen, plainSeen, spellsSeen, notesSeen = 0, 0, 0, 0, 0, 0
 for dungeonIndex, dungeonRow in ipairs(dungeonRows) do
     Click(dungeonRow)
+    OpenTab("quests")
     local marked, plain = QuestMarks()
     markedSeen, plainSeen = markedSeen + marked, plainSeen + plain
     local bossRows = BossRows()
-    assert(#bossRows > 0, "boss listés pour " .. dungeonRow.text.text)
+    assert(#bossRows > 0 or NS.Dungeons[dungeonIndex].upcoming, "boss listés pour " .. dungeonRow.text.text)
     for index = 1, #bossRows do
         Click(BossRows()[index])
         bossesSeen = bossesSeen + 1
@@ -291,7 +314,7 @@ for _, message in ipairs(sent) do
     assert(message.channel == "PARTY" and #message.text > 0 and #message.text <= 250, "message de " .. #message.text .. " octets")
 end
 assert(spellsSeen > 0 and notesSeen > 0, "noms de sort du client et notes de combat affichés : " .. spellsSeen .. " / " .. notesSeen)
-assert(bossesSeen == 239, "239 boss parcourus, vu " .. bossesSeen)
+assert(bossesSeen == 252, "252 boss parcourus, vu " .. bossesSeen)
 assert(lootRows > 1000, "lignes de butin affichées : " .. lootRows)
 assert(markedSeen > 0 and plainSeen > 0, "quêtes rendues cochées, les autres non : " .. markedSeen .. " / " .. plainSeen)
 
@@ -303,6 +326,7 @@ for i, dungeon in ipairs(NS.Dungeons) do
     end
 end
 Click(dungeonRows[target])
+OpenTab("quests")
 local markedBefore = QuestMarks()
 Fire("QUEST_TURNED_IN", pending, 100, 0)
 assert(QuestMarks() == markedBefore + 1, "quête cochée dès qu'elle est rendue")
@@ -310,7 +334,8 @@ assert(QuestMarks() == markedBefore + 1, "quête cochée dès qu'elle est rendue
 -- Infobulle d'objet : donjon, boss et chance de butin ; masquée par /codex tooltip.
 local function TooltipLines(itemID)
     local lines = {}
-    local tooltip = { AddDoubleLine = function(_, left, right) lines[#lines + 1] = left .. " | " .. right end }
+    local tooltip = { AddDoubleLine = function(_, left, right) lines[#lines + 1] = left .. " | " .. right end,
+                      AddLine = function(_, text) lines[#lines + 1] = text end }
     tooltipPostCall(tooltip, { id = itemID })
     return lines
 end
@@ -345,7 +370,7 @@ for _, tab in ipairs(tabs) do
     if tab.key == "loot" then lootTab = tab end
 end
 for _, candidate in ipairs(frames) do
-    if candidate.scripts.OnTextChanged then searchBox = candidate end
+    if candidate.scripts.OnTextChanged and candidate.width == 160 then searchBox = candidate end
     if rawget(candidate, "generator") then menus[#menus + 1] = candidate end
 end
 local function OpenDeadminesLoot()
@@ -378,8 +403,13 @@ local headRows = LootRows()
 assert(#headRows > 0 and #headRows < allLoot, "filtre par emplacement : " .. #headRows .. " / " .. allLoot)
 for _, row in ipairs(headRows) do assert(row.slot.text:find("Tête", 1, true), "ligne hors filtre") end
 local kinds = Radios(menus[2])
-assert(#kinds == 3 and kinds[2].text == "Cuir" and kinds[3].text == "Tissu", "choix du menu des types")
+assert(#kinds == 4 and kinds[2].text == NS.L.MY_CLASS and kinds[3].text == "Cuir" and kinds[4].text == "Tissu",
+    "choix du menu des types, « ma classe » en tête")
 kinds[2].setSelected(kinds[2].data)
+local mageHeads = LootRows()
+assert(#mageHeads > 0 and #mageHeads < #headRows, "filtre de classe : " .. #mageHeads .. " / " .. #headRows)
+for _, row in ipairs(mageHeads) do assert(row.slot.text == "Tête, Tissu", "mage : tissu seulement, vu " .. row.slot.text) end
+kinds[3].setSelected(kinds[3].data)
 local leatherHeads = LootRows()
 assert(#leatherHeads > 0 and #leatherHeads < #headRows, "filtre par type : " .. #leatherHeads .. " / " .. #headRows)
 for _, row in ipairs(leatherHeads) do assert(row.slot.text == "Tête, Cuir", "ligne hors filtre : " .. row.slot.text) end
@@ -456,6 +486,7 @@ for i, dungeon in ipairs(NS.Dungeons) do
 end
 assert(mixed, "un donjon avec des quêtes de la Horde et une quête à prendre")
 Click(dungeonRows[mixed])
+OpenTab("quests")
 local marked, plain = QuestMarks()
 assert(marked + plain == kept, "quêtes de la Horde cachées : " .. marked + plain .. " / " .. kept)
 assert(QuestLevels(NS.L.QUEST_ACTIVE) == 1 and QuestLevels("Horde") == 0, "une quête en cours, aucune de la Horde")
@@ -508,7 +539,7 @@ Died(644)
 assert(Checked() == 1 and db.kills[644] and not db.kills[639], "boss retué : nouveau run")
 local elsewhere
 for _, dungeon in ipairs(NS.Dungeons) do
-    if dungeon.instance ~= 36 and dungeon.bosses[1].npc then elsewhere = elsewhere or dungeon.bosses[1].npc end
+    if dungeon.instance ~= 36 and dungeon.bosses[1] and dungeon.bosses[1].npc then elsewhere = elsewhere or dungeon.bosses[1].npc end
 end
 Died(elsewhere)
 assert(db.kills[elsewhere] and not db.kills[644], "boss d'un autre donjon : nouveau run")
@@ -562,6 +593,192 @@ for i = sentBefore + 1, #sent do
     glued = glued .. sent[i].text
 end
 assert(glued:find(long, 1, true), "texte long envoyé en entier, dans l'ordre")
+
+-- Recherche dans tout le butin, depuis l'accueil : casse et accents ignorés, latin et cyrillique.
+local homeSearch
+for _, candidate in ipairs(frames) do
+    if candidate.scripts.OnTextChanged and candidate.width == 180 then homeSearch = candidate end
+end
+local realItemInfo = C_Item.GetItemInfo
+C_Item.GetItemInfo = function(id)
+    if id == 5202 then return "Épée Ёлка", "|Hitem:5202|h", 3 end
+    return realItemInfo(id)
+end
+local function HomeSearch(text)
+    homeSearch.text = text
+    homeSearch.scripts.OnTextChanged(homeSearch)
+    local found = {}
+    for _, row in ipairs(LootRows()) do
+        if tostring(row.text.text):find("Épée", 1, true) and tostring(row.slot.text):find("^Zone%d+, ") then
+            found[#found + 1] = row
+        end
+    end
+    return found
+end
+assert(#HomeSearch("É") == 0, "un seul caractère : pas de recherche")
+local hits = HomeSearch("EPEE")
+assert(#hits >= 1 and tostring(hits[1].slot.text):find("^Zone36, "), "recherche sans accent : " .. #hits)
+assert(#HomeSearch("ЁЛКА") == #hits, "recherche en cyrillique majuscule")
+hits[1].scripts.OnClick(hits[1], "RightButton")
+assert(db.wishlist[5202], "clic droit sur un résultat : liste de souhaits")
+local wishLines = TooltipLines(5202)
+assert(wishLines[1] == NS.WISH_MARK .. NS.L.WISHLIST, "infobulle : objet de la liste de souhaits")
+hits[1].scripts.OnClick(hits[1], "LeftButton")
+assert(homeSearch.text == "" and #Visible("^Zone36$") == 1, "clic sur un résultat : recherche vidée, boss ouvert")
+C_Item.GetItemInfo = realItemInfo
+
+-- Prérequis et objets à rapporter sous la quête.
+local prereq, withPre = NS.L.PREREQ:match("^(.-)%%s"), nil
+for i, dungeon in ipairs(NS.Dungeons) do
+    for _, quest in ipairs(dungeon.quests) do
+        if quest.pre and quest.side ~= "h" then withPre = withPre or i end
+    end
+end
+Click(dungeonRows[withPre])
+OpenTab("quests")
+local prereqShown = false
+for _, row in ipairs(frames) do
+    local need = rawget(row, "need")
+    if row.shown and type(need) == "table" and tostring(need.text):find(prereq, 1, true) then prereqShown = true end
+end
+assert(prereqShown, "prérequis affiché pour " .. NS.Dungeons[withPre].key)
+
+-- Point de route sur l'entrée du donjon.
+local waypoint
+C_Map = { CanSetUserWaypointOnMap = function() return true end, SetUserWaypoint = function(point) waypoint = point end }
+UiMapPoint = { CreateFromCoordinates = function(map, x, y) return { map = map, x = x, y = y } end }
+Click(dungeonRows[deadmines])
+local entrance = NS.Dungeons[deadmines].entrance
+local waypointButton = Visible("^" .. NS.L.WAYPOINT .. "$")[1]
+assert(entrance and waypointButton, "bouton de point de route sur un donjon qui a une entrée")
+Click(waypointButton)
+assert(waypoint and waypoint.map == entrance.map and waypoint.x == entrance.x, "point de route posé sur l'entrée")
+
+-- Zone du donneur de quête : nom de la carte donné par le client.
+C_Map.GetMapInfo = function(map) return { name = "Carte" .. map } end
+Click(dungeonRows[withPre])
+OpenTab("quests")
+local zoneShown = false
+for _, row in ipairs(frames) do
+    local giver = rawget(row, "giver")
+    if row.shown and type(giver) == "table" and tostring(giver.text):find(", Carte14%d%d$") then zoneShown = true end
+end
+assert(zoneShown, "zone de quête traduite par le client")
+
+-- Quête sans donneur lancée par un objet : nom de l'objet à la place du donneur.
+local withItem, startItem
+for index, dungeon in ipairs(NS.Dungeons) do
+    for _, quest in ipairs(dungeon.quests or {}) do
+        if not withItem and quest.startItem and not quest.giver and not quest.side and quest.startItem % 2 == 0 then
+            withItem, startItem = index, quest.startItem
+        end
+    end
+end
+assert(withItem, "une quête neutre lancée par un objet")
+Click(dungeonRows[withItem])
+OpenTab("quests")
+local itemShown = false
+for _, row in ipairs(frames) do
+    local giver = rawget(row, "giver")
+    if row.shown and type(giver) == "table" and tostring(giver.text) == NS.L.QUEST_ITEM:format("Objet" .. startItem) then
+        itemShown = true
+    end
+end
+assert(itemShown, "objet qui lance la quête affiché")
+
+-- Rappel de la liste de souhaits à l'entrée du donjon, une fois par entrée.
+printedBefore = #printed
+Fire("PLAYER_ENTERING_WORLD")
+assert(#printed > printedBefore and printed[printedBefore + 1]:find(NS.L.MSG_WISH_HERE:match("^(.-)%%s"), 1, true),
+    "rappel des objets voulus du donjon")
+printedBefore = #printed
+Fire("PLAYER_ENTERING_WORLD")
+assert(#printed == printedBefore, "pas de second rappel dans le même donjon")
+-- Objet voulu pas encore chargé (id impair dans le mock) : rappel différé jusqu'à GET_ITEM_INFO_RECEIVED.
+local unloaded
+for _, boss in ipairs(NS.Dungeons[deadmines].bosses) do
+    for _, itemID in ipairs(boss.items or {}) do
+        if itemID % 2 == 1 then unloaded = unloaded or itemID end
+    end
+end
+assert(unloaded, "objet impair dans les Mortemines")
+local inDeadmines = GetInstanceInfo
+GetInstanceInfo = function() return "Elwynn", "none", 0, "", 0, 0, false, 0 end
+Fire("PLAYER_ENTERING_WORLD")
+GetInstanceInfo = inDeadmines
+db.wishlist[unloaded] = true
+printedBefore = #printed
+Fire("PLAYER_ENTERING_WORLD")
+assert(#printed == printedBefore, "objet non chargé : rappel en attente")
+local loadedInfo = C_Item.GetItemInfo
+C_Item.GetItemInfo = function(id) return "Objet" .. id, "|Hitem:" .. id .. "|h", 3 end
+Fire("GET_ITEM_INFO_RECEIVED", unloaded, true)
+C_Item.GetItemInfo = loadedInfo
+assert(#printed > printedBefore and table.concat(printed, "\n", printedBefore + 1):find("|Hitem:" .. unloaded .. "|h", 1, true), "rappel une fois l'objet chargé")
+slash("clearwishlist")
+assert(next(db.wishlist) == nil and printed[#printed]:find(NS.L.MSG_WISHLIST_CLEARED, 1, true), "/codex clearwishlist")
+
+-- Fin de rencontre : boss coché par son nom ; rencontre ratée ignorée.
+slash("resetkills")
+assert(next(db.kills) == nil and printed[#printed]:find(NS.L.MSG_KILLS_RESET, 1, true), "/codex resetkills")
+Fire("ENCOUNTER_END", 1, byName.name, 1, 5, 0)
+assert(next(db.kills) == nil, "rencontre ratée : rien de coché")
+Fire("ENCOUNTER_END", 1, byName.name, 1, 5, 1)
+assert(db.kills[byName.npc], "rencontre réussie : boss coché")
+
+-- Message système de réinitialisation : coches effacées ; autre message : rien.
+Fire("CHAT_MSG_SYSTEM", "Vous avez rejoint le groupe.")
+assert(db.kills[byName.npc], "autre message système : coches gardées")
+Fire("CHAT_MSG_SYSTEM", "The Deadmines has been reset.")
+assert(next(db.kills) == nil, "instance réinitialisée : coches effacées")
+
+-- Boss inconnu de Data.lua, dans un donjon bêta : rencontre puis butin d'une créature inconnue, relevés.
+local realInstance = GetInstanceInfo
+local excavation
+for _, dungeon in ipairs(NS.Dungeons) do
+    if dungeon.key == "ExcavationSite" then excavation = dungeon end
+end
+GetInstanceInfo = function() return "Excavation", "party", 1, "", 5, 0, false, excavation.instance end
+local bossCount = #excavation.bosses
+-- Client allemand : un boss sans nom deDE, la rencontre ne se compare pas ; le butin du npc connu n'ajoute pas de doublon.
+local firstNames = excavation.bosses[1].names
+excavation.bosses[1].names = nil
+GetLocale = function() return "deDE" end
+Fire("ENCOUNTER_END", 776, "Salzstachel", 1, 5, 1)
+loot = { { link = "|Hitem:123455|h", quality = 3, guid = "Creature-0-1-2-3-" .. excavation.bosses[1].npc .. "-0000" } }
+Fire("LOOT_OPENED")
+assert(db.found[excavation.instance] == nil and #excavation.bosses == bossCount, "deDE : aucun doublon de boss")
+Fire("ENCOUNTER_END", 776, "Salzstachel", 1, 5, 1)
+loot = { { link = "|Hitem:123454|h", quality = 3, guid = "Creature-0-1-2-3-44444-0000" } }
+Fire("LOOT_OPENED")
+assert(db.found[excavation.instance] == nil and #excavation.bosses == bossCount, "deDE : butin d'un trash, aucun doublon")
+excavation.bosses[1].names = firstNames
+GetLocale = function() return "esMX" end
+local spanish = { npc = 1, name = "Saltspine", names = { esES = "Espinasal" } }
+assert(NS.BossName(spanish) == "Espinasal", "esMX : nom de boss repris d'esES")
+-- esMX : le repli esES n'est pas une traduction sûre, la rencontre au nom différent reste ignorée.
+Fire("ENCOUNTER_END", 776, "Espina de sal", 1, 5, 1)
+loot = { { link = "|Hitem:123453|h", quality = 3, guid = "Creature-0-1-2-3-44444-0000" } }
+Fire("LOOT_OPENED")
+assert(db.found[excavation.instance] == nil and #excavation.bosses == bossCount, "esMX : butin d'un trash, aucun doublon")
+GetLocale = function() return "frFR" end
+Fire("ENCOUNTER_END", 777, "Nouveau boss", 1, 5, 1)
+loot = { { link = "|Hitem:123456|h", quality = 3, guid = "Creature-0-1-2-3-55555-0000" } }
+Fire("LOOT_OPENED")
+local found = db.found[excavation.instance]
+assert(found and found.encounters[777] and found.encounters[777].npc == 55555, "boss inconnu relevé dans db.found")
+assert(db.recorded.e777 and db.recorded.e777[123456], "butin du boss inconnu relevé")
+assert(#excavation.bosses == bossCount + 1 and excavation.bosses[bossCount + 1].name == "Nouveau boss", "boss ajouté au donjon")
+local recordedLines = TooltipLines(123456)
+assert(#recordedLines == 1 and recordedLines[1]:find(NS.L.RECORDED, 1, true), "infobulle : source vue en jeu")
+slash("resetkills")
+Died(55555)
+assert(db.kills["Nouveau boss"], "run suivant : mort du boss relevé reconnue")
+GetInstanceInfo = realInstance   -- Deadmines, donjon vérifié : pas de boss en plus
+Fire("ENCOUNTER_END", 778, "Pas un boss", 1, 5, 1)
+loot = { { link = "|Hitem:123457|h", quality = 3, guid = "Creature-0-1-2-3-66666-0000" } }
+Fire("LOOT_OPENED")
+assert(db.found[36] == nil and db.recorded[66666] == nil, "donjon vérifié : aucun boss ajouté")
 
 slash("resetpins")
 slash("wipe")

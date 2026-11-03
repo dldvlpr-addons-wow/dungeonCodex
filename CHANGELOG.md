@@ -1,5 +1,34 @@
 # Dungeon Codex
 
+## 1.4
+
+### New
+- **Forever dungeons**: Excavation Site and City of Dalaran (beta data). Five announced dungeons without data
+  (The Drowned City, Krol'dok Stronghold, Alcaz Prison, Blackmaw Hold, The Shaper's Terrace) show as "Upcoming".
+  Badges "Beta" and "Unconfirmed" mark the dungeons whose data is not verified.
+- **Search all loot**: box at the top of the window, from 2 characters, ignores case and accents.
+  Click opens the boss loot, right-click toggles the wishlist.
+- **My class** in the loot type menu: only the armor and weapons the character can equip.
+- **Waypoint** button on the dungeon page: sets a map waypoint on the dungeon entrance.
+- **Quests**: items to bring and prerequisite quests (checked when done) under each quest.
+- **Wishlist reminder** in the chat when entering a dungeon where a wished item drops.
+- Item tooltips show wished items and the sources seen in game.
+- Bosses missing from the data are recorded in 5-player dungeons (successful encounter, then loot from an unknown creature)
+  and added to the dungeon. `tools/found_export.lua` exports them for the data generator.
+- **Boss abilities** for 136 more bosses (Blackrock Depths, Blackrock Spire, Dire Maul, Maraudon, Razorfen Downs,
+  Scholomance, Stratholme, Sunken Temple, The Stockade, Uldaman, Zul'Farrak), in every client language.
+- `/codex resetkills` clears the boss checkmarks, `/codex clearwishlist` empties the wishlist.
+
+### Changed
+- Boss checkmarks clear on the instance reset system message.
+- Only the open tab is refreshed.
+- Boss abilities of Razorfen Kraul, Scarlet Monastery, Excavation Site and City of Dalaran translated in every client
+  language (they showed in French).
+- Quest giver zone shown in the client language.
+- Quests without a giver show the item that starts them (or the giver known to Questie).
+- Forever boss names in German, Spanish (Mexican too), Portuguese, Russian, Korean and Simplified Chinese clients (and more French ones).
+- The wishlist reminder waits for the items to load instead of showing "item:ID".
+
 ## 1.3
 
 ### New

@@ -23,4 +23,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      # Test hors jeu : un échec bloque la publication.
+      - name: Smoke test
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lua5.1
+          lua5.1 tests/smoke.lua
+
       - uses: BigWigsMods/packager@v2
