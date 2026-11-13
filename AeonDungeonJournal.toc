@@ -36,4 +36,8 @@ Tactics\koKR.lua
 Tactics\zhCN.lua
 Tactics\zhTW.lua
 Journal.lua
+Loot.lua
+Share.lua
+MapCanvas.lua
+Options.lua
 Tooltip.lua

@@ -32,7 +32,9 @@ local function AddSources(tooltip, data)
     local db = _G[ADDON_NAME .. "DB"]
     local itemID = data and data.id
     if not db or db.hideTooltip or isSecret(itemID) or not itemID then return end
-    if db.wishlist and db.wishlist[itemID] then tooltip:AddLine(NS.WISH_MARK .. NS.L.WISHLIST, 1, 0.82, 0) end
+    if NS.IsWished(itemID) then tooltip:AddLine(NS.WISH_MARK .. NS.L.WISHLIST, 1, 0.82, 0) end
+    local wishedBy = NS.WishedBy(itemID)
+    if #wishedBy > 0 then tooltip:AddLine(NS.L.WISHED_BY:format(table.concat(wishedBy, ", ")), 1, 0.82, 0) end
     local shown = 0
     for _, source in ipairs(sources[itemID] or {}) do
         if shown == MAX_SOURCES then return end

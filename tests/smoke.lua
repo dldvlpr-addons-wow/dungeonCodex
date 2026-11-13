@@ -43,20 +43,27 @@ local events = {}
 local eventFrames = {}
 local buttons = {}
 local frames = {}
-function CreateFrame(kind, name, _, template)
+function CreateFrame(kind, name, parent, template)
     local frame = Region()
-    frame.name = name
+    frame.name, frame.parent = name, parent
     frames[#frames + 1] = frame
     if kind == "Button" then buttons[#buttons + 1] = frame end
-    local register = function(f, event) events[event] = true eventFrames[#eventFrames + 1] = f end
+    if template == "UICheckButtonTemplate" then frame.Text = Region() end
+    local registered = {}
+    local register = function(f, event)
+        events[event] = true
+        if not next(registered) then eventFrames[#eventFrames + 1] = f end
+        registered[event] = true
+    end
     rawset(frame, "RegisterEvent", register)
+    rawset(frame, "registeredEvents", registered)
     if name then _G[name] = frame end
     return frame
 end
 local function Fire(event, ...)
     for _, frame in ipairs(eventFrames) do
         local handler = frame.scripts.OnEvent
-        if handler then handler(frame, event, ...) end
+        if handler and frame.registeredEvents[event] then handler(frame, event, ...) end
     end
 end
 
@@ -71,7 +78,9 @@ GetLocale = function() return "frFR" end
 INVTYPE_HEAD = "Tête"
 GetRealZoneText = function(id) return "Zone" .. id end
 GetInstanceInfo = function() return "Deadmines", "party", 1, "", 5, 0, false, 36 end
-GetCursorPosition = function() return 300, 300 end
+local cursorX, cursorY, mouseDown = 300, 300, false
+GetCursorPosition = function() return cursorX, cursorY end
+IsMouseButtonDown = function() return mouseDown end
 IsShiftKeyDown = function() return true end
 GameTooltip_Hide = NOOP
 HandleModifiedItemClick = NOOP
@@ -90,8 +99,9 @@ C_Item = {
     GetItemInfo = function(id) if id % 2 == 0 then return "Objet" .. id, "|Hitem:" .. id .. "|h", 3 end end,
     GetItemIconByID = function() return 134400 end,
     RequestLoadItemDataByID = NOOP,
+    GetItemCount = function() return 0 end,
     GetItemInfoInstant = function(item)
-        local id = tonumber(tostring(item):match("(%d+)"))
+        local id = tonumber(tostring(item):match("item:(%d+)") or tostring(item):match("(%d+)"))
         -- Armure (classID 4) : tissu (1) pour les pairs, cuir (2) pour les impairs.
         return id, "Armure", id % 2 == 0 and "Tissu" or "Cuir", id % 3 == 0 and "INVTYPE_HEAD" or "", 134400, 4, 1 + id % 2
     end,
@@ -110,6 +120,25 @@ IsInGroup = function() return inGroup end
 IsInRaid = function() return false end
 C_ChatInfo = { SendChatMessage = function(text, channel) sent[#sent + 1] = { text = text, channel = channel } end,
                InChatMessagingLockdown = function() return chatLocked end }
+local addonSent, addonResults, members, equipped = {}, {}, {}, {}
+C_ChatInfo.RegisterAddonMessagePrefix = function() return 0 end
+C_ChatInfo.SendAddonMessage = function(prefix, text, channel)
+    addonSent[#addonSent + 1] = { prefix = prefix, text = text, channel = channel }
+    return table.remove(addonResults, 1) or 0
+end
+UnitName = function() return "Moi" end
+GetNormalizedRealmName = function() return "Royaume" end
+LE_PARTY_CATEGORY_HOME, LE_PARTY_CATEGORY_INSTANCE = 1, 2
+Ambiguate = function(name) return (name:gsub("%-.*", "")) end
+UnitInParty = function(name) return members[name] == true end
+UnitInRaid = function() return nil end
+GetNumGroupMembers = function()
+    local count = 1
+    for _ in pairs(members) do count = count + 1 end
+    return count
+end
+GetInventoryItemLink = function(_, slot) return equipped[slot] end
+INVTYPE_HEAD = "Tête"
 C_Spell = { GetSpellName = function(id) return "Sort" .. id end }
 local tooltipPostCall
 TooltipDataProcessor = { AddTooltipPostCall = function(_, callback) tooltipPostCall = callback end }
@@ -128,6 +157,11 @@ GetNumLootItems = function() return #loot end
 GetLootSlotLink = function(slot) return loot[slot].link end
 GetLootSlotInfo = function(slot) return nil, nil, 1, nil, loot[slot].quality, false, false end
 GetLootSourceInfo = function(slot) return loot[slot].guid, 1 end
+
+local optionsPanel, optionsOpened, compartment
+Settings = { RegisterCanvasLayoutCategory = function(panel) optionsPanel = panel return { GetID = function() return 7 end } end,
+             RegisterAddOnCategory = NOOP, OpenToCategory = function(id) optionsOpened = id end }
+AddonCompartmentFrame = { RegisterAddon = function(_, data) compartment = data end }
 
 local NS = {}
 local files, textLocales = {}, {}
@@ -170,8 +204,13 @@ end
 Fire("LOOT_OPENED")   -- avant le chargement des réglages : ignoré
 Fire("ADDON_LOADED", "AutreAddon")
 assert(_G[ADDON .. "DB"] == nil, "ADDON_LOADED d'un autre addon : rien de chargé")
+_G[ADDON .. "DB"] = { wishlist = { [1234] = true } }   -- liste commune d'avant 1.5
 Fire("ADDON_LOADED", ADDON)
+Fire("PLAYER_LOGIN")
 local db = _G[ADDON .. "DB"]
+local wishes = db.wishlists["Moi-Royaume"]
+assert(wishes and wishes[1234] and db.wishlist == nil, "ancienne liste reprise par le premier personnage connecté")
+wishes[1234] = nil
 assert(db and db.pins and db.recorded, "base de réglages")
 for _, dungeon in ipairs(NS.Dungeons) do
     for _, floor in ipairs(dungeon.floors) do
@@ -182,6 +221,20 @@ end
 
 Fire("LOOT_OPENED")
 assert(db.recorded[639][99999] and db.recorded[639][5193], "butin relevé sur VanCleef")
+
+-- Réglages : la case de la minicarte cache le bouton ; /codex options ouvre le panneau.
+assert(compartment and compartment.text == NS.L.TITLE and compartment.func, "entrée du compartiment d'addons")
+SlashCmdList.AEONDUNGEONJOURNAL("options")
+assert(optionsOpened == 7, "/codex options ouvre le panneau")
+optionsPanel.scripts.OnShow(optionsPanel)
+local minimapBox
+for _, box in ipairs(frames) do
+    if rawget(box, "Text") and box.Text.text == NS.L.OPT_MINIMAP then minimapBox = box end
+end
+assert(AeonDungeonJournalMinimapButton.shown, "bouton de la minicarte affiché par défaut")
+minimapBox.scripts.OnClick(minimapBox)   -- GetChecked du mock rend nil : case décochée
+assert(db.hideMinimap and not AeonDungeonJournalMinimapButton.shown, "case décochée : bouton de la minicarte caché")
+db.hideMinimap = nil
 
 local slash = SlashCmdList.AEONDUNGEONJOURNAL
 slash("")
@@ -243,9 +296,21 @@ end
 
 assert(#BossRows() > 0, "ouverture sur le donjon en cours")
 Click(Visible("^" .. NS.L.HOME .. "$")[1])
-local dungeonRows, upcoming = {}, 0
+-- Grille triée : conseillés (bordure dorée) d'abord, puis niveau minimum croissant. dungeonRows est ensuite
+-- rangé dans l'ordre de NS.Dungeons pour la suite du test (niveau fixe à 20 : l'ordre ne bouge plus).
+local gridCards, dungeonIndex, dungeonRows, upcoming = {}, {}, {}, 0
+for i, dungeon in ipairs(NS.Dungeons) do dungeonIndex[dungeon] = i end
 for _, button in ipairs(buttons) do
-    if button.shown and rawget(button, "edges") and rawget(button, "levels") then dungeonRows[#dungeonRows + 1] = button end
+    if button.shown and rawget(button, "edges") and rawget(button, "levels") then gridCards[#gridCards + 1] = button end
+end
+for i, card in ipairs(gridCards) do
+    dungeonRows[dungeonIndex[card.dungeon]] = card
+    local previous = gridCards[i - 1]
+    if previous then
+        local gold, previousGold = card.edges[1].color[1] == 1, previous.edges[1].color[1] == 1
+        assert(previousGold or not gold, "donjons conseillés en tête de grille")
+        assert(gold ~= previousGold or previous.dungeon.levels[1] <= card.dungeon.levels[1], "grille triée par niveau minimum")
+    end
 end
 for i, dungeon in ipairs(NS.Dungeons) do
     if dungeon.upcoming then
@@ -265,6 +330,16 @@ for i, card in ipairs(dungeonRows) do
     if expected then advised = advised + 1 end
 end
 assert(advised > 0 and advised < #dungeonRows, "donjons conseillés : " .. advised)
+db.hideUpcoming = true
+Click(Visible("^" .. NS.L.HOME .. "$")[1])
+local listed = 0
+for _, card in ipairs(gridCards) do
+    if card.shown then listed = listed + 1 end
+    assert(not (card.shown and card.dungeon.upcoming), "donjon annoncé masqué")
+end
+assert(listed == #NS.Dungeons - upcoming, "option : donjons annoncés masqués")
+db.hideUpcoming = nil
+Click(Visible("^" .. NS.L.HOME .. "$")[1])
 -- Donjons sans image : miniature faite des tuiles de leur premier étage.
 for i, dungeon in ipairs(NS.Dungeons) do
     if dungeon.instance == 2999 or dungeon.instance == 3065 then
@@ -348,6 +423,43 @@ assert(#TooltipLines(5193) == 0, "infobulle masquée")
 slash("tooltip")
 assert(#TooltipLines(5193) >= 1, "infobulle réaffichée")
 
+-- Partage dans le groupe : listes reçues dans l'infobulle, oubliées au départ du membre ; liste envoyée en morceaux.
+local function HasLine(lines, text)
+    for _, line in ipairs(lines) do if line == text then return true end end
+    return false
+end
+local wishedByAmi = NS.L.WISHED_BY:format("Ami")
+members.Ami = true
+local sentBefore = #addonSent
+Fire("CHAT_MSG_ADDON", "DCodexWish", "!5193", "PARTY", "Ami-Royaume")
+assert(#addonSent == sentBefore + 1 and addonSent[#addonSent].text == "=" and addonSent[#addonSent].channel == "PARTY",
+    "membre qui demande les listes : la sienne reçue, la nôtre (vide) renvoyée sans demande")
+Fire("CHAT_MSG_ADDON", "DCodexWish", "+42", "PARTY", "Ami-Royaume")
+Fire("CHAT_MSG_ADDON", "DCodexWish", "=5193", "PARTY", "Moi-Royaume")
+Fire("CHAT_MSG_ADDON", "AutrePrefixe", "=5193", "PARTY", "Autre-Royaume")
+Fire("CHAT_MSG_ADDON", "DCodexWish", "=5193", "GUILD", "Guilde-Royaume")
+Fire("CHAT_MSG_ADDON", "DCodexWish", "=5193", "PARTY", "Inconnu-Royaume")
+assert(HasLine(TooltipLines(5193), wishedByAmi), "objet souhaité par un membre : nommé dans l'infobulle")
+assert(#NS.WishedBy(42) == 1 and #NS.WishedBy(5193) == 1, "suite ajoutée ; soi, autre préfixe, guilde et non-membre ignorés")
+members.Ami = nil
+Fire("GROUP_ROSTER_UPDATE")
+assert(#addonSent == sentBefore + 1 and #NS.WishedBy(5193) == 0, "membre parti : sa liste oubliée, rien renvoyé")
+inGroup = false
+Fire("GROUP_ROSTER_UPDATE")
+inGroup = true
+Fire("GROUP_ROSTER_UPDATE")
+assert(#addonSent == sentBefore + 2 and addonSent[#addonSent].text == "!", "entrée dans un groupe : liste envoyée avec demande")
+for id = 100000, 100059 do wishes[id] = true end
+addonResults = { 3 }
+sentBefore = #addonSent
+NS.ShareWishes()
+local parts = {}
+for i = sentBefore + 1, #addonSent do parts[#parts + 1] = addonSent[i].text end
+assert(parts[1]:find("^=") and #parts >= 3 and parts[2]:find("^=") and parts[#parts]:find("^%+"),
+    "limite de débit : liste renvoyée en entier, en plusieurs messages")
+for _, part in ipairs(parts) do assert(#part <= 255, "message d'addon de 255 octets au plus") end
+for id = 100000, 100059 do wishes[id] = nil end
+
 -- Filtres du butin, sur Deadmines : recherche par nom, menu des emplacements, remise à zéro au changement de donjon.
 local function LootRows()
     local found = {}
@@ -427,7 +539,7 @@ local function Starred(list)
 end
 local wished = LootRow("Objet5202")
 wished.scripts.OnClick(wished, "RightButton")
-assert(db.wishlist[5202] and Starred(LootRows()) == 1, "objet ajouté à la liste de souhaits")
+assert(wishes[5202] and Starred(LootRows()) == 1, "objet ajouté à la liste de souhaits")
 assert(Starred(BossRows()) >= 1, "étoile sur le boss")
 Click(Visible("^" .. NS.L.HOME .. "$")[1])
 assert(#Visible("^|TInterface.*Zone36") == 1 and #Visible("^|TInterface.*Zone%d+") == 1, "étoile sur le donjon, et lui seul")
@@ -437,25 +549,39 @@ Fire("LOOT_OPENED")
 assert(#printed == printedBefore + 1 and printed[#printed]:find("item:5202", 1, true), "alerte quand l'objet tombe")
 Fire("LOOT_OPENED")
 Fire("START_LOOT_ROLL", 1, 60)
-assert(#printed == printedBefore + 1, "une seule alerte par minute")
-now = now + 120
+Fire("ENCOUNTER_LOOT_RECEIVED", 1, 5202, "|Hitem:5202|h", 1, "Objet5202", "Joueur")
+Fire("CHAT_MSG_LOOT", "Joueur reçoit le butin : |Hitem:5202|h.")
+assert(#printed == printedBefore + 1, "une seule alerte par objet en 3 minutes, tous signaux confondus")
+now = now + 200
+Fire("CHAT_MSG_LOOT", "Joueur reçoit le butin : |cff0070dd|Hitem:5202::::|h[Objet5202]|h|r.")
+assert(#printed == printedBefore + 2 and printed[#printed]:find("item:5202", 1, true),
+    "alerte du message de butin à lien coloré, le délai passé")
+now = now + 200
 Fire("START_LOOT_ROLL", 1, 60)
-assert(#printed == printedBefore + 2 and printed[#printed]:find("item:5202", 1, true), "alerte au jet de groupe, la minute passée")
+assert(#printed == printedBefore + 3 and printed[#printed]:find("item:5202", 1, true), "alerte au jet de groupe")
+printedBefore = printedBefore + 1
 SlashCmdList.AEONDUNGEONJOURNAL("wishlist")
 assert(#printed == printedBefore + 3 and printed[#printed]:find("5202", 1, true), "/codex wishlist liste l'objet")
 printedBefore = printedBefore + 1
+equipped[1] = "|Hitem:5202|h"
 Click(Visible(NS.L.WISHLIST .. "$")[1])
-local wishRow
+local wishRow, headerRow
 for _, row in ipairs(LootRows()) do
     if row.text.text == "Objet5202" and tostring(row.slot.text):find("^Zone36, ") then wishRow = row end
+    if row.text.text == NS.L.EQUIPPED:format("Objet5202") and row.slot.text == "Tête" then headerRow = row end
 end
 assert(wishRow, "bouton liste de souhaits : l'objet, son donjon et son boss")
+assert(headerRow, "liste rangée par emplacement : objet porté en tête du groupe")
+assert(tostring(wishRow.source.text):find(NS.L.OBTAINED, 1, true), "objet porté : marqué obtenu")
+equipped[1] = nil
+Fire("PLAYER_EQUIPMENT_CHANGED", 1, false)
+assert(not tostring(wishRow.source.text):find(NS.L.OBTAINED, 1, true), "objet retiré : plus marqué obtenu")
 wishRow.scripts.OnClick(wishRow, "LeftButton")
 assert(#Visible("^Zone36$") == 1, "clic sur l'objet : ouvre son donjon")
 OpenDeadminesLoot()
 wished = LootRow("Objet5202")
 wished.scripts.OnClick(wished, "RightButton")
-assert(db.wishlist[5202] == nil and Starred(LootRows()) == 0 and Starred(BossRows()) == 0, "objet retiré de la liste")
+assert(wishes[5202] == nil and Starred(LootRows()) == 0 and Starred(BossRows()) == 0, "objet retiré de la liste")
 now = now + 120
 Fire("LOOT_OPENED")
 assert(#printed == printedBefore + 2, "pas d'alerte pour un objet hors de la liste")
@@ -620,7 +746,7 @@ local hits = HomeSearch("EPEE")
 assert(#hits >= 1 and tostring(hits[1].slot.text):find("^Zone36, "), "recherche sans accent : " .. #hits)
 assert(#HomeSearch("ЁЛКА") == #hits, "recherche en cyrillique majuscule")
 hits[1].scripts.OnClick(hits[1], "RightButton")
-assert(db.wishlist[5202], "clic droit sur un résultat : liste de souhaits")
+assert(wishes[5202], "clic droit sur un résultat : liste de souhaits")
 local wishLines = TooltipLines(5202)
 assert(wishLines[1] == NS.WISH_MARK .. NS.L.WISHLIST, "infobulle : objet de la liste de souhaits")
 hits[1].scripts.OnClick(hits[1], "LeftButton")
@@ -706,7 +832,7 @@ local inDeadmines = GetInstanceInfo
 GetInstanceInfo = function() return "Elwynn", "none", 0, "", 0, 0, false, 0 end
 Fire("PLAYER_ENTERING_WORLD")
 GetInstanceInfo = inDeadmines
-db.wishlist[unloaded] = true
+wishes[unloaded] = true
 printedBefore = #printed
 Fire("PLAYER_ENTERING_WORLD")
 assert(#printed == printedBefore, "objet non chargé : rappel en attente")
@@ -716,7 +842,7 @@ Fire("GET_ITEM_INFO_RECEIVED", unloaded, true)
 C_Item.GetItemInfo = loadedInfo
 assert(#printed > printedBefore and table.concat(printed, "\n", printedBefore + 1):find("|Hitem:" .. unloaded .. "|h", 1, true), "rappel une fois l'objet chargé")
 slash("clearwishlist")
-assert(next(db.wishlist) == nil and printed[#printed]:find(NS.L.MSG_WISHLIST_CLEARED, 1, true), "/codex clearwishlist")
+assert(next(wishes) == nil and printed[#printed]:find(NS.L.MSG_WISHLIST_CLEARED, 1, true), "/codex clearwishlist")
 
 -- Fin de rencontre : boss coché par son nom ; rencontre ratée ignorée.
 slash("resetkills")
@@ -780,6 +906,84 @@ loot = { { link = "|Hitem:123457|h", quality = 3, guid = "Creature-0-1-2-3-66666
 Fire("LOOT_OPENED")
 assert(db.found[36] == nil and db.recorded[66666] == nil, "donjon vérifié : aucun boss ajouté")
 
+-- Carte : traits reçus d'un membre, dessinés, partagés par tranches, effacés ; zoom autour du curseur, déplacement.
+local viewport, canvas, drawButton, clearButton
+for _, candidate in ipairs(frames) do
+    if candidate.scripts.OnMouseWheel and candidate.scripts.OnMouseDown then viewport = candidate end
+    if candidate.text == NS.L.DRAW then drawButton = candidate end
+    if candidate.text == NS.L.CLEAR_DRAWING then clearButton = candidate end
+end
+for _, candidate in ipairs(frames) do
+    if candidate.parent == viewport then canvas = candidate end
+end
+assert(viewport and canvas and drawButton and clearButton, "vue, carte et boutons de dessin")
+local lines, lastPoint = {}, nil
+rawset(canvas, "CreateLine", function() local line = Region() lines[#lines + 1] = line return line end)
+rawset(canvas, "SetPoint", function(_, _, _, _, x, y) lastPoint = { x, y } end)
+local function ShownLines()
+    local count = 0
+    for _, line in ipairs(lines) do if line.shown then count = count + 1 end end
+    return count
+end
+local mapDungeon
+for index, dungeon in ipairs(NS.Dungeons) do
+    if #dungeon.floors > 1 and not mapDungeon then mapDungeon = index end
+end
+Click(dungeonRows[mapDungeon])
+OpenTab("map")
+local floor = NS.Dungeons[mapDungeon].floors[1]
+members.Ami = true
+Fire("CHAT_MSG_ADDON", "DCodexDraw", "S" .. floor .. ":000000500500999999", "PARTY", "Ami-Royaume")
+assert(ShownLines() == 2, "trait reçu d'un membre : 2 segments")
+Fire("CHAT_MSG_ADDON", "DCodexDraw", "S" .. floor .. ":000000999999", "PARTY", "Inconnu-Royaume")
+Fire("CHAT_MSG_ADDON", "DCodexDraw", "S999999:000000999999", "PARTY", "Ami-Royaume")
+Fire("CHAT_MSG_ADDON", "DCodexDraw", "S" .. floor .. ":00000099999", "PARTY", "Ami-Royaume")
+assert(ShownLines() == 2, "non-membre, étage inconnu, message tronqué : ignorés")
+sentBefore = #addonSent
+Click(drawButton)
+cursorX, cursorY, mouseDown = 110, 300, true   -- carte de 540 px : pas de 5 px, au-dessus du minimum
+viewport.scripts.OnMouseDown(viewport, "LeftButton")
+for step = 1, 99 do
+    cursorX, cursorY = 110 + 4 * step, 300 + step
+    viewport.scripts.OnUpdate(viewport)
+end
+mouseDown = false
+viewport.scripts.OnUpdate(viewport)
+assert(viewport.scripts.OnUpdate == nil, "bouton relâché : geste terminé")
+assert(ShownLines() == 2 + 99, "trait dessiné : 99 segments")
+local drawn = {}
+for i = sentBefore + 1, #addonSent do
+    assert(addonSent[i].prefix == "DCodexDraw" and #addonSent[i].text <= 255, "tranche sous 255 octets")
+    drawn[#drawn + 1] = addonSent[i].text
+end
+assert(#drawn == 3 and drawn[1]:sub(-6) == drawn[2]:sub(#("S" .. floor .. ":") + 1, #("S" .. floor .. ":") + 6),
+    "100 points en 3 tranches raccordées")
+Click(drawButton)
+Click(clearButton)
+assert(ShownLines() == 0 and addonSent[#addonSent].text == "C" .. floor, "effacer : traits cachés, effacement partagé")
+Fire("CHAT_MSG_ADDON", "DCodexDraw", "S" .. floor .. ":000000999999", "PARTY", "Ami-Royaume")
+Fire("CHAT_MSG_ADDON", "DCodexDraw", "C" .. floor, "PARTY", "Ami-Royaume")
+assert(ShownLines() == 0, "effacement reçu d'un membre")
+cursorX, cursorY = 300, 300   -- vue à (100, 500) : curseur en (200, 200) dans la vue
+viewport.scripts.OnMouseWheel(viewport, 1)
+assert(math.abs(lastPoint[1] - 200 * (1 - 1.25) / 1.25) < 1e-6 and math.abs(lastPoint[2] - 200 * 0.25 / 1.25) < 1e-6,
+    "zoom : le point sous le curseur reste")
+for _ = 1, 20 do viewport.scripts.OnMouseWheel(viewport, 1) end
+local width, height = canvas:GetWidth(), canvas:GetHeight()
+mouseDown = true
+viewport.scripts.OnMouseDown(viewport, "LeftButton")
+cursorX, cursorY = 300 + 10000, 300 - 10000
+viewport.scripts.OnUpdate(viewport)
+assert(math.abs(lastPoint[1] - 0) < 1e-6 and math.abs(lastPoint[2] - 0) < 1e-6, "déplacement borné au coin haut gauche")
+cursorX, cursorY = 300 - 10000, 300 + 10000
+viewport.scripts.OnUpdate(viewport)
+assert(math.abs(lastPoint[1] - width * (1 - 4) / 4) < 1e-6 and math.abs(lastPoint[2] - height * 3 / 4) < 1e-6,
+    "zoom borné à 4, déplacement borné au coin bas droit")
+mouseDown = false
+viewport.scripts.OnUpdate(viewport)
+Click(dungeonRows[mapDungeon == 1 and 2 or 1])
+OpenTab("map")
+assert(lastPoint[1] == 0 and lastPoint[2] == 0, "autre étage : zoom remis à 1")
 slash("resetpins")
 slash("wipe")
 assert(next(db.recorded) == nil, "butin oublié")
