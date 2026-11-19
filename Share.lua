@@ -3,7 +3,9 @@
 -- change ou quand il coche un objet, et l'infobulle d'un objet nomme les membres qui le souhaitent.
 -- Format : "=" suivi des itemID séparés par des virgules (remplace la liste), puis "+" pour la suite.
 -- "!" au lieu de "=" : premier envoi après l'entrée dans le groupe ou un /reload, les autres répondent par leur liste.
-local _, NS = ...
+-- "V" suivi de la version de l'addon : envoyé avec "!" et avec la réponse ; une version plus récente reçue est
+-- signalée une fois par session. Les versions sans ce message l'ignorent (mode inconnu).
+local addonName, NS = ...
 
 local isSecret = _G.issecretvalue or function() return false end
 local PREFIX = "DCodexWish"
@@ -14,6 +16,21 @@ local RETRY = { [R.AddonMessageThrottle or 3] = true, [R.ChannelThrottle or 8] =
 
 local groupWishes = {}             -- [nom du membre] = { [itemID] = true }
 local sendPending, askReply, wasInGroup, loggedIn = false, false, false, false
+local sendVersion, versionWarned = false, false
+local VERSION = C_AddOns and C_AddOns.GetAddOnMetadata and C_AddOns.GetAddOnMetadata(addonName, "Version") or ""
+
+--- Version reçue plus récente que la nôtre : "1.10" > "1.9", parties numériques comparées une à une.
+local function IsNewer(other)
+    local mine, theirs = {}, {}
+    for part in VERSION:gmatch("%d+") do mine[#mine + 1] = tonumber(part) end
+    for part in other:gmatch("%d+") do theirs[#theirs + 1] = tonumber(part) end
+    if #mine == 0 then return false end
+    for i = 1, math.max(#mine, #theirs) do
+        local a, b = mine[i] or 0, theirs[i] or 0
+        if a ~= b then return b > a end
+    end
+    return false
+end
 local GROUP_CHANNELS = { PARTY = true, RAID = true, INSTANCE_CHAT = true }
 
 local function Channel()
@@ -37,6 +54,7 @@ local function Send()
         current = current .. (current:find("%d$") and "," or "") .. id
     end
     messages[#messages + 1] = current
+    if sendVersion and VERSION ~= "" then table.insert(messages, 1, "V" .. VERSION) end
     for _, message in ipairs(messages) do
         local result = C_ChatInfo.SendAddonMessage(PREFIX, message, channel)
         if RETRY[result] then
@@ -48,7 +66,7 @@ local function Send()
             return   -- hors groupe entre-temps, ou refus : la suite serait refusée aussi
         end
     end
-    askReply = false
+    askReply, sendVersion = false, false
 end
 
 --- Envoi regroupé : plusieurs déclencheurs proches ne partent qu'une fois.
@@ -89,9 +107,19 @@ local function Receive(message, channel, sender)
     local name = GroupSender(message, channel, sender)
     if not name then return end
     local mode, list = message:sub(1, 1), message:sub(2)
-    if mode == "=" or mode == "!" then
+    if mode == "V" then
+        -- Chiffres et points seulement : le texte d'un autre joueur ne porte aucun code de chat dans l'avis.
+        if not versionWarned and #list <= 20 and list:match("^[%d%.]+$") and IsNewer(list) then
+            versionWarned = true
+            NS.Print(NS.L.NEW_VERSION:format(list))
+        end
+        return
+    elseif mode == "=" or mode == "!" then
         groupWishes[name] = {}
-        if mode == "!" then ShareWishes() end
+        if mode == "!" then
+            sendVersion = true
+            ShareWishes()
+        end
     elseif mode ~= "+" or not groupWishes[name] then
         return
     end
@@ -111,7 +139,7 @@ local function RosterChanged()
         if not InGroup(name) then groupWishes[name] = nil end
     end
     if not wasInGroup then
-        wasInGroup, askReply = true, true
+        wasInGroup, askReply, sendVersion = true, true, true
         ShareWishes()
     end
 end

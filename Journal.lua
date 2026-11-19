@@ -105,6 +105,7 @@ end
 
 NS.BossName, NS.DungeonName, NS.WISH_MARK = BossName, DungeonName, WISH_MARK   -- pour Tooltip.lua
 NS.BossByRecordKey, NS.BossByNpc, NS.Print = bossByRecordKey, bossByNpc, Print
+NS.current, NS.DONE_MARK = current, DONE_MARK   -- pour Run.lua
 
 --- Étage et position du repère : déplacé en jeu d'abord, sinon Data.lua.
 local function BossPosition(boss)
@@ -236,6 +237,7 @@ local function BossItems(boss)
 end
 
 NS.ItemInfo, NS.ItemIDFromLink, NS.BossItems, NS.RecordKey = ItemInfo, ItemIDFromLink, BossItems, RecordKey
+NS.UsableByClass = UsableByClass
 
 --- Liste de souhaits du personnage : itemID -> true. Rangée sous « Nom-Royaume », connu à PLAYER_LOGIN.
 local character
@@ -463,10 +465,17 @@ local function IsKilled(boss)
     return db.kills[boss.npc or boss.name] ~= nil and time() - (db.killsAt or 0) <= RUN_SECONDS
 end
 
---- Efface les coches : nouveau run.
+--- Efface les coches : nouveau run. Le run effacé rejoint l'historique (50 derniers, /codex runs).
 local function ClearKills()
+    local count = 0
+    for _ in pairs(db.kills) do count = count + 1 end
+    if count > 0 and db.killsInstance and db.killsAt then
+        table.insert(db.runs, { instance = db.killsInstance, dungeon = db.killsDungeon, start = db.killsStart or db.killsAt,
+            finish = db.killsAt, bosses = count })
+        if #db.runs > 50 then table.remove(db.runs, 1) end
+    end
     wipe(db.kills)
-    db.killsAt, db.killsZone = nil, nil
+    db.killsAt, db.killsZone, db.killsStart, db.killsDungeon = nil, nil, nil, nil
 end
 
 --- Coche le boss. Nouveau run supposé, donc coches effacées : autre donjon, autre zoneUID dans le GUID d'une
@@ -480,12 +489,14 @@ local function MarkKilled(boss, looted, zone)
     if last and (looted or boss.otherNpcs or now - last < SAME_KILL_SECONDS) then return end
     if last or db.killsInstance ~= boss.dungeon.instance or now - (db.killsAt or 0) > RUN_SECONDS then ClearKills() end
     db.kills[key], db.killsInstance, db.killsAt = now, boss.dungeon.instance, now
+    db.killsStart, db.killsDungeon = db.killsStart or now, boss.dungeon.key
     db.killsZone = zone or db.killsZone
+    db.bossKills[RecordKey(boss)] = (db.bossKills[RecordKey(boss)] or 0) + 1   -- taux de butin observé (Run.lua)
     Refresh()
 end
 
 --- BOSS_KILL ne donne que le nom de la rencontre : boss du donjon en cours qui porte ce nom.
-NS.MarkKilled, NS.ClearKills = MarkKilled, ClearKills
+NS.MarkKilled, NS.ClearKills, NS.IsKilled = MarkKilled, ClearKills, IsKilled
 
 local function MarkKilledByName(name)
     local instanceID = _G.GetInstanceInfo and select(8, GetInstanceInfo())
@@ -705,7 +716,8 @@ local function RefreshBossList()
         button.number:SetText(i)
         button.text:SetText((HasWish(boss) and WISH_MARK or "") .. (IsKilled(boss) and DONE_MARK or "") .. BossName(boss))
         local rare = boss.rare and " (" .. (_G.ITEM_QUALITY3_DESC or "Rare") .. ")" or ""
-        button.detail:SetText(boss.level and (_G.LEVEL or "Level") .. " " .. boss.level .. rare or "")
+        local level = boss.level or boss.npc and db.bossLevels[boss.npc]   -- relevé en jeu (Run.lua) faute de donnée
+        button.detail:SetText(level and (_G.LEVEL or "Level") .. " " .. level .. rare or "")
         SetBossPortrait(button.portrait, boss)
         local floor = BossPosition(boss)
         local elsewhere = #dungeon.floors > 1 and floor ~= floorID
@@ -789,7 +801,9 @@ local function RefreshLoot()
         local status = NS.ItemStatus[item.id]
         local tag = status == "new" and "|cff40ff40" .. L.NEW .. "|r" or status == "changed" and "|cffffd100" .. L.CHANGED .. "|r" or ""
         local chance = item.boss.drops and item.boss.drops[item.id]
-        row.kind:SetText(tag .. (chance and (tag ~= "" and "  " or "") .. chance .. " %" or ""))
+        local gain = NS.ItemGain(item.id)
+        chance = (chance and chance .. " %" or "") .. (gain and gain > 0 and "  |cff40ff40+" .. gain .. "|r" or "")
+        row.kind:SetText(tag .. (tag ~= "" and chance ~= "" and "  " or "") .. chance)
         row.source:SetText(current.boss and "" or BossName(item.boss))
         row:SetScript("OnClick", function(_, button)
             if button == "RightButton" then
@@ -909,7 +923,8 @@ local function RefreshWishlist()
             row.text:SetText(name or "...")
             row.slot:SetText(boss and DungeonName(boss.dungeon) .. ", " .. BossName(boss) or "")
             local chance = boss and boss.drops and boss.drops[item.id]
-            row.kind:SetText(chance and chance .. " %" or "")
+            local seen = NS.DropStats(item.id, boss)
+            row.kind:SetText((chance and chance .. " %" or "") .. (seen and "  |cffa0a0a0" .. seen .. "|r" or ""))
             row.source:SetText(Obtained(item.id) and "|cff40ff40" .. L.OBTAINED .. "|r" or "")
             row:SetScript("OnClick", function(_, button)
                 if button == "RightButton" then
@@ -982,6 +997,7 @@ end
 local function Tactic(boss)
     return boss.tactic and NS.Tactics and NS.Tactics[boss.tactic] or {}
 end
+NS.Tactic = Tactic
 
 --- Nom de la capacité : celui du sort dans le client, sinon celui de Tactics/. Texte : le conseil de Tactics/,
 --- sinon la description du sort.
@@ -1028,6 +1044,8 @@ local function Chunks(text, limit)
     if text ~= "" then chunks[#chunks + 1] = text end
     return chunks
 end
+
+NS.AbilityTexts = AbilityTexts
 
 --- Envoie au chat de groupe la note et les capacités du boss, une ligne par capacité.
 local function ShareTactic(boss)
@@ -1111,10 +1129,37 @@ local function RefreshAbilities()
     return #list
 end
 
+--- Point de carte suivi par la flèche du client ; false si la carte n'en accepte pas.
+local function SetWaypoint(map, x, y)
+    if C_Map.CanSetUserWaypointOnMap and not C_Map.CanSetUserWaypointOnMap(map) then
+        Print(L.NO_WAYPOINT)
+        return false
+    end
+    local point = UiMapPoint and UiMapPoint.CreateFromCoordinates and UiMapPoint.CreateFromCoordinates(map, x, y)
+        or { uiMapID = map, position = CreateVector2D(x, y) }
+    C_Map.SetUserWaypoint(point)
+    if C_SuperTrack and C_SuperTrack.SetSuperTrackedUserWaypoint then C_SuperTrack.SetSuperTrackedUserWaypoint(true) end
+    return true
+end
+
 local function QuestRow(index)
     local row = questRows[index]
     if row then row:Show() return row end
-    row = CreateFrame("Frame", nil, questContent)
+    row = CreateFrame("Button", nil, questContent)
+    -- Ligne cliquable quand le donneur a une position : point de route sur lui.
+    row:SetScript("OnClick", function(self)
+        local quest = self.quest
+        if quest.giverMap and C_Map.SetUserWaypoint and SetWaypoint(quest.giverMap, quest.gx, quest.gy) then
+            Print(L.GIVER_WAYPOINT_SET:format(quest.giver or quest.title))
+        end
+    end)
+    row:SetScript("OnEnter", function(self)
+        if not (self.quest.giverMap and C_Map.SetUserWaypoint) then return end
+        GameTooltip:SetOwner(self, "ANCHOR_CURSOR")
+        GameTooltip:SetText(L.GIVER_WAYPOINT_HINT, 1, 1, 1)
+        GameTooltip:Show()
+    end)
+    row:SetScript("OnLeave", GameTooltip_Hide)
     row:SetSize(questContent:GetWidth(), QUEST_HEIGHT)
     row:SetPoint("TOPLEFT", 0, -(index - 1) * QUEST_HEIGHT)
     row.stripe = Fill(row, 1, 1, 1, 0.035)
@@ -1171,6 +1216,7 @@ local function QuestDone(quest)
     return turnedIn[quest.id]
         or C_QuestLog and C_QuestLog.IsQuestFlaggedCompleted and C_QuestLog.IsQuestFlaggedCompleted(quest.id)
 end
+NS.QuestTitle, NS.QuestDone = QuestTitle, QuestDone
 
 --- Objets à rapporter et quêtes à finir avant, une coche sur celles déjà rendues.
 local function QuestNeeds(quest)
@@ -1187,14 +1233,15 @@ local function QuestNeeds(quest)
     return text
 end
 
---- Quêtes du donjon, sans celles de la faction adverse (faction inconnue : toutes).
+--- Quêtes du donjon, sans celles de la faction adverse (faction inconnue : toutes) ni celles que le serveur ne connaît pas.
 local function QuestList()
     local faction = _G.UnitFactionGroup and UnitFactionGroup("player")
     local other = faction == "Alliance" and "h" or faction == "Horde" and "a"
     local quests = {}
     for _, quest in ipairs(current.dungeon.quests or {}) do
-        if not (other and quest.side == other) then quests[#quests + 1] = quest end
+        if not (other and quest.side == other) and not db.missingQuests[quest.id] then quests[#quests + 1] = quest end
     end
+    NS.CheckQuests(current.dungeon.quests or {})
     return quests
 end
 
@@ -1202,16 +1249,31 @@ local function RefreshQuests()
     local quests = QuestList()
     for i, quest in ipairs(quests) do
         local row = QuestRow(i)
+        row.quest = quest
         row.stripe:SetShown(i % 2 == 0)
         local done = QuestDone(quest)
         local active = not done and C_QuestLog and C_QuestLog.IsOnQuest and C_QuestLog.IsOnQuest(quest.id)
         row.title:SetText((done and DONE_MARK or "") .. QuestTitle(quest))
         local color = done and QUEST_DONE_COLOR
-            or _G.GetQuestDifficultyColor and GetQuestDifficultyColor(quest.level) or QUEST_COLOR
+            or quest.level and _G.GetQuestDifficultyColor and GetQuestDifficultyColor(quest.level) or QUEST_COLOR
         row.title:SetTextColor(color.r, color.g, color.b)
         local side = quest.side == "a" and "  |cff4a9eff" .. (_G.FACTION_ALLIANCE or "Alliance") .. "|r"
             or quest.side == "h" and "  |cffff4040" .. (_G.FACTION_HORDE or "Horde") .. "|r" or ""
-        row.level:SetText(L.QUEST_LEVEL:format(quest.level, quest.min) .. side
+        -- Niveau minimum absent des sources : niveau seul ; niveau absent : rien.
+        local level = quest.level and (quest.min and L.QUEST_LEVEL:format(quest.level, quest.min)
+            or (_G.LEVEL or "Level") .. " " .. quest.level) or ""
+        -- XP : celle du journal de quêtes du client si la quête y est, sinon la donnée des concurrents (Data.lua).
+        local xp = quest.xp
+        if active and _G.GetQuestLogRewardXP then
+            local ok, logXP = pcall(GetQuestLogRewardXP, quest.id)
+            if ok and type(logXP) == "number" and not isSecret(logXP) then
+                -- 0 au niveau maximal : aucune XP, rien d'affiché ; ailleurs, 0 = journal pas encore chargé, Data.lua gardé.
+                local maxLevel = _G.GetMaxPlayerLevel and GetMaxPlayerLevel() or 60
+                if logXP > 0 then xp = logXP elseif UnitLevel("player") == maxLevel then xp = nil end
+            end
+        end
+        if xp then level = (level ~= "" and level .. "  " or "") .. L.QUEST_XP:format(xp) end
+        row.level:SetText(level .. side
             .. (active and "  |cff40c0ff" .. L.QUEST_ACTIVE .. "|r" or ""))
         -- Zone dans la langue du client (carte de zone ou instance), sinon texte du site.
         local mapInfo = quest.zoneMap and C_Map and C_Map.GetMapInfo and C_Map.GetMapInfo(quest.zoneMap)
@@ -1355,6 +1417,41 @@ local function RefreshMap()
         end
     end
     HideFrom(pins, used + 1)
+    -- Passages vers un autre étage du donjon : flèche cliquable qui ouvre l'étage cible.
+    NS.floorLinkButtons = NS.floorLinkButtons or {}
+    local links, shown = NS.FloorLinks and NS.FloorLinks[floorID] or {}, 0
+    for i = 1, #links, 3 do
+        local target
+        for index, floor in ipairs(floors) do
+            if floor == links[i + 2] then target = index end
+        end
+        if target then
+            shown = shown + 1
+            local link = NS.floorLinkButtons[shown]
+            if not link then
+                link = CreateFrame("Button", nil, mapFrame)
+                link:SetSize(22, 22)
+                link:SetNormalTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Up")
+                link:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
+                link:SetScript("OnClick", function(self)
+                    current.floor = self.target
+                    Refresh()
+                end)
+                link:SetScript("OnEnter", function(self)
+                    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+                    GameTooltip:AddLine(L.FLOOR:format(self.target, #current.dungeon.floors))
+                    GameTooltip:Show()
+                end)
+                link:SetScript("OnLeave", function() GameTooltip:Hide() end)
+                NS.floorLinkButtons[shown] = link
+            end
+            link.target = target
+            link:SetFrameLevel(mapFrame:GetFrameLevel() + 4)
+            PlacePin(link, links[i], links[i + 1])
+            link:Show()
+        end
+    end
+    HideFrom(NS.floorLinkButtons, shown + 1)
     NS.ShowMapFloor(floorID)
 end
 
@@ -1375,6 +1472,7 @@ local function RefreshNavigation()
 end
 
 function Refresh()
+    if NS.UpdateRunHud then NS.UpdateRunHud() end
     if not (frame and frame:IsShown()) then return end
     local searching = current.search ~= nil
     local inDungeon = current.dungeon ~= nil and not searching
@@ -1552,18 +1650,13 @@ local function CreateSearch(inset)
     searchUI.empty:SetText(L.NO_RESULTS)
 end
 
---- Point de carte sur l'entrée du donjon, suivi par la flèche du client.
+--- Point de carte sur l'entrée du donjon, suivi par la flèche du client. Seconde entrée si le joueur est sur sa carte.
 local function SetEntranceWaypoint(dungeon)
-    local map, x, y = dungeon.entrance.map, dungeon.entrance.x, dungeon.entrance.y
-    if C_Map.CanSetUserWaypointOnMap and not C_Map.CanSetUserWaypointOnMap(map) then
-        Print(L.NO_WAYPOINT)
-        return
-    end
-    local point = UiMapPoint and UiMapPoint.CreateFromCoordinates and UiMapPoint.CreateFromCoordinates(map, x, y)
-        or { uiMapID = map, position = CreateVector2D(x, y) }
-    C_Map.SetUserWaypoint(point)
-    if C_SuperTrack and C_SuperTrack.SetSuperTrackedUserWaypoint then C_SuperTrack.SetSuperTrackedUserWaypoint(true) end
-    Print(L.WAYPOINT_SET:format(DungeonName(dungeon)))
+    local entrance, second = dungeon.entrance, dungeon.secondEntrance
+    -- Seconde entrée seulement si sa carte accepte un point de route ; sinon repli sur l'entrée principale.
+    if second and C_Map.GetBestMapForUnit and C_Map.GetBestMapForUnit("player") == second.map
+        and not (C_Map.CanSetUserWaypointOnMap and not C_Map.CanSetUserWaypointOnMap(second.map)) then entrance = second end
+    if SetWaypoint(entrance.map, entrance.x, entrance.y) then Print(L.WAYPOINT_SET:format(DungeonName(dungeon))) end
 end
 
 local function CreateInstance(inset)
@@ -1791,14 +1884,25 @@ local function CreateJournal()
     frame:Hide()
 end
 
+--- Donjon où se trouve le joueur. Ailes d'une même instance (Monastère, Hache-Tripes) : celle dont une carte est
+--- celle du joueur ; cartes partagées (Pic Rochenoire) : celle du run en cours ; sinon la première.
 local function CurrentDungeon()
     if not _G.GetInstanceInfo then return nil end
     local instanceID = select(8, GetInstanceInfo())
     if isSecret(instanceID) then return nil end
+    local mapID = C_Map and C_Map.GetBestMapForUnit and C_Map.GetBestMapForUnit("player")
+    if isSecret(mapID) then mapID = nil end
+    local best, bestScore = nil, -1
     for _, dungeon in ipairs(NS.Dungeons) do
-        if dungeon.instance == instanceID and not dungeon.upcoming then return dungeon end
+        if dungeon.instance == instanceID and not dungeon.upcoming then
+            local score = db and dungeon.key == db.killsDungeon and 1 or 0
+            for _, floorID in ipairs(mapID and dungeon.floors or {}) do
+                if floorID == mapID then score = score + 2 end
+            end
+            if score > bestScore then best, bestScore = dungeon, score end
+        end
     end
-    return nil
+    return best
 end
 
 NS.CurrentDungeon = CurrentDungeon
@@ -1812,6 +1916,15 @@ local function Toggle()
 end
 
 NS.Toggle, NS.ICON = Toggle, ICON
+
+--- Journal ouvert sur ce boss (Maj-clic dans le suivi de run).
+function NS.OpenBoss(boss)
+    if not frame then CreateJournal() end
+    if current.dungeon ~= boss.dungeon then SelectDungeon(boss.dungeon) end
+    if current.boss ~= boss then SelectBoss(boss) end
+    frame:Show()
+    Refresh()
+end
 
 --------------------------------------------------------------------------------
 -- Bouton de la minicarte : clic pour ouvrir, glisser pour le faire tourner autour
@@ -1890,8 +2003,16 @@ events:SetScript("OnEvent", function(_, event, first, second)
         db.wishlists = db.wishlists or {}
         db.kills = db.kills or {}
         db.found = db.found or {}
+        db.runs = db.runs or {}
+        db.bossKills = db.bossKills or {}
+        db.drops = db.drops or {}
+        db.missingQuests = db.missingQuests or {}
+        db.bossLevels = db.bossLevels or {}
+        db.entrances = db.entrances or {}
         NS.Mirror.IGNORE.recorded = true   -- trop gros pour les CVars ; la table hôte le garde
-        NS.Mirror:Watch(db, { pins = {}, recorded = {}, wishlists = {}, kills = {}, found = {} })
+        NS.Mirror.IGNORE.drops = true
+        NS.Mirror:Watch(db, { pins = {}, recorded = {}, wishlists = {}, kills = {}, found = {}, runs = {}, bossKills = {}, drops = {},
+            missingQuests = {}, bossLevels = {}, entrances = {} })
         CreateMinimapButton()
         NS.LoadFoundBosses()
     elseif not db then
@@ -1908,7 +2029,8 @@ events:SetScript("OnEvent", function(_, event, first, second)
         end
     elseif (DELAYED_REFRESH[event]
         or (event == "BAG_UPDATE_DELAYED" or event == "PLAYER_EQUIPMENT_CHANGED") and current.wishlist
-        or event == "GET_ITEM_INFO_RECEIVED" and second and not isSecret(second) and (current.dungeon or current.wishlist or current.search))
+        or event == "GET_ITEM_INFO_RECEIVED" and second and not isSecret(second) and frame and frame:IsShown()
+            and (current.dungeon or current.wishlist or current.search))
         and not refreshPending then
         refreshPending = true
         C_Timer.After(0.2, function()
@@ -1950,12 +2072,38 @@ SlashCmdList.AEONDUNGEONJOURNAL = function(message)
             Print((link or name or ("item:" .. item.id)) .. (boss and " - " .. DungeonName(boss.dungeon) .. ", " .. BossName(boss) or ""))
         end
         if #items == 0 then Print(L.MSG_WISHLIST_EMPTY) end
+    elseif message == "runs" then
+        -- Run en cours (ou dernier, pas encore archivé) d'abord, puis l'historique du plus récent au plus ancien ;
+        -- durée du premier au dernier boss. Ailes d'une même instance : nom par la clé du donjon, instance en repli.
+        local runs, count = {}, 0
+        for _ in pairs(db.kills) do count = count + 1 end
+        if count > 0 and db.killsAt then
+            runs[1] = { instance = db.killsInstance, dungeon = db.killsDungeon, start = db.killsStart or db.killsAt, finish = db.killsAt, bosses = count }
+        end
+        for i = #db.runs, 1, -1 do runs[#runs + 1] = db.runs[i] end
+        for i = 1, math.min(#runs, 10) do
+            local run, name = runs[i], tostring(runs[i].instance)
+            for _, dungeon in ipairs(NS.Dungeons) do
+                if dungeon.key == run.dungeon or not run.dungeon and dungeon.instance == run.instance then
+                    name = DungeonName(dungeon)
+                    break
+                end
+            end
+            Print(L.MSG_RUN:format(date("%Y-%m-%d %H:%M", run.start), name, run.bosses, math.floor((run.finish - run.start) / 60 + 0.5)))
+        end
+        if #runs == 0 then Print(L.MSG_NO_RUNS) end
     elseif message == "options" then
         NS.OpenOptions()
+    elseif NS.RunCommand(message) then
+        return
     elseif message == "help" then
         Print(L.HELP)
         Print(L.HELP_TOOLTIP)
         Print(L.HELP_WISHLIST)
+        Print(L.HELP_RUNS)
+        Print(L.HELP_HUD)
+        Print(L.HELP_PREP)
+        Print(L.HELP_VALUE)
         Print(L.HELP_RESET)
         Print(L.HELP_OPTIONS)
     else

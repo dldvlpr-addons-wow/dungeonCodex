@@ -1,2 +1,5 @@
 # Archive de publication : reconstruite à la demande, pas versionnée.
 AeonDungeonJournal-*.zip
+
+# Sources téléchargées pour tools/generate_data.py : dossier de travail, pas versionné.
+tools/work/

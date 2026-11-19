@@ -37,6 +37,7 @@ Tactics\zhCN.lua
 Tactics\zhTW.lua
 Journal.lua
 Loot.lua
+Run.lua
 Share.lua
 MapCanvas.lua
 Options.lua

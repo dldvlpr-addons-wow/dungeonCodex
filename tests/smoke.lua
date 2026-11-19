@@ -92,7 +92,10 @@ strsplit = function(sep, text)
     for part in (text .. sep):gmatch("(.-)" .. sep) do parts[#parts + 1] = part end
     return unpack(parts)
 end
-C_Timer = { After = function(_, fn) fn() end }
+C_Timer = { After = function(_, fn) fn() end, NewTicker = function() return {} end }
+IsInInstance = function() local kind = select(2, GetInstanceInfo()) return kind ~= "none", kind end
+-- Recherche de groupe : Lamentations (796) répondue, le reste sans réponse (niveaux de Data.lua gardés).
+C_LFGList = { GetActivityInfoTable = function(id) if id == 796 then return { minLevel = 14, maxLevelSuggestion = 25 } end end }
 C_CVar = { RegisterCVar = NOOP, GetCVar = function() return "" end, SetCVar = function() return true end }
 g_addonCategoriesCollapsed = {}
 C_Item = {
@@ -115,6 +118,7 @@ INSTANCE_RESET_SUCCESS = "%s has been reset."
 UnitFactionGroup = function() return "Alliance", "Alliance" end
 local clock = 100000
 time = function() return clock end
+date = os.date
 local inGroup, chatLocked, sent = true, false, {}
 IsInGroup = function() return inGroup end
 IsInRaid = function() return false end
@@ -122,6 +126,7 @@ C_ChatInfo = { SendChatMessage = function(text, channel) sent[#sent + 1] = { tex
                InChatMessagingLockdown = function() return chatLocked end }
 local addonSent, addonResults, members, equipped = {}, {}, {}, {}
 C_ChatInfo.RegisterAddonMessagePrefix = function() return 0 end
+C_AddOns = { GetAddOnMetadata = function(_, field) return field == "Version" and "1.4" or nil end }
 C_ChatInfo.SendAddonMessage = function(prefix, text, channel)
     addonSent[#addonSent + 1] = { prefix = prefix, text = text, channel = channel }
     return table.remove(addonResults, 1) or 0
@@ -389,7 +394,7 @@ for _, message in ipairs(sent) do
     assert(message.channel == "PARTY" and #message.text > 0 and #message.text <= 250, "message de " .. #message.text .. " octets")
 end
 assert(spellsSeen > 0 and notesSeen > 0, "noms de sort du client et notes de combat affichés : " .. spellsSeen .. " / " .. notesSeen)
-assert(bossesSeen == 252, "252 boss parcourus, vu " .. bossesSeen)
+assert(bossesSeen == 356, "356 boss parcourus, vu " .. bossesSeen)
 assert(lootRows > 1000, "lignes de butin affichées : " .. lootRows)
 assert(markedSeen > 0 and plainSeen > 0, "quêtes rendues cochées, les autres non : " .. markedSeen .. " / " .. plainSeen)
 
@@ -432,8 +437,19 @@ local wishedByAmi = NS.L.WISHED_BY:format("Ami")
 members.Ami = true
 local sentBefore = #addonSent
 Fire("CHAT_MSG_ADDON", "DCodexWish", "!5193", "PARTY", "Ami-Royaume")
-assert(#addonSent == sentBefore + 1 and addonSent[#addonSent].text == "=" and addonSent[#addonSent].channel == "PARTY",
-    "membre qui demande les listes : la sienne reçue, la nôtre (vide) renvoyée sans demande")
+assert(#addonSent == sentBefore + 2 and addonSent[sentBefore + 1].text == "V1.4" and addonSent[#addonSent].text == "="
+    and addonSent[#addonSent].channel == "PARTY",
+    "membre qui demande les listes : la sienne reçue, notre version puis la nôtre (vide) renvoyée sans demande")
+sentBefore = sentBefore + 1
+local printedVersion = #printed
+Fire("CHAT_MSG_ADDON", "DCodexWish", "V1.3.9", "PARTY", "Ami-Royaume")
+Fire("CHAT_MSG_ADDON", "DCodexWish", "V1.4", "PARTY", "Ami-Royaume")
+Fire("CHAT_MSG_ADDON", "DCodexWish", "V9|cffff0000", "PARTY", "Ami-Royaume")
+assert(#printed == printedVersion, "version plus ancienne, égale ou avec un code de chat : rien signalé")
+Fire("CHAT_MSG_ADDON", "DCodexWish", "V1.10", "PARTY", "Ami-Royaume")
+Fire("CHAT_MSG_ADDON", "DCodexWish", "V1.11", "PARTY", "Ami-Royaume")
+assert(#printed == printedVersion + 1 and printed[#printed]:find("1.10", 1, true), "version plus récente : signalée une fois")
+assert(#NS.WishedBy(5193) == 1, "message de version : liste du membre gardée")
 Fire("CHAT_MSG_ADDON", "DCodexWish", "+42", "PARTY", "Ami-Royaume")
 Fire("CHAT_MSG_ADDON", "DCodexWish", "=5193", "PARTY", "Moi-Royaume")
 Fire("CHAT_MSG_ADDON", "AutrePrefixe", "=5193", "PARTY", "Autre-Royaume")
@@ -448,7 +464,8 @@ inGroup = false
 Fire("GROUP_ROSTER_UPDATE")
 inGroup = true
 Fire("GROUP_ROSTER_UPDATE")
-assert(#addonSent == sentBefore + 2 and addonSent[#addonSent].text == "!", "entrée dans un groupe : liste envoyée avec demande")
+assert(#addonSent == sentBefore + 3 and addonSent[#addonSent - 1].text == "V1.4" and addonSent[#addonSent].text == "!",
+    "entrée dans un groupe : version, puis liste envoyée avec demande")
 for id = 100000, 100059 do wishes[id] = true end
 addonResults = { 3 }
 sentBefore = #addonSent
@@ -779,6 +796,56 @@ local waypointButton = Visible("^" .. NS.L.WAYPOINT .. "$")[1]
 assert(entrance and waypointButton, "bouton de point de route sur un donjon qui a une entrée")
 Click(waypointButton)
 assert(waypoint and waypoint.map == entrance.map and waypoint.x == entrance.x, "point de route posé sur l'entrée")
+-- Seconde entrée : choisie seulement quand le joueur est sur sa carte.
+local twoEntrances
+for index, dungeon in ipairs(NS.Dungeons) do
+    if dungeon.secondEntrance then twoEntrances = index end
+end
+assert(twoEntrances, "un donjon à deux entrées")
+local second = NS.Dungeons[twoEntrances].secondEntrance
+Click(dungeonRows[twoEntrances])
+C_Map.GetBestMapForUnit = function() return second.map end
+Click(Visible("^" .. NS.L.WAYPOINT .. "$")[1])
+assert(waypoint.map == second.map and waypoint.x == second.x, "joueur sur la carte de la seconde entrée : point sur elle")
+C_Map.CanSetUserWaypointOnMap = function(map) return map ~= second.map end
+Click(Visible("^" .. NS.L.WAYPOINT .. "$")[1])
+assert(waypoint.map == NS.Dungeons[twoEntrances].entrance.map, "carte de la seconde entrée refusée : repli sur la principale")
+C_Map.CanSetUserWaypointOnMap = function() return true end
+C_Map.GetBestMapForUnit = function() return 1 end
+Click(Visible("^" .. NS.L.WAYPOINT .. "$")[1])
+assert(waypoint.map == NS.Dungeons[twoEntrances].entrance.map, "ailleurs : point sur l'entrée principale")
+C_Map.GetBestMapForUnit = nil
+
+-- Passage d'étage : flèche sur l'étage 1 des Deadmines, le clic ouvre l'étage 2.
+Click(dungeonRows[deadmines])
+OpenTab("map")
+local floorLink
+for _, button in ipairs(buttons) do
+    if button.shown and type(rawget(button, "target")) == "number" then floorLink = button end
+end
+assert(floorLink and floorLink.target == 2, "flèche vers l'étage 2")
+Click(floorLink)
+local onSecond
+for _, button in ipairs(buttons) do
+    if button.shown and rawget(button, "target") == 1 then onSecond = true end
+end
+assert(onSecond, "étage 2 affiché : flèche de retour vers l'étage 1")
+
+-- Point de route sur le donneur de quête : clic sur la ligne d'une quête dont le donneur a une position.
+local giverDungeon, giverQuest
+for index, dungeon in ipairs(NS.Dungeons) do
+    for _, quest in ipairs(dungeon.quests or {}) do
+        if not giverDungeon and quest.giverMap and quest.side ~= "h" then giverDungeon, giverQuest = index, quest end
+    end
+end
+assert(giverDungeon, "une quête dont le donneur a une position")
+Click(dungeonRows[giverDungeon])
+OpenTab("quests")
+waypoint = nil
+for _, row in ipairs(frames) do
+    if row.shown and rawget(row, "quest") == giverQuest then Click(row) end
+end
+assert(waypoint and waypoint.map == giverQuest.giverMap and waypoint.x == giverQuest.gx, "point de route posé sur le donneur")
 
 -- Zone du donneur de quête : nom de la carte donné par le client.
 C_Map.GetMapInfo = function(map) return { name = "Carte" .. map } end
@@ -857,6 +924,37 @@ Fire("CHAT_MSG_SYSTEM", "Vous avez rejoint le groupe.")
 assert(db.kills[byName.npc], "autre message système : coches gardées")
 Fire("CHAT_MSG_SYSTEM", "The Deadmines has been reset.")
 assert(next(db.kills) == nil, "instance réinitialisée : coches effacées")
+
+-- Historique : le run effacé est archivé ; /codex runs l'affiche avec le nom du donjon.
+local lastRun = db.runs[#db.runs]
+assert(lastRun and lastRun.bosses == 1 and lastRun.instance == byName.dungeon.instance, "run archivé")
+printedBefore = #printed
+slash("runs")
+assert(#printed > printedBefore and #printed <= printedBefore + 10 and printed[printedBefore + 1]:find(NS.DungeonName(byName.dungeon), 1, true), "/codex runs : plus récent d'abord, 10 au plus")
+local savedRuns = db.runs
+db.runs = {}
+slash("runs")
+assert(printed[#printed]:find(NS.L.MSG_NO_RUNS, 1, true), "/codex runs sans historique")
+db.runs = savedRuns
+-- Aile d'une instance partagée : nommée par la clé du donjon, pas par la première aile de même instance.
+local wingDungeon, firstOfInstance = nil, {}
+for _, dungeon in ipairs(NS.Dungeons) do
+    if firstOfInstance[dungeon.instance] and not wingDungeon then wingDungeon = dungeon end
+    firstOfInstance[dungeon.instance] = firstOfInstance[dungeon.instance] or dungeon
+end
+assert(NS.DungeonName(wingDungeon) ~= NS.DungeonName(firstOfInstance[wingDungeon.instance]), "deux ailes de noms différents")
+table.insert(db.runs, { instance = wingDungeon.instance, dungeon = wingDungeon.key, start = 0, finish = 60, bosses = 2 })
+printedBefore = #printed
+slash("runs")
+assert(printed[printedBefore + 1]:find(NS.DungeonName(wingDungeon), 1, true), "run d'une aile : nom de l'aile")
+table.remove(db.runs)
+-- Dernier run vieux de plus de 2 h, pas encore archivé : toujours listé.
+Fire("ENCOUNTER_END", 1, byName.name, 1, 5, 1)
+clock = clock + 7300
+printedBefore = #printed
+slash("runs")
+assert(printed[printedBefore + 1]:find(NS.DungeonName(byName.dungeon), 1, true), "run de plus de 2 h listé")
+slash("resetkills")
 
 -- Boss inconnu de Data.lua, dans un donjon bêta : rencontre puis butin d'une créature inconnue, relevés.
 local realInstance = GetInstanceInfo
@@ -987,6 +1085,100 @@ assert(lastPoint[1] == 0 and lastPoint[2] == 0, "autre étage : zoom remis à 1"
 slash("resetpins")
 slash("wipe")
 assert(next(db.recorded) == nil, "butin oublié")
+-- Phase 2 : valeur d'un donjon, préparation, suivi de run, taux observé, relevé étendu.
+C_Item.GetDetailedItemLevelInfo = function(item) return type(item) == "number" and 30 or 10 end
+equipped[1] = "|Hitem:2|h"
+local printedBefore = #printed
+slash("value")
+local valueLines = 0
+for i = printedBefore + 1, #printed do
+    if printed[i]:find("niveaux d'objet par run", 1, true) then valueLines = valueLines + 1 end
+end
+assert(valueLines > 0 and valueLines <= 10, "valeur : 1 à 10 donjons classés")
+assert(NS.ItemGain(6) == 20, "tissu de tête pour un mage : +20 niveaux d'objet")
+assert(NS.ItemGain(3) == nil, "cuir : pas pour un mage")
+C_Item.GetDetailedItemLevelInfo = function(item) return type(item) == "number" and 30 or nil end
+assert(select(2, NS.ItemGain(6)), "pièce portée pas encore chargée : gain inconnu, pas +30")
+printedBefore = #printed
+slash("value")
+assert(printed[#printed]:find("pas encore chargés", 1, true), "valeur : objets non chargés signalés")
+C_Item.GetDetailedItemLevelInfo = function(item) return type(item) == "number" and 30 or 10 end
+local requestedQuests = {}
+C_QuestLog.RequestLoadQuestByID = function(id) requestedQuests[#requestedQuests + 1] = id end
+printedBefore = #printed
+slash("prep")
+assert(printed[printedBefore + 1]:find("Avant ", 1, true), "préparation : titre du donjon")
+assert(#requestedQuests > 0, "préparation : quêtes demandées au serveur")
+local missing = requestedQuests[1]
+Fire("QUEST_DATA_LOAD_RESULT", missing, false)
+assert(db.missingQuests[missing], "quête refusée par le serveur : écartée")
+Fire("QUEST_DATA_LOAD_RESULT", missing, true)
+assert(db.missingQuests[missing] == nil, "quête chargée : rendue")
+Fire("QUEST_DATA_LOAD_RESULT", 999999, false)
+assert(db.missingQuests[999999] == nil, "quête jamais demandée : ignorée")
+UnitGUID = function() return "Creature-0-1-2-3-639-0000" end
+Fire("PLAYER_TARGET_CHANGED")
+assert(db.bossLevels[639] == 20, "niveau du boss ciblé relevé")
+UnitGUID = nil
+local vanCleef = NS.BossByNpc[639]
+assert(NS.DropStats(5193, vanCleef):match("^vu %d+/%d+$"), "taux observé : butin relevé sur les kills du boss")
+NS.MarkKilled(vanCleef)
+local count = db.drops[5193].count
+NS.CountDrop(5193, vanCleef)
+NS.CountDrop(5193, vanCleef)
+assert(db.drops[5193].count == count + 1, "même run : butin compté une fois")
+printedBefore = #printed
+slash("hud")
+assert(db.hideHud and printed[#printed]:find("masqué", 1, true), "suivi masqué")
+slash("hud")
+assert(not db.hideHud, "suivi réaffiché")
+-- Arme à une main : main droite seule pour un mage ; main gauche vide sous une arme à deux mains = cette arme.
+local realInstant = C_Item.GetItemInfoInstant
+C_Item.GetItemInfoInstant = function(item)
+    if item == 8 then return 8, "Arme", "Dague", "INVTYPE_WEAPON", 134400, 2, 15 end
+    if item == 10 then return 10, "Arme", "Divers", "INVTYPE_HOLDABLE", 134400, 4, 0 end
+    if tostring(item):find("item:12", 1, true) then return 12, "Arme", "Bâton", "INVTYPE_2HWEAPON", 134400, 2, 10 end
+    return realInstant(item)
+end
+equipped[16] = "|Hitem:12|h"
+assert(NS.ItemGain(8) == 20, "dague pour un mage : comparée au bâton porté, pas à la main gauche vide")
+assert(NS.ItemGain(10) == 20, "objet tenu sous une arme à deux mains : comparé à cette arme")
+equipped[16] = nil
+C_Item.GetItemInfoInstant = realInstant
+-- Ailes d'une même instance : celle dont la carte est celle du joueur.
+local realMap = C_Map.GetBestMapForUnit
+GetInstanceInfo = function() return "Monastère", "party", 1, "", 5, 0, false, 189 end
+C_Map.GetBestMapForUnit = function() return 305 end
+assert(NS.CurrentDungeon().key == "ScarletMonasteryCathedral", "Monastère : aile de la carte du joueur")
+C_Map.GetBestMapForUnit = realMap
+GetInstanceInfo = realInstance
+-- Niveaux lus dans la recherche de groupe du client au premier PLAYER_ENTERING_WORLD.
+for _, dungeon in ipairs(NS.Dungeons) do
+    if dungeon.activity == 796 then assert(dungeon.levels[1] == 14 and dungeon.levels[3] == 25, "niveaux LFG lus") end
+    if dungeon.key == "TheDeadmines" then assert(dungeon.levels[1] ~= 14, "sans réponse : niveaux de Data.lua") end
+end
+-- Relevé d'entrée : position en extérieur proche de l'entrée connue, puis entrée dans l'instance.
+local entrance = NS.Dungeons[deadmines].entrance
+local realPosition = C_Map.GetPlayerMapPosition
+C_Map.GetBestMapForUnit = function() return entrance.map end
+C_Map.GetPlayerMapPosition = function() return { GetXY = function() return entrance.x + 0.01, entrance.y end } end
+GetInstanceInfo = function() return "Elwynn", "none", 0, "", 0, 0, false, 0 end
+Fire("ZONE_CHANGED_NEW_AREA")
+GetInstanceInfo = realInstance
+Fire("PLAYER_ENTERING_WORLD")
+local seen = db.entrances.TheDeadmines
+assert(seen and seen[1] == entrance.map and math.abs(seen[2] - entrance.x - 0.01) < 0.001, "entrée relevée")
+db.entrances.TheDeadmines = nil
+C_Map.GetPlayerMapPosition = function() return { GetXY = function() return entrance.x + 0.5, entrance.y end } end
+GetInstanceInfo = function() return "Elwynn", "none", 0, "", 0, 0, false, 0 end
+Fire("ZONE_CHANGED_NEW_AREA")
+GetInstanceInfo = realInstance
+Fire("PLAYER_ENTERING_WORLD")
+assert(db.entrances.TheDeadmines == nil, "position loin de l'entrée connue : écartée")
+C_Map.GetPlayerMapPosition = realPosition
+C_Map.GetBestMapForUnit = realMap
+NS.OpenBoss(vanCleef)
+assert(frame:IsShown() and NS.current.boss == vanCleef, "Maj-clic du suivi : journal ouvert sur le boss")
 slash("")
 assert(not frame:IsShown(), "fenêtre fermée")
 print("smoke ok")

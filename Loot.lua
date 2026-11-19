@@ -140,6 +140,8 @@ function RecordLoot()
                     NS.db.recorded[key] = NS.db.recorded[key] or {}
                     NS.db.recorded[key][itemID] = true
                 end
+                -- ponytail: ne compte que le butin que ce personnage ouvre ; un boss jamais fouillé baisse le taux observé.
+                if itemID and boss then NS.CountDrop(itemID, boss) end
             end
         end
     end

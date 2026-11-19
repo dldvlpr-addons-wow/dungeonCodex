@@ -1,0 +1,1731 @@
+{
+ "bossFacts": {
+  "261306": {
+   "display": 142826,
+   "level": 16,
+   "sources": "DM,FDJ,FDS"
+  },
+  "261316": {
+   "display": 1070,
+   "level": 16,
+   "sources": "DM,FDJ,FDS"
+  },
+  "261311": {
+   "display": 142840,
+   "level": null,
+   "sources": "FDJ,FDS"
+  },
+  "261319": {
+   "display": 142837,
+   "level": null,
+   "sources": "FDJ,FDS"
+  },
+  "14682": {
+   "display": 1061,
+   "level": null,
+   "sources": "GF"
+  },
+  "14693": {
+   "display": 16197,
+   "level": null,
+   "sources": "GF"
+  },
+  "14686": {
+   "display": 10698,
+   "level": null,
+   "sources": "GF"
+  },
+  "8696": {
+   "display": 8029,
+   "level": null,
+   "sources": "GF"
+  },
+  "7272": {
+   "display": 6696,
+   "level": 46,
+   "sources": "DM,FDJ,FDS,GF"
+  },
+  "7796": {
+   "display": 6690,
+   "level": null,
+   "sources": "DM,FDJ,FDS,GF"
+  },
+  "7604": {
+   "display": 6433,
+   "level": 45,
+   "sources": "FDJ,FDS,GF"
+  },
+  "7795": {
+   "display": 6685,
+   "level": 46,
+   "sources": "DM,FDJ,FDS,GF"
+  },
+  "13738": {
+   "display": 9418,
+   "level": null,
+   "sources": "GF"
+  },
+  "13739": {
+   "display": 9441,
+   "level": null,
+   "sources": "GF"
+  },
+  "13718": {
+   "display": 9426,
+   "level": null,
+   "sources": "GF"
+  },
+  "13742": {
+   "display": 4860,
+   "level": null,
+   "sources": "GF"
+  },
+  "13741": {
+   "display": 9427,
+   "level": null,
+   "sources": "GF"
+  },
+  "13740": {
+   "display": 9433,
+   "level": null,
+   "sources": "GF"
+  },
+  "16059": {
+   "display": 15981,
+   "level": 60,
+   "sources": "FDJ,GF"
+  },
+  "16097": {
+   "display": 16000,
+   "level": null,
+   "sources": "FDS,GF"
+  },
+  "16080": {
+   "display": 15997,
+   "level": null,
+   "sources": "GF"
+  },
+  "14690": {
+   "display": 14695,
+   "level": null,
+   "sources": "GF"
+  },
+  "14371": {
+   "display": 14412,
+   "level": null,
+   "sources": "GF"
+  },
+  "14506": {
+   "display": 14556,
+   "level": 62,
+   "sources": "DM,FDJ,FDS,GF"
+  },
+  "14695": {
+   "display": 14699,
+   "level": null,
+   "sources": "GF"
+  },
+  "16118": {
+   "display": 16020,
+   "level": 60,
+   "sources": "DM,FDJ,FDS,GF"
+  },
+  "14684": {
+   "display": 7919,
+   "level": null,
+   "sources": "GF"
+  },
+  "16042": {
+   "display": 14308,
+   "level": null,
+   "sources": "DM,FDJ,GF"
+  }
+ },
+ "spells": {},
+ "quests": {
+  "TheDeadmines": [
+   {
+    "id": 373,
+    "title": "The Unsent Letter",
+    "level": 22,
+    "min": 16,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": null,
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 1654,
+    "title": "The Test of Righteousness",
+    "level": 22,
+    "min": 20,
+    "side": "Alliance",
+    "giverNpc": 6181,
+    "giverName": "Jordan Stilwell",
+    "zone": "Dun Morogh",
+    "x": 52.5,
+    "y": 36.9,
+    "pre": [
+     1653
+    ],
+    "sources": "DM"
+   }
+  ],
+  "Uldaman": [
+   {
+    "id": 1192,
+    "title": "Indurium Ore",
+    "level": 42,
+    "min": 29,
+    "side": null,
+    "giverNpc": 4630,
+    "giverName": "Pozzik",
+    "zone": "Thousand Needles",
+    "x": 80.2,
+    "y": 75.9,
+    "pre": [
+     1194
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 1956,
+    "title": "Power in Uldaman",
+    "level": 40,
+    "min": 35,
+    "side": null,
+    "giverNpc": 6546,
+    "giverName": "Tabetha",
+    "zone": "Dustwallow Marsh",
+    "x": 46.1,
+    "y": 57.1,
+    "pre": [
+     1955
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 2284,
+    "title": "Necklace Recovery, Take 2",
+    "level": 41,
+    "min": 37,
+    "side": "Horde",
+    "giverNpc": 6986,
+    "giverName": "Dran Droffers",
+    "zone": "Orgrimmar",
+    "x": 59.6,
+    "y": 36.5,
+    "pre": [
+     2283
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 3375,
+    "title": "Replacement Phial",
+    "level": 42,
+    "min": 37,
+    "side": "Alliance",
+    "giverNpc": 6826,
+    "giverName": "Talvash del Kissel",
+    "zone": "Wetlands",
+    "x": 14.8,
+    "y": 88.5,
+    "pre": [],
+    "sources": "DM"
+   }
+  ],
+  "DireMaulNorth": [
+   {
+    "id": 1193,
+    "title": "A Broken Trap",
+    "level": 60,
+    "min": 56,
+    "side": null,
+    "giverNpc": null,
+    "giverName": "Broken Trap",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 5519,
+    "title": "The Gordok Ogre Suit",
+    "level": 60,
+    "min": 56,
+    "side": null,
+    "giverNpc": 14338,
+    "giverName": "Knot Thimblejack",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [
+     5518
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 7429,
+    "title": "Free Knot!",
+    "level": 60,
+    "min": 57,
+    "side": null,
+    "giverNpc": 14338,
+    "giverName": "Knot Thimblejack",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [
+     5525
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 7483,
+    "title": "Libram of Rapidity",
+    "level": 60,
+    "min": 58,
+    "side": null,
+    "giverNpc": 14368,
+    "giverName": "Lorekeeper Lydros",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 7484,
+    "title": "Libram of Focus",
+    "level": 60,
+    "min": 58,
+    "side": null,
+    "giverNpc": 14368,
+    "giverName": "Lorekeeper Lydros",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 7485,
+    "title": "Libram of Protection",
+    "level": 60,
+    "min": 58,
+    "side": null,
+    "giverNpc": 14368,
+    "giverName": "Lorekeeper Lydros",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 7703,
+    "title": "Unfinished Gordok Business",
+    "level": 60,
+    "min": 56,
+    "side": null,
+    "giverNpc": 14325,
+    "giverName": "Captain Kromcrush",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   }
+  ],
+  "BlackfathomDeeps": [
+   {
+    "id": 1442,
+    "title": "Seeking the Kor Gem",
+    "level": 22,
+    "min": 20,
+    "side": "Alliance",
+    "giverNpc": 3649,
+    "giverName": "Thundris Windweaver",
+    "zone": "Felwood",
+    "x": 20.0,
+    "y": 14.4,
+    "pre": [
+     1653
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 6922,
+    "title": "Baron Aquanis",
+    "level": 30,
+    "min": 21,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": null,
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   }
+  ],
+  "WailingCaverns": [
+   {
+    "id": 1489,
+    "title": "Hamuul Runetotem",
+    "level": 16,
+    "min": 12,
+    "side": "Horde",
+    "giverNpc": 3448,
+    "giverName": "Tonga Runetotem",
+    "zone": "Durotar",
+    "x": 13.4,
+    "y": 66.8,
+    "pre": [
+     880
+    ],
+    "sources": "DM"
+   }
+  ],
+  "RazorfenKraul": [
+   {
+    "id": 1701,
+    "title": "Fire Hardened Mail",
+    "level": 28,
+    "min": 20,
+    "side": "Alliance",
+    "giverNpc": 5413,
+    "giverName": "Furen Longbeard",
+    "zone": "Stormwind City",
+    "x": 64.6,
+    "y": 37.2,
+    "pre": [
+     1702
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 1838,
+    "title": "Brutal Armor",
+    "level": 30,
+    "min": 20,
+    "side": "Horde",
+    "giverNpc": 5878,
+    "giverName": "Thun'grim Firegaze",
+    "zone": "Durotar",
+    "x": 23.0,
+    "y": 63.7,
+    "pre": [
+     1825
+    ],
+    "sources": "DM"
+   }
+  ],
+  "ShadowfangKeep": [
+   {
+    "id": 1740,
+    "title": "The Orb of Soran'ruk",
+    "level": 25,
+    "min": 20,
+    "side": null,
+    "giverNpc": 6247,
+    "giverName": "Doan Karhan",
+    "zone": "Mulgore",
+    "x": 78.9,
+    "y": 61.4,
+    "pre": [],
+    "sources": "DM"
+   }
+  ],
+  "ScarletMonasteryLibrary": [
+   {
+    "id": 1951,
+    "title": "Rituals of Power",
+    "level": 40,
+    "min": 30,
+    "side": null,
+    "giverNpc": 6548,
+    "giverName": "Magus Tirth",
+    "zone": "Thousand Needles",
+    "x": 78.3,
+    "y": 75.7,
+    "pre": [
+     1950
+    ],
+    "sources": "DM"
+   }
+  ],
+  "Zul'Farrak": [
+   {
+    "id": 2861,
+    "title": "Tabetha's Task",
+    "level": 46,
+    "min": 40,
+    "side": null,
+    "giverNpc": 3048,
+    "giverName": "Ursyn Ghull",
+    "zone": "Thunder Bluff",
+    "x": 25.7,
+    "y": 14.2,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 2936,
+    "title": "The Spider God",
+    "level": 45,
+    "min": 40,
+    "side": "Horde",
+    "giverNpc": 3188,
+    "giverName": "Master Gadrin",
+    "zone": "Durotar",
+    "x": 55.9,
+    "y": 74.7,
+    "pre": [
+     2935
+    ],
+    "sources": "DM"
+   }
+  ],
+  "Gnomeregan": [
+   {
+    "id": 2925,
+    "title": "Klockmort's Essentials",
+    "level": 30,
+    "min": 24,
+    "side": "Alliance",
+    "giverNpc": 6142,
+    "giverName": "Mathiel",
+    "zone": "Darnassus",
+    "x": 59.5,
+    "y": 45.4,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 2931,
+    "title": "Castpipe's Task",
+    "level": 28,
+    "min": 25,
+    "side": "Alliance",
+    "giverNpc": 4077,
+    "giverName": "Gaxim Rustfizzle",
+    "zone": "Stonetalon Mountains",
+    "x": 59.5,
+    "y": 67.1,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 2953,
+    "title": "More Sparklematic Action",
+    "level": 30,
+    "min": 25,
+    "side": null,
+    "giverNpc": null,
+    "giverName": "The Sparklematic 5200",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [
+     2952
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 4601,
+    "title": "The Sparklematic 5200!",
+    "level": 30,
+    "min": 25,
+    "side": null,
+    "giverNpc": null,
+    "giverName": "The Sparklematic 5200",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 4602,
+    "title": "The Sparklematic 5200!",
+    "level": 30,
+    "min": 25,
+    "side": null,
+    "giverNpc": null,
+    "giverName": "The Sparklematic 5200",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 4603,
+    "title": "More Sparklematic Action",
+    "level": 30,
+    "min": 25,
+    "side": null,
+    "giverNpc": null,
+    "giverName": "The Sparklematic 5200",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [
+     4605
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 4604,
+    "title": "More Sparklematic Action",
+    "level": 30,
+    "min": 25,
+    "side": null,
+    "giverNpc": null,
+    "giverName": "The Sparklematic 5200",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [
+     4606
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 4605,
+    "title": "The Sparklematic 5200!",
+    "level": 30,
+    "min": 25,
+    "side": null,
+    "giverNpc": null,
+    "giverName": "The Sparklematic 5200",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [
+     4601
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 4606,
+    "title": "The Sparklematic 5200!",
+    "level": 30,
+    "min": 25,
+    "side": null,
+    "giverNpc": null,
+    "giverName": "The Sparklematic 5200",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [
+     4602
+    ],
+    "sources": "DM"
+   }
+  ],
+  "TheTempleOfAtal'Hakkar": [
+   {
+    "id": 3380,
+    "title": "The Sunken Temple",
+    "level": 51,
+    "min": 46,
+    "side": "Horde",
+    "giverNpc": 8115,
+    "giverName": "Witch Doctor Uzer'i",
+    "zone": "Feralas",
+    "x": 74.4,
+    "y": 43.4,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 8232,
+    "title": "The Green Drake",
+    "level": 52,
+    "min": 50,
+    "side": null,
+    "giverNpc": 8405,
+    "giverName": "Ogtinc",
+    "zone": "Azshara",
+    "x": 42.4,
+    "y": 42.6,
+    "pre": [
+     8231
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 8236,
+    "title": "The Azure Key",
+    "level": 52,
+    "min": 50,
+    "side": null,
+    "giverNpc": 8379,
+    "giverName": "Archmage Xylem",
+    "zone": "Azshara",
+    "x": 29.2,
+    "y": 40.2,
+    "pre": [
+     8235
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 8253,
+    "title": "Destroy Morphaz",
+    "level": 52,
+    "min": 50,
+    "side": null,
+    "giverNpc": 8379,
+    "giverName": "Archmage Xylem",
+    "zone": "Azshara",
+    "x": 29.2,
+    "y": 40.2,
+    "pre": [
+     8252
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 8257,
+    "title": "Blood of Morphaz",
+    "level": 52,
+    "min": 50,
+    "side": null,
+    "giverNpc": 8405,
+    "giverName": "Ogtinc",
+    "zone": "Azshara",
+    "x": 42.4,
+    "y": 42.6,
+    "pre": [
+     8256
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 8413,
+    "title": "Da Voodoo",
+    "level": 52,
+    "min": 50,
+    "side": "Horde",
+    "giverNpc": 6176,
+    "giverName": "Bath'rah the Windwatcher",
+    "zone": "Alterac Mountains",
+    "x": 80.5,
+    "y": 66.9,
+    "pre": [
+     8412
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 8418,
+    "title": "Forging the Mightstone",
+    "level": 52,
+    "min": 50,
+    "side": "Alliance",
+    "giverNpc": 10838,
+    "giverName": "Commander Ashlam Valorfist",
+    "zone": "Alterac Mountains",
+    "x": 78.7,
+    "y": 29.1,
+    "pre": [
+     8416
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 8422,
+    "title": "Trolls of a Feather",
+    "level": 52,
+    "min": 50,
+    "side": null,
+    "giverNpc": 14470,
+    "giverName": "Impsy",
+    "zone": "Felwood",
+    "x": 41.5,
+    "y": 45.0,
+    "pre": [
+     8421
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 8425,
+    "title": "Voodoo Feathers",
+    "level": 52,
+    "min": 50,
+    "side": null,
+    "giverNpc": 7572,
+    "giverName": "Fallen Hero of the Horde",
+    "zone": "Swamp of Sorrows",
+    "x": 34.3,
+    "y": 66.1,
+    "pre": [
+     8424
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 8733,
+    "title": "Eranikus, Tyrant of the Dream",
+    "level": 60,
+    "min": 60,
+    "side": null,
+    "giverNpc": 15362,
+    "giverName": "Malfurion Stormrage",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 9053,
+    "title": "A Better Ingredient",
+    "level": 52,
+    "min": 50,
+    "side": null,
+    "giverNpc": 9619,
+    "giverName": "Torwa Pathfinder",
+    "zone": "Un'Goro Crater",
+    "x": 71.6,
+    "y": 76.0,
+    "pre": [
+     9051
+    ],
+    "sources": "DM"
+   }
+  ],
+  "BlackrockDepths": [
+   {
+    "id": 3981,
+    "title": "Commander Gor'shak",
+    "level": 52,
+    "min": 48,
+    "side": "Horde",
+    "giverNpc": 9081,
+    "giverName": "Galamav the Marksman",
+    "zone": "Searing Gorge",
+    "x": 85.4,
+    "y": 39.1,
+    "pre": [
+     3906
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 3982,
+    "title": "What Is Going On?",
+    "level": 54,
+    "min": 48,
+    "side": "Horde",
+    "giverNpc": 9020,
+    "giverName": "Commander Gor'shak",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [
+     3981
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 4001,
+    "title": "What Is Going On?",
+    "level": 54,
+    "min": 48,
+    "side": "Horde",
+    "giverNpc": 9020,
+    "giverName": "Commander Gor'shak",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [
+     3982
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 4295,
+    "title": "Rocknot's Ale",
+    "level": 1,
+    "min": 1,
+    "side": null,
+    "giverNpc": 9503,
+    "giverName": "Private Rocknot",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 4341,
+    "title": "Kharan Mighthammer",
+    "level": 59,
+    "min": 50,
+    "side": "Alliance",
+    "giverNpc": 2784,
+    "giverName": "King Magni Bronzebeard",
+    "zone": "Ironforge",
+    "x": 39.1,
+    "y": 56.2,
+    "pre": [
+     3701
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 4342,
+    "title": "Kharan's Tale",
+    "level": 59,
+    "min": 50,
+    "side": "Alliance",
+    "giverNpc": 9021,
+    "giverName": "Kharan Mighthammer",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   }
+  ],
+  "UpperBlackrockSpire": [
+   {
+    "id": 4907,
+    "title": "Tinkee Steamboil",
+    "level": 60,
+    "min": 57,
+    "side": null,
+    "giverNpc": 10468,
+    "giverName": "Felnok Steelspring",
+    "zone": "Winterspring",
+    "x": 61.6,
+    "y": 38.6,
+    "pre": [
+     4810
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 7761,
+    "title": "Blackhand's Command",
+    "level": 60,
+    "min": 55,
+    "side": null,
+    "giverNpc": null,
+    "giverName": null,
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   }
+  ],
+  "DireMaulEast": [
+   {
+    "id": 5526,
+    "title": "Shards of the Felvine",
+    "level": 60,
+    "min": 56,
+    "side": null,
+    "giverNpc": 11801,
+    "giverName": "Rabine Saturna",
+    "zone": "Moonglade",
+    "x": 51.7,
+    "y": 45.1,
+    "pre": [
+     5527
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 7581,
+    "title": "The Prison's Bindings",
+    "level": 60,
+    "min": 60,
+    "side": null,
+    "giverNpc": 14463,
+    "giverName": "Daio the Decrepit",
+    "zone": "Blasted Lands",
+    "x": 34.1,
+    "y": 50.1,
+    "pre": [],
+    "sources": "DM"
+   }
+  ],
+  "Scholomance": [
+   {
+    "id": 5582,
+    "title": "Healthy Dragon Scale",
+    "level": 58,
+    "min": 55,
+    "side": null,
+    "giverNpc": null,
+    "giverName": null,
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [
+     5529
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 7629,
+    "title": "Imp Delivery",
+    "level": 60,
+    "min": 60,
+    "side": null,
+    "giverNpc": 14437,
+    "giverName": "Gorzeeki Wildeyes",
+    "zone": "Burning Steppes",
+    "x": 12.4,
+    "y": 31.6,
+    "pre": [
+     7564
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 7647,
+    "title": "Judgment and Redemption",
+    "level": 60,
+    "min": 60,
+    "side": "Alliance",
+    "giverNpc": 928,
+    "giverName": "Lord Grayson Shadowbreaker",
+    "zone": "Stormwind City",
+    "x": 48.4,
+    "y": 50.2,
+    "pre": [
+     7646
+    ],
+    "sources": "DM"
+   }
+  ],
+  "DireMaulWest": [
+   {
+    "id": 7481,
+    "title": "Elven Legends",
+    "level": 60,
+    "min": 54,
+    "side": "Horde",
+    "giverNpc": 14373,
+    "giverName": "Sage Korolusk",
+    "zone": "Feralas",
+    "x": 75.2,
+    "y": 43.8,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 7482,
+    "title": "Elven Legends",
+    "level": 60,
+    "min": 54,
+    "side": "Alliance",
+    "giverNpc": 14374,
+    "giverName": "Scholar Runethorn",
+    "zone": "Feralas",
+    "x": 31.2,
+    "y": 43.9,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 7631,
+    "title": "Dreadsteed of Xoroth",
+    "level": 60,
+    "min": 60,
+    "side": null,
+    "giverNpc": 14436,
+    "giverName": "Mor'zul Bloodbringer",
+    "zone": "Burning Steppes",
+    "x": 12.7,
+    "y": 31.6,
+    "pre": [
+     7629
+    ],
+    "sources": "DM"
+   },
+   {
+    "id": 7643,
+    "title": "Ancient Equine Spirit",
+    "level": 60,
+    "min": 60,
+    "side": "Alliance",
+    "giverNpc": 928,
+    "giverName": "Lord Grayson Shadowbreaker",
+    "zone": "Stormwind City",
+    "x": 48.4,
+    "y": 50.2,
+    "pre": [
+     7642
+    ],
+    "sources": "DM"
+   }
+  ],
+  "Stratholme": [
+   {
+    "id": 7642,
+    "title": "Collection of Goods",
+    "level": 60,
+    "min": 60,
+    "side": "Alliance",
+    "giverNpc": 1416,
+    "giverName": "Grimand Elmore",
+    "zone": "Stormwind City",
+    "x": 59.7,
+    "y": 33.8,
+    "pre": [
+     7641
+    ],
+    "sources": "DM"
+   }
+  ]
+ },
+ "conflicts": [
+  "Plunder (261311) level: majorité 16 (FDS,FDJ) contre 17 (DM)",
+  "Durgen Dirgehammer (261319) level: majorité 16 (FDS,FDJ) contre 18 (DM)",
+  "Nekrum Gutchewer (7796) level: majorité 45 (FDS,FDJ) contre 46 (DM)",
+  "Lord Valthalak (16042) level: désaccord -1 (DM); 62 (FDJ)",
+  "Quêtes DM sans instance exploitable: wing DireMaul déduit à la main (Broken Trap/Gordok Ogre Suit/Free Knot/Unfinished Gordok Business -> North; 7703 FDJ place la récupération du gantelet en West; Tendris en West chez nous et FDS); 1193 rattaché North d'après npcs 11448/11456, non confirmé par un autre source; 4907 et 7761 (instance 229 commune LBRS/UBRS) rattachés UBRS d'après FDS (7761) et chaîne Rookery (4907)",
+  "XP des quêtes : FDJ (forever-tool.com, ForeverChanges, Wowhead Forever) retenu contre FDS baseXP, valeur du journal de quêtes en jeu prioritaire ; désaccords id:FDJ/FDS 17:6050/3450, 378:5750/5800, 1445:10600/5900, 1740:5100/2550, 1951:6300/3150, 1956:7800/3900, 2198:5800/3300, 2201:6300/3600, 2202:6750/3450, 2283:4800/2450, 2284:4800/2450, 2339:7300/3750, 2929:6200/4950, 2936:9700/4850, 2991:10500/5250, 3373:5450/2800, 3446:9550/4900, 3447:11900/6100, 3528:15400/7900, 3802:9450/5100, 3907:13500/7300, 3982:10100/5450, 4003:16100/8050, 4024:11450/6200, 4063:12400/6200, 4081:9950/5100, 4082:10650/5450, 4123:10450/5650, 4126:14800/7050, 4128:550/560, 4132:15500/7750, 4133:550/560, 4134:11300/5650, 4136:5550/2650, 4146:9200/5100, 4201:10900/5450, 4263:10450/5800, 4322:13950/7750, 4362:16900/8050, 4724:11850/6400, 4729:12500/6400, 4742:16200/8300, 4768:22200/8300, 4771:23650/9950, 4788:15100/7750, 4862:12500/6400, 4866:18900/9950, 4867:18900/9950, 4981:11850/6400, 4982:11850/6400, 5047:17650/6600, 5125:21900/9950, 5160:17650/6600, 5212:14500/6600, 5214:17450/8300, 5243:14500/6600, 5251:17450/8300, 5262:17450/8300, 5263:18250/8300, 5282:17450/8300, 5341:15700/6600, 5382:15700/6600, 5384:19700/8300, 5463:14500/6600, 5466:23650/9950, 5515:15700/6600, 5518:17650/6600, 5525:17650/6600, 5526:22200/8300, 5529:14750/6200, 5727:460/455, 5848:13850/6600, 6163:9900/6600, 7201:10100/5450, 7441:20750/7750, 7461:23650/9950, 7463:13200/6600, 7481:19700/8300, 7489:20200/7550, 7629:13200/6600, 7631:13200/6600, 7647:19900/9950, 7703:22200/8300, 8232:12400/6350, 8236:12400/6350, 8253:12400/6350, 8257:12400/6350, 8413:12400/6350, 8418:12400/6350, 8422:12400/6350, 8425:12400/6350, 9053:12400/6350, 95924:17650/1950, 95925:17650/1950, 95926:17650/6600, 95928:17650/1950, 96800:6750/2850, 97049:17650/6600, 97130:10450/3900, 97327:13200/6600"
+ ],
+ "extraBosses": {
+  "Stratholme": [
+   {
+    "name": "Ezra Grimm",
+    "npc": 11058,
+    "display": 10475,
+    "sources": "FDJ,FDS (chances : FDJ, 34 kills Wowhead Forever)",
+    "items": [
+     276396,
+     276395,
+     276394,
+     13172,
+     273129,
+     273117
+    ],
+    "drops": {
+     "276396": 41.18,
+     "276395": 26.47,
+     "276394": 20.59,
+     "13172": 35.29,
+     "273129": 94.12,
+     "273117": 5.88
+    }
+   }
+  ]
+ },
+ "extraNpcs": {
+  "7267": [
+   7797
+  ]
+ },
+ "extraItems": {
+  "14327": [
+   18354
+  ]
+ },
+ "giverConflicts": [
+  377,
+  388,
+  722,
+  959,
+  971,
+  1048,
+  1139,
+  1221,
+  1275,
+  1360,
+  1442,
+  1446,
+  1486,
+  1487,
+  1489,
+  1491,
+  1740,
+  1838,
+  2199,
+  2202,
+  2338,
+  2339,
+  2340,
+  2361,
+  3375,
+  3907,
+  3981,
+  4024,
+  4132,
+  4134,
+  4146,
+  4724,
+  4768,
+  5282,
+  5341,
+  5343,
+  5725,
+  5848,
+  6163,
+  6521,
+  6626,
+  7041,
+  7201,
+  8418
+ ],
+ "questXP": {
+  "17": 6050,
+  "155": 1700,
+  "166": 6200,
+  "167": 1550,
+  "168": 1350,
+  "214": 2950,
+  "303": 2450,
+  "373": 2050,
+  "377": 4400,
+  "378": 5750,
+  "386": 4200,
+  "387": 5550,
+  "388": 5550,
+  "389": 440,
+  "391": 4950,
+  "451": 2050,
+  "704": 5000,
+  "709": 6150,
+  "721": 4800,
+  "722": 5500,
+  "865": 1350,
+  "880": 1150,
+  "914": 4300,
+  "959": 2650,
+  "962": 3300,
+  "971": 6550,
+  "1013": 5600,
+  "1014": 8850,
+  "1048": 12250,
+  "1049": 8450,
+  "1050": 8900,
+  "1051": 3300,
+  "1053": 15300,
+  "1098": 5350,
+  "1101": 7950,
+  "1102": 8500,
+  "1109": 6950,
+  "1113": 7850,
+  "1139": 10250,
+  "1142": 7250,
+  "1144": 7250,
+  "1160": 5000,
+  "1198": 5700,
+  "1199": 6050,
+  "1200": 7850,
+  "1221": 5000,
+  "1275": 2400,
+  "1360": 6300,
+  "1444": 3750,
+  "1445": 10600,
+  "1446": 12750,
+  "1469": 2700,
+  "1475": 13850,
+  "1486": 3100,
+  "1487": 4000,
+  "1489": 290,
+  "1490": 115,
+  "1491": 2650,
+  "1653": 830,
+  "1654": 870,
+  "1740": 5100,
+  "1838": 3650,
+  "1951": 6300,
+  "1956": 7800,
+  "2040": 3700,
+  "2198": 5800,
+  "2199": 2450,
+  "2200": 4450,
+  "2201": 6300,
+  "2202": 6750,
+  "2204": 1650,
+  "2240": 6850,
+  "2258": 3000,
+  "2278": 8200,
+  "2279": 5250,
+  "2280": 5250,
+  "2283": 4800,
+  "2284": 4800,
+  "2318": 6750,
+  "2338": 350,
+  "2339": 7300,
+  "2340": 1850,
+  "2341": 5600,
+  "2342": 7000,
+  "2361": 5600,
+  "2398": 550,
+  "2418": 3500,
+  "2500": 3000,
+  "2768": 12600,
+  "2770": 14200,
+  "2841": 8200,
+  "2842": 275,
+  "2846": 12100,
+  "2861": 410,
+  "2864": 390,
+  "2865": 7800,
+  "2904": 5800,
+  "2922": 4750,
+  "2924": 5500,
+  "2926": 3950,
+  "2928": 4400,
+  "2929": 6200,
+  "2930": 6550,
+  "2935": 2900,
+  "2936": 9700,
+  "2945": 6400,
+  "2962": 4400,
+  "2990": 2100,
+  "2991": 10500,
+  "3042": 7800,
+  "3341": 9050,
+  "3373": 5450,
+  "3446": 9550,
+  "3447": 11900,
+  "3520": 3750,
+  "3523": 700,
+  "3525": 10100,
+  "3527": 10500,
+  "3528": 15400,
+  "3636": 10200,
+  "3765": 1450,
+  "3801": 510,
+  "3802": 9450,
+  "3906": 5100,
+  "3907": 13500,
+  "3981": 5100,
+  "3982": 10100,
+  "4001": 6800,
+  "4002": 540,
+  "4003": 16100,
+  "4004": 9950,
+  "4022": 5450,
+  "4023": 5450,
+  "4024": 11450,
+  "4062": 1350,
+  "4063": 12400,
+  "4081": 9950,
+  "4082": 10650,
+  "4083": 5650,
+  "4123": 10450,
+  "4126": 14800,
+  "4128": 550,
+  "4132": 15500,
+  "4133": 550,
+  "4134": 11300,
+  "4136": 5550,
+  "4146": 9200,
+  "4147": 2550,
+  "4201": 10900,
+  "4262": 5100,
+  "4263": 10450,
+  "4264": 6200,
+  "4282": 6200,
+  "4286": 10450,
+  "4322": 13950,
+  "4341": 6400,
+  "4342": 1600,
+  "4361": 6400,
+  "4362": 16900,
+  "4363": 9650,
+  "4701": 12500,
+  "4724": 11850,
+  "4729": 12500,
+  "4735": 9950,
+  "4742": 16200,
+  "4743": 9950,
+  "4764": 4400,
+  "4766": 660,
+  "4768": 22200,
+  "4769": 660,
+  "4771": 23650,
+  "4787": 5900,
+  "4788": 15100,
+  "4862": 12500,
+  "4866": 18900,
+  "4867": 18900,
+  "4903": 8300,
+  "4974": 9950,
+  "4981": 11850,
+  "4982": 11850,
+  "5001": 12500,
+  "5047": 17650,
+  "5081": 16200,
+  "5089": 12850,
+  "5102": 26600,
+  "5125": 21900,
+  "5127": 16600,
+  "5160": 17650,
+  "5212": 14500,
+  "5213": 6600,
+  "5214": 17450,
+  "5243": 14500,
+  "5251": 17450,
+  "5262": 17450,
+  "5263": 18250,
+  "5281": 6600,
+  "5282": 17450,
+  "5341": 15700,
+  "5343": 15700,
+  "5382": 15700,
+  "5384": 19700,
+  "5462": 4950,
+  "5463": 14500,
+  "5466": 23650,
+  "5515": 15700,
+  "5518": 17650,
+  "5525": 17650,
+  "5526": 22200,
+  "5529": 14750,
+  "5722": 1800,
+  "5723": 2150,
+  "5724": 2950,
+  "5725": 2950,
+  "5727": 460,
+  "5728": 2350,
+  "5761": 2350,
+  "5846": 6200,
+  "5848": 13850,
+  "6163": 9900,
+  "6502": 8300,
+  "6521": 7350,
+  "6522": 5900,
+  "6561": 7850,
+  "6562": 440,
+  "6563": 1750,
+  "6564": 1300,
+  "6565": 6300,
+  "6569": 6600,
+  "6602": 9950,
+  "6626": 8200,
+  "6921": 6550,
+  "6922": 7250,
+  "6981": 5150,
+  "7028": 10250,
+  "7029": 10250,
+  "7041": 10250,
+  "7044": 6650,
+  "7046": 11100,
+  "7064": 11900,
+  "7065": 11900,
+  "7066": 11900,
+  "7067": 10650,
+  "7068": 6750,
+  "7070": 6750,
+  "7201": 10100,
+  "7441": 20750,
+  "7461": 23650,
+  "7463": 13200,
+  "7481": 19700,
+  "7482": 19700,
+  "7483": 3300,
+  "7484": 3300,
+  "7485": 3300,
+  "7488": 20200,
+  "7489": 20200,
+  "7492": 1500,
+  "7494": 1500,
+  "7498": 15700,
+  "7499": 15700,
+  "7500": 15700,
+  "7501": 15700,
+  "7502": 15700,
+  "7503": 15700,
+  "7504": 15700,
+  "7505": 15700,
+  "7506": 15700,
+  "7507": 19900,
+  "7604": 6600,
+  "7629": 13200,
+  "7631": 13200,
+  "7643": 4950,
+  "7647": 19900,
+  "7703": 22200,
+  "7761": 6600,
+  "7877": 660,
+  "8232": 12400,
+  "8236": 12400,
+  "8253": 12400,
+  "8257": 12400,
+  "8413": 12400,
+  "8418": 12400,
+  "8422": 12400,
+  "8425": 12400,
+  "8945": 16600,
+  "9015": 1450,
+  "9053": 12400,
+  "92065": 13200,
+  "92066": 11300,
+  "92069": 12400,
+  "92070": 11300,
+  "92343": 11300,
+  "92344": 11300,
+  "92401": 4600,
+  "92415": 6200,
+  "92421": 4600,
+  "92422": 4600,
+  "92456": 9400,
+  "92457": 9400,
+  "92458": 9400,
+  "92489": 9400,
+  "92752": 580,
+  "92753": 2700,
+  "94968": 11500,
+  "94972": 11050,
+  "94973": 3300,
+  "94975": 8200,
+  "94980": 3300,
+  "94982": 11500,
+  "94983": 10200,
+  "94984": 11050,
+  "95189": 6200,
+  "95195": 6200,
+  "95204": 5450,
+  "95216": 5450,
+  "95250": 3900,
+  "95262": 14400,
+  "95263": 2850,
+  "95309": 12100,
+  "95454": 12100,
+  "95483": 2400,
+  "95646": 6150,
+  "95647": 4900,
+  "95664": 1400,
+  "95682": 6950,
+  "95697": 6950,
+  "95772": 6150,
+  "95775": 8450,
+  "95776": 9500,
+  "95787": 8450,
+  "95788": 8450,
+  "95789": 10450,
+  "95790": 17650,
+  "95791": 10450,
+  "95795": 6150,
+  "95810": 1250,
+  "95924": 17650,
+  "95925": 17650,
+  "95926": 17650,
+  "95928": 17650,
+  "96332": 9700,
+  "96334": 9700,
+  "96335": 2850,
+  "96337": 11550,
+  "96369": 2400,
+  "96377": 6550,
+  "96379": 6550,
+  "96381": 11550,
+  "96391": 1050,
+  "96393": 3200,
+  "96394": 2300,
+  "96395": 2300,
+  "96403": 2950,
+  "96771": 11500,
+  "96772": 14400,
+  "96774": 8800,
+  "96800": 6750,
+  "96984": 9400,
+  "96986": 9400,
+  "96987": 9400,
+  "96988": 9400,
+  "97049": 17650,
+  "97130": 10450,
+  "97173": 12800,
+  "97198": 16100,
+  "97288": 3450,
+  "97327": 13200,
+  "98423": 2550,
+  "98815": 1150,
+  "99156": 910,
+  "99187": 13550
+ },
+ "activities": {
+  "Ragefire": [
+   798,
+   13,
+   18
+  ],
+  "WailingCaverns": [
+   796,
+   15,
+   24
+  ],
+  "TheDeadmines": [
+   799,
+   17,
+   26
+  ],
+  "ShadowfangKeep": [
+   800,
+   20,
+   30
+  ],
+  "BlackfathomDeeps": [
+   801,
+   24,
+   32
+  ],
+  "TheStockade": [
+   802,
+   24,
+   32
+  ],
+  "Gnomeregan": [
+   803,
+   29,
+   38
+  ],
+  "RazorfenKraul": [
+   804,
+   29,
+   38
+  ],
+  "ScarletMonasteryGraveyard": [
+   805,
+   30,
+   38
+  ],
+  "ScarletMonasteryLibrary": [
+   829,
+   33,
+   41
+  ],
+  "ScarletMonasteryArmory": [
+   827,
+   36,
+   44
+  ],
+  "ScarletMonasteryCathedral": [
+   828,
+   38,
+   46
+  ],
+  "RazorfenDowns": [
+   806,
+   37,
+   46
+  ],
+  "Uldaman": [
+   807,
+   41,
+   51
+  ],
+  "Zul'Farrak": [
+   808,
+   44,
+   54
+  ],
+  "Maraudon": [
+   809,
+   46,
+   55
+  ],
+  "TheTempleOfAtal'Hakkar": [
+   810,
+   50,
+   60
+  ],
+  "BlackrockDepths": [
+   811,
+   52,
+   60
+  ],
+  "LowerBlackrockSpire": [
+   812,
+   55,
+   60
+  ],
+  "UpperBlackrockSpire": [
+   837,
+   59,
+   60
+  ],
+  "DireMaulEast": [
+   813,
+   54,
+   60
+  ],
+  "DireMaulWest": [
+   814,
+   56,
+   60
+  ],
+  "DireMaulNorth": [
+   815,
+   56,
+   60
+  ],
+  "Scholomance": [
+   797,
+   58,
+   60
+  ],
+  "Stratholme": [
+   816,
+   58,
+   60
+  ],
+  "HallOfThanes": [
+   1984,
+   13,
+   20
+  ],
+  "RuinsOfLordaeron": [
+   1982,
+   15,
+   22
+  ],
+  "ExcavationSite": [
+   1981,
+   26,
+   33
+  ],
+  "CityOfDalaran": [
+   1983,
+   28,
+   35
+  ],
+  "TheDrownedCity": [
+   1985,
+   35,
+   42
+  ],
+  "KroldokStronghold": [
+   1986,
+   40,
+   47
+  ],
+  "AlcazPrison": [
+   1980,
+   48,
+   55
+  ],
+  "BlackmawHold": [
+   1979,
+   55,
+   60
+  ],
+  "ShapersTerrace": [
+   1978,
+   58,
+   60
+  ]
+ }
+}

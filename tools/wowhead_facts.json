@@ -1,0 +1,3105 @@
+{
+ "bossFacts": {
+  "11058": {
+   "abilities": [
+    [
+     7964,
+     "ability_hibernation"
+    ],
+    [
+     17294,
+     "spell_fire_fire"
+    ]
+   ],
+   "display": 10475,
+   "drops": {
+    "13172": 27.75,
+    "273117": 5.74,
+    "273129": 90.43,
+    "276394": 30.14,
+    "276395": 28.71,
+    "276396": 28.71
+   },
+   "level": 61
+  },
+  "11517": {
+   "abilities": [
+    [
+     5532,
+     "ability_warrior_cleave"
+    ]
+   ],
+   "display": 11611,
+   "drops": {
+    "272996": 31.9,
+    "272998": 33.75,
+    "272999": 30.83
+   },
+   "level": 16
+  },
+  "11519": {
+   "abilities": [
+    [
+     744,
+     "spell_nature_corrosivebreath"
+    ],
+    [
+     14873,
+     "spell_shadow_ritualofsacrifice"
+    ]
+   ],
+   "display": 2007,
+   "drops": {
+    "253908": 0.57,
+    "253910": 0.57,
+    "273003": 33.32,
+    "273005": 32.96,
+    "273007": 30.33
+   },
+   "level": 16
+  },
+  "12902": {
+   "abilities": [
+    [
+     12167,
+     "spell_nature_lightning"
+    ],
+    [
+     12550,
+     "spell_nature_lightningshield"
+    ]
+   ],
+   "display": 12822,
+   "drops": {
+    "253978": 0.49,
+    "253982": 0.41,
+    "273841": 34.73,
+    "273842": 29.58,
+    "273843": 31.87
+   },
+   "level": 26
+  },
+  "13718": {
+   "abilities": [
+    [
+     15501,
+     "spell_nature_earthshock"
+    ],
+    [
+     15848,
+     "spell_nature_nullifydisease"
+    ],
+    [
+     16098,
+     "spell_shadow_ritualofsacrifice"
+    ]
+   ],
+   "display": 9426,
+   "drops": {
+    "17757": 59.25
+   },
+   "level": 41
+  },
+  "13740": {
+   "display": 9433
+  },
+  "13741": {
+   "display": 9427
+  },
+  "13742": {
+   "display": 4860
+  },
+  "14338": {
+   "display": 14381,
+   "level": 50
+  },
+  "14371": {
+   "display": 14412,
+   "level": 52
+  },
+  "14506": {
+   "abilities": [
+    [
+     17146,
+     "spell_shadow_shadowwordpain"
+    ],
+    [
+     18670,
+     "inv_gauntlets_05"
+    ],
+    [
+     20989,
+     "spell_nature_sleep"
+    ],
+    [
+     23224,
+     "spell_shadow_gathershadows"
+    ]
+   ],
+   "display": 14556,
+   "drops": {
+    "18754": 66.67,
+    "18755": 33.33,
+    "18756": 33.33,
+    "18757": 33.33
+   },
+   "level": 62
+  },
+  "14682": {
+   "display": 1061,
+   "level": 25
+  },
+  "14684": {
+   "display": 7919,
+   "drops": {
+    "23125": 27.84
+   },
+   "level": 60
+  },
+  "14686": {
+   "display": 10698,
+   "level": 40
+  },
+  "14690": {
+   "display": 14695,
+   "level": 60
+  },
+  "14693": {
+   "display": 16197,
+   "drops": {
+    "23169": 38.46
+   },
+   "level": 34
+  },
+  "14695": {
+   "display": 14699,
+   "level": 60
+  },
+  "16042": {
+   "abilities": [
+    [
+     27249,
+     "spell_shadow_charm"
+    ],
+    [
+     27286,
+     "spell_shadow_siphonmana"
+    ],
+    [
+     27338,
+     "spell_shadow_curseofachimonde"
+    ],
+    [
+     27382,
+     "spell_shadow_shadowbolt"
+    ]
+   ],
+   "display": 14308,
+   "drops": {
+    "22302": 22.76,
+    "22335": 26.42,
+    "22336": 23.98,
+    "22337": 26.63,
+    "22339": 25.81,
+    "22340": 23.17,
+    "22342": 22.15,
+    "22343": 22.56
+   }
+  },
+  "16059": {
+   "abilities": [
+    [
+     15503,
+     "spell_holy_heal"
+    ],
+    [
+     19134,
+     "ability_golemthunderclap"
+    ],
+    [
+     20615,
+     "spell_frost_stun"
+    ],
+    [
+     27577,
+     "ability_rogue_sprint"
+    ],
+    [
+     27578,
+     "ability_warrior_battleshout"
+    ],
+    [
+     27579,
+     "ability_warrior_warcry"
+    ],
+    [
+     27580,
+     "ability_warrior_savageblow"
+    ],
+    [
+     27581,
+     "ability_warrior_disarm"
+    ],
+    [
+     27584,
+     "ability_shockwave"
+    ],
+    [
+     29544,
+     "ability_golemthunderclap"
+    ]
+   ],
+   "display": 15981,
+   "level": 60
+  },
+  "16080": {
+   "abilities": [
+    [
+     15605,
+     "spell_nature_wispheal"
+    ],
+    [
+     20989,
+     "spell_nature_sleep"
+    ],
+    [
+     22271,
+     "spell_nature_wispsplode"
+    ],
+    [
+     27527,
+     "spell_nature_healingtouch"
+    ],
+    [
+     27530,
+     "spell_nature_cyclone"
+    ],
+    [
+     27532,
+     "spell_nature_rejuvenation"
+    ],
+    [
+     27543,
+     "ability_racial_bearform"
+    ],
+    [
+     27545,
+     "ability_racial_bearform"
+    ],
+    [
+     27546,
+     "spell_nature_forceofnature"
+    ],
+    [
+     27551,
+     "ability_druid_demoralizingroar"
+    ],
+    [
+     27553,
+     "ability_druid_maul"
+    ],
+    [
+     27554,
+     "inv_misc_monsterclaw_03"
+    ],
+    [
+     27555,
+     "ability_druid_disembowel"
+    ],
+    [
+     27556,
+     "ability_druid_disembowel"
+    ],
+    [
+     27557,
+     "ability_druid_ferociousbite"
+    ],
+    [
+     27564,
+     "spell_shadow_teleport"
+    ],
+    [
+     27567,
+     "spell_nature_chainlightning"
+    ],
+    [
+     27737,
+     "spell_nature_starfall"
+    ]
+   ],
+   "display": 15997,
+   "drops": {
+    "22306": 50,
+    "22319": 50,
+    "22322": 50,
+    "22325": 50,
+    "22398": 50
+   },
+   "level": 60
+  },
+  "16097": {
+   "abilities": [
+    [
+     12024,
+     "ability_ensnare"
+    ],
+    [
+     14443,
+     "ability_upgrademoonglaive"
+    ],
+    [
+     22907,
+     "ability_marksmanship"
+    ],
+    [
+     25164,
+     "spell_shadow_unholyfrenzy"
+    ],
+    [
+     27636,
+     "spell_arcane_starfire"
+    ],
+    [
+     27637,
+     "spell_nature_resistnature"
+    ],
+    [
+     27639,
+     "temp"
+    ]
+   ],
+   "display": 16000,
+   "drops": {
+    "22304": 100,
+    "22314": 100,
+    "22315": 100,
+    "22345": 100,
+    "22401": 100,
+    "22472": 100
+   }
+  },
+  "16118": {
+   "abilities": [
+    [
+     8269,
+     "spell_shadow_unholyfrenzy"
+    ],
+    [
+     17228,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     27687,
+     "spell_shadow_raisedead"
+    ],
+    [
+     27688,
+     "spell_shadow_callofbone"
+    ],
+    [
+     27689,
+     "spell_nature_bloodlust"
+    ],
+    [
+     27695,
+     "spell_shadow_raisedead"
+    ]
+   ],
+   "display": 16020,
+   "drops": {
+    "22303": 15.61,
+    "22326": 12.2,
+    "22331": 12.68,
+    "22332": 14.63,
+    "22333": 32.2
+   },
+   "level": 60
+  },
+  "1663": {
+   "abilities": [
+    [
+     7165,
+     "ability_warrior_offensivestance"
+    ],
+    [
+     11976,
+     "ability_rogue_ambush"
+    ],
+    [
+     19134,
+     "ability_golemthunderclap"
+    ],
+    [
+     29544,
+     "ability_golemthunderclap"
+    ]
+   ],
+   "display": 2149,
+   "drops": {
+    "273817": 31.1,
+    "273819": 27.95,
+    "273820": 28.12
+   },
+   "level": 26
+  },
+  "1666": {
+   "abilities": [
+    [
+     3419,
+     "spell_fire_firearmor"
+    ],
+    [
+     7164,
+     "ability_warrior_defensivestance"
+    ],
+    [
+     8242,
+     "ability_warrior_shieldbash"
+    ]
+   ],
+   "display": 825,
+   "drops": {
+    "2280": 32.65,
+    "273807": 30.32,
+    "273808": 27.49
+   },
+   "level": 27
+  },
+  "1696": {
+   "abilities": [
+    [
+     3391,
+     "ability_ghoulfrenzy"
+    ],
+    [
+     8599,
+     "spell_shadow_unholyfrenzy"
+    ]
+   ],
+   "display": 517,
+   "drops": {
+    "253942": 0.47,
+    "273804": 27.55,
+    "273805": 29.95,
+    "273806": 30.58
+   },
+   "level": 24
+  },
+  "1716": {
+   "abilities": [
+    [
+     7964,
+     "ability_hibernation"
+    ],
+    [
+     9128,
+     "ability_warrior_battleshout"
+    ]
+   ],
+   "display": 1621,
+   "drops": {
+    "253976": 0.34,
+    "253986": 0.4,
+    "273824": 20.13,
+    "273825": 21.14,
+    "273827": 23.94,
+    "273829": 18.07
+   },
+   "level": 29
+  },
+  "1717": {
+   "abilities": [
+    [
+     421,
+     "spell_nature_chainlightning"
+    ],
+    [
+     6742,
+     "spell_nature_bloodlust"
+    ]
+   ],
+   "display": 3250,
+   "drops": {
+    "273809": 33.95,
+    "273810": 27.02,
+    "273811": 31.35
+   },
+   "level": 28
+  },
+  "1720": {
+   "abilities": [
+    [
+     5101,
+     "spell_shadow_mindsteal"
+    ],
+    [
+     13496,
+     "spell_frost_stun"
+    ],
+    [
+     15571,
+     "spell_frost_stun"
+    ]
+   ],
+   "display": 2142,
+   "drops": {
+    "2941": 30.12,
+    "2942": 34.94,
+    "3228": 30.12
+   },
+   "level": 26
+  },
+  "245999": {
+   "abilities": [
+    [
+     1240682,
+     "spell_arcane_starfire"
+    ],
+    [
+     1241501,
+     "ability_mage_arcanesurge"
+    ],
+    [
+     1241514,
+     "ability_mage_arcanesurge"
+    ],
+    [
+     1303458,
+     "ability_warrior_shieldreflection"
+    ]
+   ],
+   "display": 129891,
+   "drops": {
+    "273031": 33.09,
+    "273034": 33.25,
+    "273035": 33.64
+   }
+  },
+  "246003": {
+   "abilities": [
+    [
+     1240687,
+     "spell_nature_natureswrath"
+    ],
+    [
+     1240688,
+     "spell_nature_stranglevines"
+    ],
+    [
+     1240692,
+     "ability_smash"
+    ],
+    [
+     1240694,
+     "inv_ember_fel"
+    ]
+   ],
+   "display": 129894,
+   "drops": {
+    "273037": 34.85,
+    "273038": 34.2,
+    "273039": 30.9
+   }
+  },
+  "246008": {
+   "abilities": [
+    [
+     1240738,
+     "ability_druid_twilightswrath"
+    ],
+    [
+     1240750,
+     "spell_shadow_chilltouch"
+    ]
+   ],
+   "display": 129895,
+   "drops": {
+    "273040": 33.96,
+    "273041": 32.55,
+    "273042": 33.49
+   }
+  },
+  "246016": {
+   "abilities": [
+    [
+     8988,
+     "spell_holy_silence"
+    ],
+    [
+     1240869,
+     "spell_nature_wispsplode"
+    ],
+    [
+     1304455,
+     "spell_holy_mindsooth"
+    ]
+   ],
+   "display": 129900,
+   "drops": {
+    "273043": 30.57,
+    "273044": 33.93,
+    "273045": 35.51
+   }
+  },
+  "246017": {
+   "abilities": [
+    [
+     16169,
+     "ability_warrior_cleave"
+    ],
+    [
+     1241325,
+     "spell_nature_wispsplode"
+    ],
+    [
+     1241329,
+     "spell_arcane_blast"
+    ]
+   ],
+   "display": 129954,
+   "drops": {
+    "273046": 34.57,
+    "273047": 33.06,
+    "273048": 30.88,
+    "273099": 6.91
+   }
+  },
+  "246020": {
+   "abilities": [
+    [
+     1241506,
+     "spell_nature_starfall"
+    ],
+    [
+     1241515,
+     "ability_mage_netherwindpresence"
+    ],
+    [
+     1241523,
+     "ability_mage_netherwindpresence"
+    ],
+    [
+     1303350,
+     "spell_nature_slow"
+    ],
+    [
+     1303598,
+     "spell_nature_doublepolymorph2"
+    ],
+    [
+     1303599,
+     "spell_nature_purge"
+    ],
+    [
+     1304398,
+     "spell_nature_wispsplode"
+    ]
+   ],
+   "display": 130061,
+   "drops": {
+    "273049": 34.26,
+    "273051": 30.04,
+    "273052": 31.57,
+    "273103": 7.03
+   }
+  },
+  "247032": {
+   "abilities": [
+    [
+     17228,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1303266,
+     "spell_shadow_raisedead"
+    ],
+    [
+     1304473,
+     "spell_shadow_antishadow"
+    ]
+   ],
+   "display": 130235,
+   "drops": {
+    "273053": 36.82,
+    "273054": 32.39,
+    "273055": 30.79
+   }
+  },
+  "247126": {
+   "abilities": [
+    [
+     3391,
+     "ability_ghoulfrenzy"
+    ],
+    [
+     6713,
+     "ability_warrior_disarm"
+    ],
+    [
+     12057,
+     "ability_rogue_ambush"
+    ],
+    [
+     1303264,
+     "spell_shadow_unholyfrenzy"
+    ],
+    [
+     1303266,
+     "spell_shadow_raisedead"
+    ]
+   ],
+   "display": 145787,
+   "drops": {
+    "273032": 34.96,
+    "273033": 29.7,
+    "273036": 35.34
+   }
+  },
+  "247195": {
+   "abilities": [
+    [
+     25104,
+     "temp"
+    ],
+    [
+     1242884,
+     "ability_golemthunderclap"
+    ],
+    [
+     1242907,
+     "trade_engineering"
+    ],
+    [
+     1302780,
+     "achievement_halloween_worms_01"
+    ],
+    [
+     1302783,
+     "achievement_halloween_worms_01"
+    ]
+   ],
+   "display": 140708,
+   "drops": {
+    "280062": 29.82,
+    "280063": 29.39,
+    "280064": 33.33
+   }
+  },
+  "247198": {
+   "abilities": [
+    [
+     5568,
+     "spell_nature_natureswrath"
+    ],
+    [
+     1244416,
+     "ability_warstomp"
+    ],
+    [
+     1277406,
+     "inv_jewelcrafting_crimsonboar"
+    ]
+   ],
+   "display": 130427,
+   "drops": {
+    "280059": 36.29,
+    "280060": 33.59,
+    "280061": 27.41
+   }
+  },
+  "247206": {
+   "abilities": [
+    [
+     1243064,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243067,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243068,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243070,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243071,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243072,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243073,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243074,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243076,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243077,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243079,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243080,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243081,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243082,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243083,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243084,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243088,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243089,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243090,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1243312,
+     "inv_imp3_purple"
+    ]
+   ],
+   "display": 130432,
+   "drops": {
+    "280056": 34.93,
+    "280057": 31.16,
+    "280058": 29.45
+   }
+  },
+  "247207": {
+   "display": 130436,
+   "drops": {
+    "280065": 34.77,
+    "280066": 35.48,
+    "280067": 26.88
+   }
+  },
+  "247209": {
+   "abilities": [
+    [
+     1245324,
+     "spell_nature_chainlightning"
+    ],
+    [
+     1245338,
+     "spell_nature_spiritwolf"
+    ],
+    [
+     1245883,
+     "spell_nature_purge"
+    ]
+   ],
+   "display": 130440,
+   "drops": {
+    "280068": 35.76,
+    "280070": 26.67
+   }
+  },
+  "247231": {
+   "abilities": [
+    [
+     1247169,
+     "spell_nature_elementalabsorption"
+    ],
+    [
+     1248008,
+     "spell_shaman_improvedfirenova"
+    ],
+    [
+     1248131,
+     "spell_fire_flamebolt"
+    ]
+   ],
+   "display": 131644,
+   "drops": {
+    "280071": 36.51,
+    "280072": 27.8,
+    "280073": 33.2
+   }
+  },
+  "247234": {
+   "abilities": [
+    [
+     9081,
+     "spell_shadow_shadowbolt"
+    ],
+    [
+     1246362,
+     "sha_ability_warrior_bloodnova_nightmare"
+    ],
+    [
+     1246456,
+     "spell_shadow_felmending"
+    ],
+    [
+     1247087,
+     "spell_shadow_possession"
+    ]
+   ],
+   "display": 130447,
+   "drops": {
+    "280074": 34.77,
+    "280075": 29.03,
+    "280076": 31.9
+   }
+  },
+  "250034": {
+   "abilities": [
+    [
+     744,
+     "spell_nature_corrosivebreath"
+    ],
+    [
+     745,
+     "ability_ensnare"
+    ],
+    [
+     22766,
+     "ability_stealth"
+    ]
+   ],
+   "display": 2424,
+   "drops": {
+    "280085": 46.51,
+    "280086": 51.16
+   }
+  },
+  "250483": {
+   "abilities": [
+    [
+     3358,
+     "spell_nature_nullifypoison"
+    ]
+   ],
+   "display": 144189,
+   "drops": {
+    "271201": 28.31,
+    "271202": 31.64,
+    "271203": 31.99
+   }
+  },
+  "250631": {
+   "abilities": [
+    [
+     6136,
+     "spell_frost_frostarmor02"
+    ],
+    [
+     14907,
+     "spell_frost_frostnova"
+    ],
+    [
+     1266011,
+     "spell_shadow_lifedrain02"
+    ]
+   ],
+   "display": 138667,
+   "drops": {
+    "271207": 32.53,
+    "271208": 32.79,
+    "271216": 34.68
+   }
+  },
+  "250657": {
+   "abilities": [
+    [
+     13376,
+     "spell_fire_immolation"
+    ],
+    [
+     18399,
+     "spell_fire_selfdestruct"
+    ]
+   ],
+   "display": 144175,
+   "drops": {
+    "271213": 34.26,
+    "271214": 32.32,
+    "271215": 32.66,
+    "273085": 6.99
+   }
+  },
+  "250660": {
+   "abilities": [
+    [
+     5568,
+     "spell_nature_natureswrath"
+    ],
+    [
+     17307,
+     "inv_gauntlets_05"
+    ],
+    [
+     1326990,
+     "spell_shadow_unholyfrenzy"
+    ]
+   ],
+   "display": 144188,
+   "drops": {
+    "271204": 31.1,
+    "271205": 29.88,
+    "271206": 30.77
+   }
+  },
+  "253201": {
+   "abilities": [
+    [
+     1294312,
+     "inv_gauntlets_05"
+    ],
+    [
+     1294313,
+     "ability_devour"
+    ]
+   ],
+   "display": 142989,
+   "drops": {
+    "280009": 63.77,
+    "280010": 47.83,
+    "280011": 50.72
+   }
+  },
+  "255391": {
+   "abilities": [
+    [
+     9128,
+     "ability_warrior_battleshout"
+    ],
+    [
+     16856,
+     "ability_warrior_savageblow"
+    ]
+   ],
+   "display": 7914,
+   "drops": {
+    "276732": 33.41,
+    "276733": 31.55,
+    "276734": 33.08
+   }
+  },
+  "255699": {
+   "abilities": [
+    [
+     5532,
+     "ability_warrior_cleave"
+    ],
+    [
+     7165,
+     "ability_warrior_offensivestance"
+    ],
+    [
+     9080,
+     "ability_shockwave"
+    ],
+    [
+     1266050,
+     "spell_magic_lesserinvisibilty"
+    ]
+   ],
+   "display": 139050,
+   "drops": {
+    "6641": 47.22,
+    "6642": 47.22
+   }
+  },
+  "255702": {
+   "abilities": [
+    [
+     3391,
+     "ability_ghoulfrenzy"
+    ],
+    [
+     9573,
+     "spell_fire_fire"
+    ],
+    [
+     12466,
+     "spell_fire_flamebolt"
+    ],
+    [
+     15716,
+     "spell_shadow_unholyfrenzy"
+    ],
+    [
+     18399,
+     "spell_fire_selfdestruct"
+    ],
+    [
+     1271593,
+     "spell_shadow_possession"
+    ],
+    [
+     1271604,
+     "inv_misc_monsterscales_08"
+    ],
+    [
+     1275847,
+     "spell_warrior_dragoncharge"
+    ]
+   ],
+   "display": 149885
+  },
+  "255997": {
+   "abilities": [
+    [
+     8398,
+     "spell_frost_frostbolt02"
+    ],
+    [
+     15532,
+     "spell_frost_frostnova"
+    ],
+    [
+     1271375,
+     "spell_frost_icestorm"
+    ],
+    [
+     1271394,
+     "spell_frost_icestorm"
+    ]
+   ],
+   "display": 4973,
+   "drops": {
+    "276735": 30.72,
+    "276736": 31.93,
+    "276737": 31.02
+   }
+  },
+  "256035": {
+   "abilities": [
+    [
+     3358,
+     "spell_nature_nullifypoison"
+    ]
+   ],
+   "display": 139455,
+   "drops": {
+    "271211": 32.69,
+    "271212": 32.99,
+    "271218": 34.32
+   }
+  },
+  "256097": {
+   "abilities": [
+    [
+     14099,
+     "inv_gauntlets_05"
+    ],
+    [
+     1301635,
+     "spell_shadow_antimagicshell"
+    ]
+   ],
+   "display": 144170,
+   "drops": {
+    "271209": 32.67,
+    "271210": 32.21,
+    "271217": 35.11
+   }
+  },
+  "256236": {
+   "abilities": [
+    [
+     12054,
+     "ability_gouge"
+    ],
+    [
+     17620,
+     "spell_shadow_lifedrain02"
+    ]
+   ],
+   "display": 140092,
+   "drops": {
+    "276741": 30.98,
+    "276742": 30.81,
+    "276743": 36.62
+   }
+  },
+  "257016": {
+   "abilities": [
+    [
+     3583,
+     "spell_nature_nullifypoison"
+    ],
+    [
+     1271761,
+     "ability_rogue_bloodsplatter"
+    ]
+   ],
+   "display": 2317,
+   "drops": {
+    "276738": 33.87,
+    "276739": 30.52,
+    "276740": 34.85
+   }
+  },
+  "258905": {
+   "abilities": [
+    [
+     1282504,
+     "ability_smash"
+    ],
+    [
+     1282511,
+     "achievement_boss_trollgore"
+    ],
+    [
+     1282519,
+     "inv_weapon_hand_30"
+    ]
+   ],
+   "display": 144475,
+   "drops": {
+    "274598": 32.11,
+    "274599": 34.16,
+    "274600": 33.73
+   }
+  },
+  "258924": {
+   "abilities": [
+    [
+     15284,
+     "ability_warrior_cleave"
+    ],
+    [
+     1282615,
+     "ability_hunter_harpoon"
+    ],
+    [
+     1282746,
+     "ability_hunter_harpoon"
+    ]
+   ],
+   "display": 144487,
+   "drops": {
+    "274601": 33.78,
+    "274602": 32.65,
+    "274613": 33.43
+   }
+  },
+  "258964": {
+   "display": 141215,
+   "drops": {
+    "275004": 35.53,
+    "275005": 26.06,
+    "275006": 29.11
+   }
+  },
+  "258966": {
+   "abilities": [
+    [
+     11428,
+     "ability_golemthunderclap"
+    ],
+    [
+     21049,
+     "spell_nature_bloodlust"
+    ],
+    [
+     1280085,
+     "ability_hunter_killcommand"
+    ]
+   ],
+   "display": 141217,
+   "drops": {
+    "274995": 33.82,
+    "274996": 32.16,
+    "274997": 33.3
+   }
+  },
+  "258968": {
+   "abilities": [
+    [
+     1282387,
+     "ability_fomor_boss_shout"
+    ],
+    [
+     1282393,
+     "ability_rogue_blackjack"
+    ],
+    [
+     1282394,
+     "ability_warrior_offensivestance"
+    ],
+    [
+     1282397,
+     "trade_engineering"
+    ]
+   ],
+   "display": 141218,
+   "drops": {
+    "275007": 24.53,
+    "275008": 21.78,
+    "275009": 20.84
+   }
+  },
+  "258972": {
+   "abilities": [
+    [
+     8599,
+     "spell_shadow_unholyfrenzy"
+    ],
+    [
+     12057,
+     "ability_rogue_ambush"
+    ],
+    [
+     1280011,
+     "ability_ironmaidens_whirlofblood"
+    ],
+    [
+     1296130,
+     "ability_ironmaidens_whirlofblood"
+    ]
+   ],
+   "display": 141219,
+   "drops": {
+    "274998": 31.83,
+    "274999": 33.58,
+    "275000": 32.85
+   }
+  },
+  "259281": {
+   "abilities": [
+    [
+     9128,
+     "ability_warrior_battleshout"
+    ],
+    [
+     12057,
+     "ability_rogue_ambush"
+    ],
+    [
+     1282076,
+     "ability_fixated_state_red"
+    ]
+   ],
+   "display": 141443,
+   "drops": {
+    "275001": 37.52,
+    "275002": 33.96,
+    "275003": 28.52
+   }
+  },
+  "260042": {
+   "abilities": [
+    [
+     1282842,
+     "creatureportrait_bubble"
+    ],
+    [
+     1282860,
+     "ability_mage_waterjet"
+    ]
+   ],
+   "display": 142144,
+   "drops": {
+    "274603": 33.48,
+    "274604": 33.3,
+    "274605": 33.19
+   }
+  },
+  "260243": {
+   "abilities": [
+    [
+     1283233,
+     "spell_fire_bluerainoffire"
+    ],
+    [
+     1283239,
+     "spell_fire_bluerainoffire"
+    ],
+    [
+     1283250,
+     "ability_mage_waterjet"
+    ],
+    [
+     1283266,
+     "ability_ironmaidens_bloodritual"
+    ],
+    [
+     1283295,
+     "inv_giantsnake_green"
+    ],
+    [
+     1283313,
+     "spell_nature_corrosivebreath"
+    ],
+    [
+     1283327,
+     "ability_backstab"
+    ],
+    [
+     1313471,
+     "spell_shadow_possession"
+    ]
+   ],
+   "display": 142286,
+   "drops": {
+    "274608": 31.45,
+    "274609": 35.5
+   }
+  },
+  "260322": {
+   "abilities": [
+    [
+     3604,
+     "ability_criticalstrike"
+    ],
+    [
+     16495,
+     "ability_backstab"
+    ],
+    [
+     1316382,
+     "spell_shadow_mindsteal"
+    ]
+   ],
+   "display": 144209,
+   "drops": {
+    "273022": 34.01,
+    "273023": 29.3,
+    "273024": 30.95
+   }
+  },
+  "260325": {
+   "abilities": [
+    [
+     13445,
+     "ability_gouge"
+    ],
+    [
+     14100,
+     "ability_devour"
+    ],
+    [
+     1284435,
+     "spell_shadow_unholyfrenzy"
+    ]
+   ],
+   "display": 144210,
+   "drops": {
+    "273025": 28.73,
+    "273026": 31.14,
+    "273027": 28.93,
+    "273106": 7.18
+   }
+  },
+  "260326": {
+   "abilities": [
+    [
+     8078,
+     "spell_nature_thunderclap"
+    ],
+    [
+     8374,
+     "ability_warrior_cleave"
+    ],
+    [
+     10101,
+     "inv_gauntlets_05"
+    ],
+    [
+     11876,
+     "ability_bullrush"
+    ],
+    [
+     1284450,
+     "inv_trinket_80_titan02c"
+    ]
+   ],
+   "display": 144224,
+   "drops": {
+    "270865": 30.29,
+    "273028": 30.75,
+    "273029": 31.51,
+    "273030": 29.45,
+    "273097": 6.54
+   }
+  },
+  "260468": {
+   "abilities": [
+    [
+     1291712,
+     "ability_devour"
+    ]
+   ],
+   "display": 142457
+  },
+  "260808": {
+   "abilities": [
+    [
+     9616,
+     "spell_nature_rejuvenation"
+    ],
+    [
+     1309071,
+     "spell_fire_immolation"
+    ],
+    [
+     1309072,
+     "spell_fire_immolation"
+    ],
+    [
+     1316480,
+     "spell_nature_stranglevines"
+    ]
+   ],
+   "display": 9010,
+   "drops": {
+    "270180": 73.28
+   },
+   "level": 28
+  },
+  "261306": {
+   "abilities": [
+    [
+     13860,
+     "spell_shadow_unholyfrenzy"
+    ],
+    [
+     1292602,
+     "achievement_bg_killingblow_startingrock"
+    ]
+   ],
+   "display": 142826,
+   "drops": {
+    "270227": 33.88,
+    "271096": 32.23,
+    "271097": 33.88
+   }
+  },
+  "261311": {
+   "abilities": [
+    [
+     11130,
+     "inv_gauntlets_05"
+    ],
+    [
+     21055,
+     "ability_warrior_decisivestrike"
+    ],
+    [
+     22911,
+     "ability_warrior_charge"
+    ]
+   ],
+   "display": 142840,
+   "drops": {
+    "270228": 35.08,
+    "270229": 33.13,
+    "271098": 31.79
+   }
+  },
+  "261316": {
+   "abilities": [
+    [
+     11970,
+     "spell_fire_sealoffire"
+    ],
+    [
+     1293228,
+     "spell_fire_incinerate"
+    ]
+   ],
+   "display": 1070,
+   "drops": {
+    "270230": 31.49,
+    "270231": 32.78,
+    "271095": 35.73
+   }
+  },
+  "261319": {
+   "abilities": [
+    [
+     11977,
+     "ability_gouge"
+    ],
+    [
+     19134,
+     "ability_golemthunderclap"
+    ],
+    [
+     25710,
+     "ability_rogue_ambush"
+    ],
+    [
+     29544,
+     "ability_golemthunderclap"
+    ],
+    [
+     43958,
+     "spell_shadow_shadowworddominate"
+    ]
+   ],
+   "display": 142837,
+   "drops": {
+    "270256": 28.61,
+    "270260": 27.15,
+    "270261": 24.8,
+    "274286": 50.99
+   }
+  },
+  "261809": {
+   "abilities": [
+    [
+     1290463,
+     "spell_frost_stun"
+    ],
+    [
+     1290464,
+     "ability_vehicle_sonicshockwave"
+    ],
+    [
+     1290506,
+     "inv_misc_qirajicrystal_02"
+    ],
+    [
+     1290507,
+     "inv_misc_qirajicrystal_04"
+    ],
+    [
+     1290508,
+     "inv_misc_qirajicrystal_03"
+    ],
+    [
+     1290509,
+     "inv_misc_qirajicrystal_01"
+    ],
+    [
+     1290510,
+     "inv_misc_qirajicrystal_02"
+    ],
+    [
+     1290511,
+     "inv_misc_qirajicrystal_04"
+    ],
+    [
+     1290512,
+     "inv_misc_qirajicrystal_03"
+    ],
+    [
+     1290513,
+     "inv_misc_qirajicrystal_01"
+    ],
+    [
+     1291167,
+     "spell_frost_icestorm"
+    ],
+    [
+     1291168,
+     "spell_frost_icestorm"
+    ],
+    [
+     1291176,
+     "spell_holy_excorcism_02"
+    ],
+    [
+     1291274,
+     "spell_nature_abolishmagic"
+    ],
+    [
+     1291301,
+     "inv_ability_poison_groundstate"
+    ],
+    [
+     1291380,
+     "spell_nature_chainlightning"
+    ]
+   ],
+   "display": 143832,
+   "drops": {
+    "273128": 95.09,
+    "280023": 34.97,
+    "280024": 25.77,
+    "280025": 31.9
+   }
+  },
+  "261811": {
+   "abilities": [
+    [
+     1287747,
+     "ability_druid_challangingroar"
+    ],
+    [
+     1287756,
+     "spell_shaman_lavaburst"
+    ]
+   ],
+   "display": 143039,
+   "drops": {
+    "280012": 29.25,
+    "280013": 27.21,
+    "280014": 37.41
+   }
+  },
+  "261812": {
+   "abilities": [
+    [
+     6535,
+     "spell_nature_callstorm"
+    ],
+    [
+     8078,
+     "spell_nature_thunderclap"
+    ],
+    [
+     12553,
+     "spell_nature_wispheal"
+    ],
+    [
+     1301404,
+     "spell_nature_callstorm"
+    ],
+    [
+     1310513,
+     "spell_nature_chainlightning"
+    ]
+   ],
+   "display": 144514,
+   "drops": {
+    "280018": 24.14,
+    "280019": 31.03,
+    "280020": 40
+   }
+  },
+  "261813": {
+   "abilities": [
+    [
+     3604,
+     "ability_criticalstrike"
+    ],
+    [
+     1310365,
+     "spell_nature_corrosivebreath"
+    ]
+   ],
+   "display": 144511,
+   "drops": {
+    "280015": 31.93,
+    "280016": 30.12,
+    "280017": 32.53
+   }
+  },
+  "261974": {
+   "abilities": [
+    [
+     1310251,
+     "trade_engineering"
+    ],
+    [
+     1310267,
+     "spell_fire_immolation"
+    ],
+    [
+     1310512,
+     "spell_fire_incinerate"
+    ]
+   ],
+   "display": 143035,
+   "drops": {
+    "280029": 40
+   }
+  },
+  "262081": {
+   "abilities": [
+    [
+     15588,
+     "spell_nature_thunderclap"
+    ],
+    [
+     1310513,
+     "spell_nature_chainlightning"
+    ]
+   ],
+   "display": 143063,
+   "drops": {
+    "280031": 48.73,
+    "280032": 50.63
+   }
+  },
+  "262127": {
+   "abilities": [
+    [
+     1287872,
+     "ability_racial_tailswipe"
+    ],
+    [
+     1287876,
+     "ability_warrior_bullrush"
+    ],
+    [
+     1287879,
+     "ability_warrior_bullrush"
+    ],
+    [
+     1287886,
+     "ability_warrior_shieldbreak"
+    ]
+   ],
+   "display": 144515,
+   "drops": {
+    "280021": 33.55,
+    "280022": 37.42,
+    "280045": 28.39
+   }
+  },
+  "262297": {
+   "abilities": [
+    [
+     1310354,
+     "spell_frost_frostnova"
+    ],
+    [
+     1310514,
+     "spell_frost_glacier"
+    ]
+   ],
+   "display": 143122,
+   "drops": {
+    "280026": 47.89
+   }
+  },
+  "262716": {
+   "abilities": [
+    [
+     12057,
+     "ability_rogue_ambush"
+    ],
+    [
+     15663,
+     "ability_warrior_cleave"
+    ]
+   ],
+   "display": 17273
+  },
+  "263886": {
+   "abilities": [
+    [
+     1290978,
+     "spell_frost_frostbolt"
+    ],
+    [
+     1290980,
+     "spell_hunter_icetrap"
+    ],
+    [
+     1290983,
+     "spell_hunter_icetrap"
+    ]
+   ],
+   "display": 143898,
+   "drops": {
+    "274611": 31.03,
+    "274612": 32.41,
+    "274615": 36.55
+   }
+  },
+  "264172": {
+   "abilities": [
+    [
+     1283423,
+     "ability_gouge"
+    ]
+   ],
+   "display": 144022
+  },
+  "264177": {
+   "abilities": [
+    [
+     1291692,
+     "spell_fire_selfdestruct"
+    ]
+   ],
+   "display": 144023,
+   "drops": {
+    "286646": 51.41,
+    "286649": 48.59
+   }
+  },
+  "264773": {
+   "abilities": [
+    [
+     15548,
+     "spell_nature_thunderclap"
+    ],
+    [
+     16244,
+     "ability_warrior_warcry"
+    ],
+    [
+     16856,
+     "ability_warrior_savageblow"
+    ]
+   ],
+   "display": 14424,
+   "drops": {
+    "286428": 31.61,
+    "286429": 31.42,
+    "286430": 36.97
+   }
+  },
+  "269104": {
+   "abilities": [
+    [
+     8599,
+     "spell_shadow_unholyfrenzy"
+    ],
+    [
+     15798,
+     "spell_nature_starfall"
+    ]
+   ],
+   "display": 12235,
+   "drops": {
+    "280079": 35.44,
+    "280080": 63.29
+   }
+  },
+  "269111": {
+   "abilities": [
+    [
+     9532,
+     "spell_nature_lightning"
+    ],
+    [
+     13281,
+     "spell_nature_earthshock"
+    ]
+   ],
+   "display": 145808,
+   "drops": {
+    "280077": 66.67,
+    "280078": 33.33
+   }
+  },
+  "269586": {
+   "display": 146027
+  },
+  "272561": {
+   "abilities": [
+    [
+     1312869,
+     "spell_nature_nullifypoison"
+    ],
+    [
+     1312870,
+     "spell_nature_acid_01"
+    ]
+   ],
+   "display": 147098,
+   "drops": {
+    "280027": 14.29,
+    "280031": 16.81
+   }
+  },
+  "3586": {
+   "display": 556,
+   "drops": {
+    "5443": 45.78,
+    "5444": 52
+   },
+   "level": 19
+  },
+  "3927": {
+   "abilities": [
+    [
+     7487,
+     "spell_shadow_chilltouch"
+    ],
+    [
+     7488,
+     "spell_shadow_chilltouch"
+    ],
+    [
+     7489,
+     "spell_shadow_chilltouch"
+    ]
+   ],
+   "display": 11179,
+   "drops": {
+    "273647": 27.76,
+    "3748": 32.59,
+    "6314": 30.72
+   },
+   "level": 25
+  },
+  "3974": {
+   "abilities": [
+    [
+     6192,
+     "ability_warrior_battleshout"
+    ],
+    [
+     6742,
+     "spell_nature_bloodlust"
+    ]
+   ],
+   "display": 2040,
+   "drops": {
+    "274292": 28.4,
+    "3456": 24.96,
+    "7710": 34.7,
+    "7756": 30.5
+   },
+   "level": 34
+  },
+  "3975": {
+   "abilities": [
+    [
+     8260,
+     "ability_warstomp"
+    ],
+    [
+     8269,
+     "spell_shadow_unholyfrenzy"
+    ],
+    [
+     8989,
+     "ability_whirlwind"
+    ],
+    [
+     15578,
+     "ability_whirlwind"
+    ],
+    [
+     22540,
+     "ability_warrior_cleave"
+    ]
+   ],
+   "display": 2041,
+   "drops": {
+    "10330": 11.8,
+    "7717": 25.26,
+    "7718": 23.91,
+    "7719": 23.67
+   },
+   "level": 40
+  },
+  "3976": {
+   "abilities": [
+    [
+     1020,
+     "spell_holy_divineintervention"
+    ],
+    [
+     5589,
+     "spell_holy_sealofmight"
+    ],
+    [
+     8990,
+     "spell_holy_auraoflight"
+    ],
+    [
+     9257,
+     "spell_holy_layonhands"
+    ],
+    [
+     14518,
+     "spell_holy_holysmite"
+    ],
+    [
+     25771,
+     "spell_holy_removecurse"
+    ],
+    [
+     1324516,
+     "spell_holy_sealofmight"
+    ]
+   ],
+   "display": 2042,
+   "drops": {
+    "10330": 23.11,
+    "7723": 25.93,
+    "7724": 25.24,
+    "7726": 24.42
+   },
+   "level": 42
+  },
+  "4279": {
+   "abilities": [
+    [
+     7481,
+     "ability_bullrush"
+    ],
+    [
+     7483,
+     "ability_bullrush"
+    ],
+    [
+     7484,
+     "ability_bullrush"
+    ]
+   ],
+   "display": 522,
+   "drops": {
+    "273645": 32.69,
+    "6318": 30.49,
+    "6319": 30.93
+   },
+   "level": 24
+  },
+  "4420": {
+   "abilities": [
+    [
+     7165,
+     "ability_warrior_offensivestance"
+    ],
+    [
+     9128,
+     "ability_warrior_battleshout"
+    ],
+    [
+     15548,
+     "spell_nature_thunderclap"
+    ]
+   ],
+   "display": 4652,
+   "drops": {
+    "274161": 33.65,
+    "6686": 29.69,
+    "6687": 33.51
+   },
+   "level": 32
+  },
+  "4842": {
+   "abilities": [
+    [
+     2484,
+     "spell_nature_strengthofearthtotem02"
+    ],
+    [
+     8270,
+     "spell_nature_earthquake"
+    ],
+    [
+     9532,
+     "spell_nature_lightning"
+    ]
+   ],
+   "display": 6102,
+   "drops": {
+    "6688": 51.51,
+    "6689": 43.72
+   },
+   "level": 32
+  },
+  "6168": {
+   "abilities": [
+    [
+     8270,
+     "spell_nature_earthquake"
+    ],
+    [
+     9532,
+     "spell_nature_lightning"
+    ]
+   ],
+   "display": 6110,
+   "drops": {
+    "274149": 28.29,
+    "274152": 35.8,
+    "274155": 30.95
+   },
+   "level": 28
+  },
+  "645": {
+   "abilities": [
+    [
+     5174,
+     "spell_holy_heal"
+    ],
+    [
+     6306,
+     "inv_drink_06"
+    ]
+   ],
+   "display": 1305,
+   "drops": {
+    "253910": 0.3,
+    "253912": 0.44,
+    "273102": 7.13,
+    "273298": 29.12,
+    "5197": 30.62,
+    "5198": 29.02,
+    "8490": 5.24
+   },
+   "level": 20
+  },
+  "7023": {
+   "abilities": [
+    [
+     10072,
+     "spell_shadow_burningspirit"
+    ]
+   ],
+   "display": 5285,
+   "drops": {
+    "251400": 0.6,
+    "274425": 27.48,
+    "274428": 26.7,
+    "274430": 29.03,
+    "274485": 11.11,
+    "8053": 2.5
+   },
+   "level": 42
+  },
+  "7796": {
+   "abilities": [
+    [
+     8600,
+     "spell_nature_nullifydisease"
+    ]
+   ],
+   "display": 6690,
+   "drops": {
+    "274643": 31.24,
+    "274644": 32,
+    "274645": 27.09,
+    "9471": 12.28
+   }
+  },
+  "7800": {
+   "abilities": [
+    [
+     10101,
+     "inv_gauntlets_05"
+    ],
+    [
+     11130,
+     "inv_gauntlets_05"
+    ],
+    [
+     11518,
+     "temp"
+    ],
+    [
+     11521,
+     "temp"
+    ],
+    [
+     11524,
+     "temp"
+    ],
+    [
+     11526,
+     "temp"
+    ],
+    [
+     11527,
+     "temp"
+    ],
+    [
+     11798,
+     "temp"
+    ]
+   ],
+   "display": 6980,
+   "drops": {
+    "4411": 0.49,
+    "4413": 0.8,
+    "4415": 0.73,
+    "9458": 23.48,
+    "9459": 23.76,
+    "9461": 24.52,
+    "9492": 21.78
+   },
+   "level": 34
+  },
+  "8696": {
+   "display": 8029,
+   "level": 36
+  },
+  "9476": {
+   "abilities": [
+    [
+     11971,
+     "ability_warrior_sunder"
+    ],
+    [
+     15504,
+     "spell_holy_heal"
+    ]
+   ],
+   "display": 8655,
+   "level": 55
+  }
+ },
+ "bossLevels": {
+  "7796": 45
+ },
+ "bossNames": {
+  "deDE": {
+   "247195": "Welkschlund",
+   "247198": "Knochenschnauze der Ungebrochene",
+   "247206": "Impaan der Kerkermeister",
+   "247207": "Behemoth des Schwarzschlunds",
+   "247209": "Schamanenältester Bloodmane",
+   "247231": "Ungebundener Geist",
+   "250034": "Tunnelnetzmatriarchin",
+   "253201": "Titanosaurus",
+   "255391": "Aufseher Wrex",
+   "255997": "Gezeitenherrin Ca'zass",
+   "256236": "Der Verhörer",
+   "257016": "Katerina die Aufräumerin",
+   "258964": "Nar'guk",
+   "258966": "Sklavenbrecher Grox",
+   "258968": "Oberanführer Mugg",
+   "258972": "Twilight-Kommandant Zarmok",
+   "259281": "Kriegswärterin Ashka",
+   "260243": "Min'loth die Schlange",
+   "260468": "\"Pyromant\" Braxton",
+   "261811": "Tor'Rel",
+   "261813": "Giftkamm",
+   "261974": "Zunder",
+   "262127": "Terrorhornmatriarchin",
+   "262297": "Schneekralle",
+   "263886": "Urtümlicher Elementar",
+   "264773": "Bossmann Toof",
+   "269104": "Mondbestrahlter Wanderer",
+   "269111": "Gortek der Lehrling",
+   "269586": "Unsterbliches Mark"
+  },
+  "esES": {
+   "247195": "Faucemarchita",
+   "247198": "Morrohueso el Inquebrantable",
+   "247206": "Diapaan el Diabólico",
+   "247207": "Behemoth Faucenegra",
+   "247209": "Chamán anciano Melenasangre",
+   "247231": "Espíritu desvinculado",
+   "247234": "Varrox Pezuña Lúgubre",
+   "250034": "Matriarca cavatelas",
+   "253201": "Titanosaurio",
+   "255391": "Sobrestante Wrex",
+   "255702": "Rugellama",
+   "255997": "Maestra de las mareas Ca'zass",
+   "256236": "El Interrogador",
+   "257016": "Katerina la Limpiadora",
+   "258966": "Machacaesclavos Grox",
+   "258968": "Señor supremo Mugg",
+   "258972": "Comandante Crepuscular Zarmok",
+   "259281": "Cuidadora de guerra Ashka",
+   "260042": "Capitán Alzapavor",
+   "260243": "Min'loth la Serpiente",
+   "260468": "\"Piromántico\" Braxton",
+   "261812": "Pezuña Trueno",
+   "261813": "Crestaveneno",
+   "261974": "Cenizas",
+   "262081": "Rayo",
+   "262127": "Matriarca cuernoatroz",
+   "262297": "Garfanieve",
+   "263886": "Elemental primigenio",
+   "264177": "Branquia",
+   "264773": "Jefazo Toof",
+   "269104": "Errante Lunadón",
+   "269111": "Gortek el Aprendiz"
+  },
+  "frFR": {
+   "246016": "Enigme arcanique",
+   "247195": "Flétrigueule",
+   "247198": "Muflos l'Indompté",
+   "247206": "Diablaan l'Enfermeur",
+   "247207": "Béhémoth noiregueule",
+   "247209": "Ancien chaman crin-de-sang",
+   "247231": "Esprit délié",
+   "247234": "Varrox Mornesabot",
+   "250034": "Matriarche tissetunnel",
+   "253201": "Titanosaure",
+   "255391": "Surveillant Wrex",
+   "255702": "Rugiflamme",
+   "255997": "Maîtresse des marées Ca'zass",
+   "256236": "L'Interrogateur",
+   "257016": "Katerina la Nettoyeuse",
+   "258966": "Brise-esclave Grox",
+   "258968": "Suzerain Mugg",
+   "258972": "Commandant du Crépuscule Zarmok",
+   "259281": "Marchande de guerre Ashka",
+   "260042": "Capitaine Lèveffroi",
+   "260243": "Min'loth le Serpent",
+   "260468": "« Pyromancien » Braxton",
+   "261811": "Tor'Rel",
+   "261812": "Sabot-Tonnerre",
+   "261813": "Crête-venin",
+   "261974": "Braise",
+   "262081": "Fulguro",
+   "262127": "Matriarche navrecorne",
+   "262297": "Serre-neigeuse",
+   "263886": "Elémentaire primitif",
+   "264773": "Boss Kof",
+   "269104": "Vagabond frôlelune",
+   "269111": "Gortek l'apprenti",
+   "269586": "Moelle impérissable"
+  },
+  "koKR": {
+   "245999": "비전 변형물",
+   "246003": "지옥의 고대정령",
+   "246008": "마나 포식자",
+   "246016": "신비한 수수께끼",
+   "246017": "불안정한 파수꾼",
+   "246020": "대마법사의 망령",
+   "247032": "외면받는 린",
+   "247195": "마른아귀",
+   "247198": "꺾이지 않는 해골주둥이",
+   "247206": "간수 임판",
+   "247207": "검은아귀 거수",
+   "247209": "장로 주술사 핏빛갈기",
+   "247231": "속박 풀린 영혼",
+   "247234": "바록스 블릭후프",
+   "250034": "땅굴그물 어미",
+   "253201": "티타노사우루스",
+   "255391": "감독관 렉스",
+   "255699": "로데론 부대장",
+   "255702": "불길포효",
+   "255997": "해일여제 카자스",
+   "256236": "심문관",
+   "257016": "청소부 카테리나",
+   "258905": "줄알라이",
+   "258924": "바르타카",
+   "258964": "나르구르크",
+   "258966": "노예파괴자 그록스",
+   "258968": "대군주 머그",
+   "258972": "황혼의 사령관 자르모크",
+   "259281": "전투조련사 아쉬카",
+   "260042": "대장 드레드라이즈",
+   "260243": "독사 민로스",
+   "260322": "소금가시",
+   "260325": "그늘이빨",
+   "260326": "유물 수호자",
+   "260468": "\"화염술사\" 브랙스턴",
+   "260808": "고원 공포",
+   "261809": "나나야",
+   "261812": "천둥발굽",
+   "261813": "맹독마루",
+   "261974": "잉걸불",
+   "262081": "쏜살",
+   "262127": "암컷 공포뿔",
+   "262297": "눈갈퀴",
+   "262716": "크루그",
+   "263886": "태고의 정령",
+   "264172": "움브라",
+   "264177": "길",
+   "264773": "두목 투프",
+   "269104": "달빛에 물든 방랑자",
+   "269111": "수습생 고르텍",
+   "272561": "비트릭스"
+  },
+  "ptBR": {
+   "245999": "Anomalia Arcana",
+   "246003": "Anciente Vil",
+   "246008": "Devorador de Mana",
+   "246016": "Enigma Arcânico",
+   "246017": "Sentinela Oscilante",
+   "246020": "Vulto do Arquimago",
+   "247195": "Putrigórjeo",
+   "247198": "Focinhosso, o Inquebrável",
+   "247206": "Diabraan, o Diabrisionador",
+   "247207": "Beemote Bocanera",
+   "247209": "Xamã Ancião Jubassangue",
+   "247231": "Espírito Desatado",
+   "247234": "Varrox Execrasco",
+   "250034": "Matriarca Teiatúnel",
+   "253201": "Titanossauro",
+   "255391": "Feitor Wrex",
+   "255702": "Rugequeima",
+   "255997": "Senhora das Marés Ca'zass",
+   "256236": "O Questionador",
+   "257016": "Katerina, a Faxineira",
+   "258966": "Grox Esmaga-escravos",
+   "258968": "Lorde Supremo Mugg",
+   "258972": "Comandante do Crepúsculo Zarmok",
+   "259281": "Domadora de Guerra Ashka",
+   "260042": "Capitão Pavoral",
+   "260243": "Min'loth, a Serpente",
+   "260326": "Guardião da Relíquia",
+   "260468": "\"Piromante\" Brites",
+   "261812": "Casco do Trovão",
+   "261813": "Peçonhalta",
+   "261974": "Brasa",
+   "262081": "Seta",
+   "262127": "Matriarca Escornante",
+   "262297": "Garra-de-neve",
+   "263886": "Elemental Primevo",
+   "264177": "Gelra",
+   "264773": "Chefe Dentão",
+   "269104": "Andarilho Lunamarca",
+   "269111": "Gortek, o Aprendiz"
+  },
+  "ruRU": {
+   "246016": "Чародейская энигма",
+   "247195": "Сухозев",
+   "247198": "Костерыл Несломленный",
+   "247206": "Бесаан Бесноватый",
+   "247207": "Исполин из клана Черночревов",
+   "247209": "Старейшина-шаман Кровогрив",
+   "247231": "Свободный дух",
+   "247234": "Варрокс Мутное Копыто",
+   "250034": "Паутинный матриарх",
+   "253201": "Титанозавр",
+   "255391": "Надзиратель Рекс",
+   "255702": "Пламеяра",
+   "255997": "Повелительница приливов Ка'засс",
+   "256236": "Дознаватель",
+   "257016": "Катерина Чистильщица",
+   "258905": "Зул'алай",
+   "258924": "Вар'така",
+   "258964": "Нар'гурк",
+   "258966": "Рабомучитель Грокс",
+   "258968": "Властитель Магг",
+   "258972": "Сумеречный командир Зармок",
+   "259281": "Военачальница Ашка",
+   "260042": "Капитан Морожад",
+   "260243": "Мин'лот-Змей",
+   "260468": "\"Пиромант\" Бракстон",
+   "261809": "Нанайя",
+   "261812": "Громокопыт",
+   "261813": "Ядогорб",
+   "261974": "Пепел",
+   "262081": "Электр",
+   "262127": "Дикорог-матриарх",
+   "262297": "Снежнокоготь",
+   "262716": "Кроог",
+   "263886": "Первородный элементаль",
+   "264172": "Умбра",
+   "264177": "Жабр",
+   "264773": "Босс Туф",
+   "269104": "Осененный луной странник",
+   "269111": "Ученик Гортек",
+   "269586": "Живая Смерть",
+   "272561": "Витрикс"
+  },
+  "zhCN": {
+   "245999": "奥术畸体",
+   "246003": "邪能古树",
+   "246008": "法力吞噬者",
+   "246016": "奥术之谜",
+   "246017": "不稳定的哨兵",
+   "246020": "大法师之影",
+   "247032": "被无视的琳恩",
+   "247126": "墓穴骑士阿特雷克斯",
+   "247195": "枯颌",
+   "247198": "不屈的白骨之吻",
+   "247206": "狱牢头鬼",
+   "247207": "黑喉巨兽",
+   "247209": "长者萨满血鬃",
+   "247231": "不羁之魂",
+   "247234": "瓦罗克斯·暗蹄",
+   "250034": "洞网蛛母",
+   "253201": "泰坦巨龙",
+   "255391": "监工雷克斯",
+   "255699": "洛丹伦上尉",
+   "255702": "烈焰咆哮者",
+   "255997": "海潮主母卡扎斯",
+   "256236": "质问者",
+   "257016": "清道夫卡特琳娜",
+   "258905": "祖拉莱",
+   "258924": "瓦尔塔卡",
+   "258964": "纳古克",
+   "258966": "碎奴者格罗克斯",
+   "258968": "霸主莫格",
+   "258972": "暮光指挥官扎尔莫克",
+   "259281": "战争驯兽师阿什卡",
+   "260042": "德雷德莱斯船长",
+   "260468": "“炎术师”布拉克斯顿",
+   "260808": "高地恐魔",
+   "261809": "娜娜亚",
+   "261812": "雷蹄",
+   "261813": "毒脊",
+   "261974": "烈火",
+   "262081": "霹雳",
+   "262127": "恐角龙母",
+   "262297": "雪爪",
+   "262716": "克鲁格",
+   "264172": "乌姆布拉",
+   "264177": "吉尔",
+   "264773": "头目图夫",
+   "269104": "月光漫步者",
+   "269111": "学徒戈泰克",
+   "269586": "不死骨髓",
+   "272561": "翠鳞"
+  },
+  "zhTW": {
+   "245999": "秘法異象",
+   "246003": "魔化古樹",
+   "246008": "法力吞噬者",
+   "246016": "秘法謎團",
+   "246017": "不穩定的哨兵",
+   "246020": "大法師之影",
+   "247032": "『忽視者』林恩",
+   "247126": "『墓地騎士』亞崔希斯",
+   "247195": "枯萎之喉",
+   "247198": "『不屈者』骨鼻",
+   "247206": "『小鬼禁錮者』鬼潘",
+   "247207": "黑喉巨獸",
+   "247209": "薩滿長老血鬃",
+   "247231": "無縛之靈",
+   "247234": "瓦洛仕‧荒蹄",
+   "250034": "隧網族母",
+   "250483": "枯萎之牙",
+   "250631": "被棄者",
+   "250657": "拉斯梅爾",
+   "250660": "男爵",
+   "253201": "泰坦龍",
+   "255391": "監督者瑞克斯",
+   "255699": "羅德隆隊長",
+   "255702": "燃吼",
+   "255997": "卡薩絲小姐",
+   "256035": "邪惡的維多",
+   "256097": "布喬克",
+   "256236": "審問者",
+   "257016": "『清潔者』卡特莉娜",
+   "258905": "祖爾阿萊",
+   "258924": "伐塔卡",
+   "258964": "納古克",
+   "258966": "碎奴者古羅斯",
+   "258968": "霸主馬戈",
+   "258972": "暮光指揮官札莫克",
+   "259281": "戰爭管理員艾絲卡",
+   "260042": "懼湧船長",
+   "260243": "聖蛇米洛斯",
+   "260322": "鹽脊",
+   "260325": "蔭牙",
+   "260326": "聖物守護者",
+   "260468": "『控火師』布拉登",
+   "260808": "高地之懼",
+   "261306": "法爾椎‧安威瑪",
+   "261311": "掠奪者",
+   "261316": "梅格瑪圖斯",
+   "261319": "杜爾根‧戴格哈默",
+   "261809": "娜娜雅",
+   "261812": "雷蹄",
+   "261813": "毒脊",
+   "261974": "燼火",
+   "262081": "螺栓",
+   "262127": "恐角龍族母",
+   "262297": "雪爪",
+   "262716": "克魯格",
+   "263886": "原初元素",
+   "264172": "晦影",
+   "264177": "基爾",
+   "264773": "老闆圖夫",
+   "269104": "月光漫遊者",
+   "269111": "學徒戈特克",
+   "272561": "維崔斯"
+  }
+ },
+ "missing": [
+  "level:16042",
+  "level:247195",
+  "level:247198",
+  "level:247206",
+  "level:247234",
+  "level:255391",
+  "level:255997",
+  "level:256236",
+  "level:258905",
+  "level:258924",
+  "level:258964",
+  "level:258966",
+  "level:258968",
+  "level:258972",
+  "level:260042",
+  "level:260468",
+  "level:261311",
+  "level:261319",
+  "level:262716",
+  "level:263886",
+  "level:264773",
+  "level:269104",
+  "level:269586",
+  "npc:deDE:247234",
+  "npc:deDE:250657",
+  "npc:deDE:255702",
+  "npc:deDE:256097",
+  "npc:deDE:258905",
+  "npc:deDE:258924",
+  "npc:deDE:260042",
+  "npc:deDE:261306",
+  "npc:deDE:261316",
+  "npc:deDE:261319",
+  "npc:deDE:261809",
+  "npc:deDE:261812",
+  "npc:deDE:262081",
+  "npc:deDE:262716",
+  "npc:deDE:264172",
+  "npc:deDE:264177",
+  "npc:deDE:272561",
+  "npc:esES:250657",
+  "npc:esES:256097",
+  "npc:esES:258905",
+  "npc:esES:258924",
+  "npc:esES:258964",
+  "npc:esES:261316",
+  "npc:esES:261809",
+  "npc:esES:261811",
+  "npc:esES:262716",
+  "npc:esES:264172",
+  "npc:esES:269586",
+  "npc:esES:272561",
+  "npc:frFR:250657",
+  "npc:frFR:256097",
+  "npc:frFR:258905",
+  "npc:frFR:258924",
+  "npc:frFR:258964",
+  "npc:frFR:261316",
+  "npc:frFR:261809",
+  "npc:frFR:262716",
+  "npc:frFR:264172",
+  "npc:frFR:264177",
+  "npc:frFR:272561",
+  "npc:koKR:261811",
+  "npc:koKR:269586",
+  "npc:ptBR:250657",
+  "npc:ptBR:256097",
+  "npc:ptBR:258905",
+  "npc:ptBR:258924",
+  "npc:ptBR:258964",
+  "npc:ptBR:261316",
+  "npc:ptBR:261809",
+  "npc:ptBR:261811",
+  "npc:ptBR:262716",
+  "npc:ptBR:264172",
+  "npc:ptBR:269586",
+  "npc:ptBR:272561",
+  "npc:ruRU:261811",
+  "npc:zhCN:260243",
+  "npc:zhCN:261811",
+  "npc:zhCN:263886",
+  "npc:zhTW:261811",
+  "npc:zhTW:269586",
+  "quest:96379"
+ ],
+ "questFacts": {
+  "1192": {
+   "level": 42,
+   "min": 29
+  },
+  "1193": {
+   "level": 60,
+   "min": 56
+  },
+  "1318": {
+   "level": 60,
+   "min": 56,
+   "xp": 22200
+  },
+  "1442": {
+   "level": 22,
+   "min": 20,
+   "xp": 870
+  },
+  "1701": {
+   "level": 28,
+   "min": 20,
+   "xp": 2300
+  },
+  "2843": {
+   "level": 35,
+   "min": 20
+  },
+  "2925": {
+   "level": 30,
+   "min": 24,
+   "xp": 250
+  },
+  "2931": {
+   "level": 28,
+   "min": 25,
+   "xp": 230
+  },
+  "2947": {
+   "level": 34,
+   "min": 28,
+   "xp": 4850
+  },
+  "2949": {
+   "level": 34,
+   "min": 28,
+   "xp": 6400
+  },
+  "2951": {
+   "level": 30,
+   "min": 25
+  },
+  "2952": {
+   "level": 30,
+   "min": 25,
+   "xp": 2450
+  },
+  "2953": {
+   "level": 30,
+   "min": 25
+  },
+  "3375": {
+   "level": 42,
+   "min": 37
+  },
+  "3380": {
+   "level": 51,
+   "min": 46,
+   "xp": 6550
+  },
+  "4121": {
+   "level": 58,
+   "min": 52,
+   "xp": 7750
+  },
+  "4242": {
+   "level": 54,
+   "min": 48,
+   "xp": 9800
+  },
+  "4295": {
+   "level": 1,
+   "min": 1
+  },
+  "4601": {
+   "level": 30,
+   "min": 25
+  },
+  "4602": {
+   "level": 30,
+   "min": 25
+  },
+  "4603": {
+   "level": 30,
+   "min": 25
+  },
+  "4604": {
+   "level": 30,
+   "min": 25
+  },
+  "4605": {
+   "level": 30,
+   "min": 25,
+   "xp": 2450
+  },
+  "4606": {
+   "level": 30,
+   "min": 25,
+   "xp": 2450
+  },
+  "4734": {
+   "level": 60,
+   "min": 57,
+   "xp": 8300
+  },
+  "4765": {
+   "level": 60,
+   "min": 57,
+   "xp": 6600
+  },
+  "4907": {
+   "level": 60,
+   "min": 57,
+   "xp": 660
+  },
+  "4983": {
+   "level": 59,
+   "min": 55,
+   "xp": 11850
+  },
+  "5002": {
+   "level": 59,
+   "min": 55,
+   "xp": 6400
+  },
+  "5519": {
+   "level": 60,
+   "min": 56
+  },
+  "5528": {
+   "level": 60,
+   "min": 56
+  },
+  "5531": {
+   "level": 60,
+   "min": 57,
+   "xp": 1650
+  },
+  "5582": {
+   "level": 58,
+   "min": 55
+  },
+  "7429": {
+   "level": 60,
+   "min": 56,
+   "xp": 660
+  },
+  "7462": {
+   "level": 60,
+   "min": 56,
+   "xp": 1550
+  },
+  "7508": {
+   "level": 60,
+   "min": 60
+  },
+  "7581": {
+   "level": 60,
+   "min": 60,
+   "xp": 13200
+  },
+  "7642": {
+   "level": 60,
+   "min": 60,
+   "xp": 1650
+  },
+  "8733": {
+   "level": 60,
+   "min": 60,
+   "xp": 6600
+  },
+  "8948": {
+   "level": 60,
+   "min": 58,
+   "xp": 13200
+  },
+  "8949": {
+   "level": 60,
+   "min": 58,
+   "xp": 13200
+  },
+  "8950": {
+   "level": 60,
+   "min": 58,
+   "xp": 13200
+  },
+  "8966": {
+   "level": 60,
+   "min": 58,
+   "xp": 16600
+  },
+  "8967": {
+   "level": 60,
+   "min": 58,
+   "xp": 16600
+  },
+  "8968": {
+   "level": 60,
+   "min": 58,
+   "xp": 16600
+  },
+  "8969": {
+   "level": 60,
+   "min": 58,
+   "xp": 16600
+  },
+  "8989": {
+   "level": 60,
+   "min": 58,
+   "xp": 16600
+  },
+  "8990": {
+   "level": 60,
+   "min": 58,
+   "xp": 16600
+  },
+  "8991": {
+   "level": 60,
+   "min": 58,
+   "xp": 8300
+  },
+  "8992": {
+   "level": 60,
+   "min": 58,
+   "xp": 16600
+  },
+  "8995": {
+   "level": 60,
+   "min": 58,
+   "xp": 9950
+  },
+  "92065": {
+   "level": 60,
+   "min": 47,
+   "xp": 13200
+  },
+  "92067": {
+   "level": 55,
+   "min": 45
+  },
+  "94969": {
+   "level": 42,
+   "min": 40,
+   "xp": 3450
+  },
+  "95663": {
+   "level": 31,
+   "min": 24,
+   "xp": 550
+  },
+  "95737": {
+   "level": 31,
+   "min": 24,
+   "xp": 1250
+  },
+  "96246": {
+   "level": 60,
+   "min": 55
+  },
+  "96379": {
+   "level": 53,
+   "min": 48,
+   "xp": 6550
+  },
+  "97327": {
+   "level": 60,
+   "min": 55,
+   "xp": 13200
+  },
+  "99187": {
+   "level": 58,
+   "min": 50,
+   "xp": 13550
+  }
+ },
+ "questLevels": {
+  "92065": 60,
+  "92067": 55,
+  "92070": 55,
+  "92343": 55,
+  "94968": 45,
+  "94969": 42,
+  "94972": 44,
+  "95262": 53,
+  "95263": 53,
+  "95309": 53,
+  "95454": 53,
+  "96246": 60,
+  "96369": 53,
+  "97198": 59,
+  "97327": 60,
+  "99187": 58
+ }
+}

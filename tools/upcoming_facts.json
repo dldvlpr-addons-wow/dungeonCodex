@@ -1,0 +1,1877 @@
+{
+ "bosses": {
+  "TheDrownedCity": [
+   {
+    "name": "Zul'Alai",
+    "npc": 258905,
+    "otherNpcs": [],
+    "display": 144475,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Var'Taka",
+    "npc": 258924,
+    "otherNpcs": [],
+    "display": 144487,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Captain Dreadrise",
+    "npc": 260042,
+    "otherNpcs": [],
+    "display": 142144,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Deathless Marrow",
+    "npc": 269586,
+    "otherNpcs": [],
+    "display": 142245,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Primeval Elemental",
+    "npc": 263886,
+    "otherNpcs": [],
+    "display": null,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Min'loth the Serpent",
+    "npc": 260243,
+    "otherNpcs": [
+     260274
+    ],
+    "display": null,
+    "level": 40,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Gill",
+    "npc": 264177,
+    "otherNpcs": [],
+    "display": 144023,
+    "level": 40,
+    "rare": true,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Umbra",
+    "npc": 264172,
+    "otherNpcs": [],
+    "display": 144022,
+    "level": 40,
+    "rare": true,
+    "sources": "GF,DM,FDJ"
+   },
+   {
+    "name": "\"Pyromancer\" Braxton",
+    "npc": 260468,
+    "otherNpcs": [],
+    "display": 142457,
+    "level": null,
+    "rare": true,
+    "sources": "GF,DM,FDJ"
+   }
+  ],
+  "KroldokStronghold": [
+   {
+    "name": "Slavecrusher Grox",
+    "npc": 258966,
+    "otherNpcs": [],
+    "display": 141217,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Twilight Commander Zarmok",
+    "npc": 258972,
+    "otherNpcs": [],
+    "display": 141219,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "War Handler Ashka",
+    "npc": 259281,
+    "otherNpcs": [],
+    "display": 141443,
+    "level": 44,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Bossman Toof",
+    "npc": 264773,
+    "otherNpcs": [],
+    "display": 14424,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Nar'gurk",
+    "npc": 258964,
+    "otherNpcs": [],
+    "display": 141215,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Overlord Mugg",
+    "npc": 258968,
+    "otherNpcs": [],
+    "display": 141218,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Kroog",
+    "npc": 262716,
+    "otherNpcs": [],
+    "display": 17273,
+    "level": null,
+    "rare": true,
+    "sources": "GF,FDJ"
+   }
+  ],
+  "AlcazPrison": [
+   {
+    "name": "Overseer Wrex",
+    "npc": 255391,
+    "otherNpcs": [],
+    "display": 7914,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Tidemistress Ca'zass",
+    "npc": 255997,
+    "otherNpcs": [],
+    "display": 4973,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Katerina the Cleaner",
+    "npc": 257016,
+    "otherNpcs": [],
+    "display": 2317,
+    "level": 52,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Zarla Ober",
+    "npc": null,
+    "otherNpcs": [],
+    "display": null,
+    "level": null,
+    "rare": false,
+    "sources": "GF,AtlasLoot"
+   },
+   {
+    "name": "The Questioner",
+    "npc": 256236,
+    "otherNpcs": [],
+    "display": 140092,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Blazeroar",
+    "npc": 255702,
+    "otherNpcs": [],
+    "display": null,
+    "level": 53,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   }
+  ],
+  "BlackmawHold": [
+   {
+    "name": "Withermaw",
+    "npc": 247195,
+    "otherNpcs": [],
+    "display": 140708,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Bonesnout the Unbroken",
+    "npc": 247198,
+    "otherNpcs": [],
+    "display": 130427,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Impaan the Imprisoner",
+    "npc": 247206,
+    "otherNpcs": [],
+    "display": 130432,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Elder Shaman Bloodmane",
+    "npc": 247209,
+    "otherNpcs": [],
+    "display": 130440,
+    "level": 61,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Varrox Bleakhoof",
+    "npc": 247234,
+    "otherNpcs": [],
+    "display": 130447,
+    "level": null,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Blackmaw Behemoth",
+    "npc": 247207,
+    "otherNpcs": [],
+    "display": 130436,
+    "level": 61,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Unbound Spirit",
+    "npc": 247231,
+    "otherNpcs": [],
+    "display": 131644,
+    "level": 61,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Moontouched Wanderer",
+    "npc": 269104,
+    "otherNpcs": [],
+    "display": 12235,
+    "level": null,
+    "rare": true,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Gortek the Apprentice",
+    "npc": 269111,
+    "otherNpcs": [],
+    "display": 145808,
+    "level": 58,
+    "rare": true,
+    "sources": "GF,FDS,FDJ"
+   },
+   {
+    "name": "Tunnelweb Matriarch",
+    "npc": 250034,
+    "otherNpcs": [],
+    "display": 2424,
+    "level": 61,
+    "rare": true,
+    "sources": "GF,DM,FDJ"
+   }
+  ],
+  "ShapersTerrace": [
+   {
+    "name": "Titanosaur",
+    "npc": 253201,
+    "otherNpcs": [],
+    "display": 142989,
+    "level": 61,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Venomridge",
+    "npc": 261813,
+    "otherNpcs": [],
+    "display": 144511,
+    "level": 61,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Thunderhoof",
+    "npc": 261812,
+    "otherNpcs": [],
+    "display": 144514,
+    "level": 61,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Direhorn Matriarch",
+    "npc": 262127,
+    "otherNpcs": [],
+    "display": 144515,
+    "level": 61,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Cinder",
+    "npc": 261974,
+    "otherNpcs": [],
+    "display": 143035,
+    "level": 62,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Bolt",
+    "npc": 262081,
+    "otherNpcs": [],
+    "display": 143063,
+    "level": 62,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Snowtalon",
+    "npc": 262297,
+    "otherNpcs": [],
+    "display": 143122,
+    "level": 62,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Vitrix",
+    "npc": 272561,
+    "otherNpcs": [],
+    "display": 147098,
+    "level": 62,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Izha'Rel and Tor'Rel",
+    "npc": 261811,
+    "otherNpcs": [
+     253218
+    ],
+    "display": 143039,
+    "level": 61,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "Nanaya",
+    "npc": 261809,
+    "otherNpcs": [],
+    "display": 143832,
+    "level": 62,
+    "rare": false,
+    "sources": "GF,DM,FDS,FDJ"
+   },
+   {
+    "name": "King Op",
+    "npc": null,
+    "otherNpcs": [],
+    "display": null,
+    "level": 62,
+    "rare": true,
+    "sources": "GF,DM,FDS"
+   }
+  ]
+ },
+ "drops": {
+  "260042": {
+   "274603": 33.14,
+   "274604": 33.71,
+   "274605": 33.14
+  },
+  "269586": {
+   "274614": 32.0
+  },
+  "264177": {
+   "286646": 60.0,
+   "286649": 40.0
+  },
+  "260243": {
+   "274608": 35.0,
+   "274609": 30.83
+  },
+  "263886": {
+   "274611": 32.86,
+   "274612": 24.29,
+   "274615": 42.86
+  },
+  "258924": {
+   "274601": 39.84,
+   "274602": 32.52,
+   "274613": 27.64
+  },
+  "258905": {
+   "274598": 26.96,
+   "274599": 40.2,
+   "274600": 32.84
+  },
+  "264773": {
+   "286429": 53.33,
+   "286428": 31.33,
+   "286430": 37.14
+  },
+  "258964": {
+   "275004": 38.1,
+   "275005": 25.4,
+   "275006": 29.56
+  },
+  "258968": {
+   "275009": 27.27,
+   "275007": 24.74,
+   "275008": 21.24
+  },
+  "258966": {
+   "274996": 37.5,
+   "274995": 33.8,
+   "274997": 34.03
+  },
+  "258972": {
+   "274998": 37.5,
+   "274999": 33.65,
+   "275000": 32.3
+  },
+  "259281": {
+   "275001": 37.18,
+   "275002": 33.86,
+   "275003": 28.96
+  },
+  "257016": {
+   "276738": 33.45,
+   "276739": 30.68,
+   "276740": 35.27
+  },
+  "255391": {
+   "276732": 33.66,
+   "276733": 31.81,
+   "276734": 32.92
+  },
+  "255997": {
+   "276735": 30.47,
+   "276736": 31.81,
+   "276737": 31.58
+  },
+  "256236": {
+   "276741": 31.89,
+   "276742": 30.49,
+   "276743": 36.12
+  },
+  "247207": {
+   "280065": 34.89,
+   "280066": 36.6,
+   "280067": 25.53
+  },
+  "247198": {
+   "280059": 35.29,
+   "280060": 34.84,
+   "280061": 27.15
+  },
+  "247209": {
+   "280068": 37.32,
+   "280070": 23.94
+  },
+  "269111": {
+   "280077": 60.0,
+   "280078": 40.0
+  },
+  "247206": {
+   "280056": 34.66,
+   "280057": 31.47,
+   "280058": 29.08
+  },
+  "269104": {
+   "280079": 36.76,
+   "280080": 61.76
+  },
+  "250034": {
+   "280085": 42.86,
+   "280086": 54.29
+  },
+  "247231": {
+   "280071": 32.67,
+   "280072": 28.22,
+   "280073": 36.14
+  },
+  "247234": {
+   "280074": 35.17,
+   "280075": 29.24,
+   "280076": 31.36
+  },
+  "247195": {
+   "280062": 30.81,
+   "280063": 27.78,
+   "280064": 32.83
+  },
+  "262081": {
+   "280031": 49.21,
+   "280032": 50.0
+  },
+  "272561": {
+   "280031": 16.0,
+   "280027": 11.0
+  },
+  "261974": {
+   "280029": 40.74
+  },
+  "262127": {
+   "280021": 33.59,
+   "280022": 39.06,
+   "280045": 27.34
+  },
+  "261811": {
+   "280012": 30.0,
+   "280013": 25.0,
+   "280014": 37.5
+  },
+  "261809": {
+   "273128": 94.62,
+   "280023": 37.69,
+   "280024": 26.92,
+   "280025": 29.23
+  },
+  "262297": {
+   "280026": 46.43
+  },
+  "261812": {
+   "280018": 25.86,
+   "280019": 32.76,
+   "280020": 35.34
+  },
+  "253201": {
+   "280009": 62.26,
+   "280010": 50.94,
+   "280011": 45.28
+  },
+  "261813": {
+   "280015": 33.09,
+   "280016": 33.09,
+   "280017": 29.41
+  }
+ },
+ "quests": {
+  "TheDrownedCity": [
+   {
+    "id": 629,
+    "title": "The Vile Reef",
+    "level": null,
+    "min": 30,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Kin'weelay",
+    "zone": "Stranglethorn Vale",
+    "x": 32.2,
+    "y": 27.8,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95748,
+    "title": "The Gurubashi Legends of Old",
+    "level": null,
+    "min": 30,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Kin'weelay",
+    "zone": "Stranglethorn Vale",
+    "x": 32.2,
+    "y": 27.8,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95770,
+    "title": "Locating the Lost City",
+    "level": null,
+    "min": 30,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Kin'weelay",
+    "zone": "Stranglethorn Vale",
+    "x": 32.2,
+    "y": 27.8,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95773,
+    "title": "Enemies in the Water",
+    "level": null,
+    "min": 30,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Commander Aggro'gosh",
+    "zone": "Stranglethorn Vale",
+    "x": 32.1,
+    "y": 28.8,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95775,
+    "title": "The Drowned City",
+    "level": 40,
+    "min": 30,
+    "side": "Horde",
+    "giverNpc": 2519,
+    "giverName": "Kin'weelay",
+    "zone": "Stranglethorn Vale",
+    "x": 32.2,
+    "y": 27.8,
+    "pre": [
+     629,
+     95748,
+     95770
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 95776,
+    "title": "The Only Good Brinescale...",
+    "level": 38,
+    "min": 30,
+    "side": "Horde",
+    "giverNpc": 2464,
+    "giverName": "Commander Aggro'gosh",
+    "zone": "Stranglethorn Vale",
+    "x": 32.2,
+    "y": 28.8,
+    "pre": [
+     95773,
+     629,
+     95748,
+     95770
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 95786,
+    "title": "An Acquaintance in Southshore",
+    "level": null,
+    "min": 30,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": "Brother Nimetz",
+    "zone": "Stranglethorn Vale",
+    "x": 38.0,
+    "y": 3.0,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95787,
+    "title": "Take Two With Water",
+    "level": 40,
+    "min": 30,
+    "side": "Alliance",
+    "giverNpc": 2277,
+    "giverName": "Loremaster Dibbs",
+    "zone": "Hillsbrad Foothills",
+    "x": 50.6,
+    "y": 57.0,
+    "pre": [
+     95786,
+     204,
+     207,
+     205
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 95788,
+    "title": "Magics of the Drowned City",
+    "level": 40,
+    "min": 30,
+    "side": "Alliance",
+    "giverNpc": 2277,
+    "giverName": "Loremaster Dibbs",
+    "zone": "Hillsbrad Foothills",
+    "x": 50.6,
+    "y": 57.0,
+    "pre": [
+     95786,
+     204,
+     207,
+     205
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 95789,
+    "title": "Shady Saltseers",
+    "level": 40,
+    "min": 34,
+    "side": null,
+    "giverNpc": 773,
+    "giverName": "Krazek",
+    "zone": "Stranglethorn Vale",
+    "x": 27.0,
+    "y": 77.2,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 95791,
+    "title": "The Saltseer Captain",
+    "level": 40,
+    "min": 34,
+    "side": null,
+    "giverNpc": 773,
+    "giverName": "Krazek",
+    "zone": "Stranglethorn Vale",
+    "x": 27.0,
+    "y": 77.2,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 96774,
+    "title": "Ancient Gurubashi Idol",
+    "level": 40,
+    "min": 30,
+    "side": "Horde",
+    "giverNpc": 264074,
+    "giverName": "Mazu'kon",
+    "zone": "Mulgore",
+    "x": 32.6,
+    "y": 20.6,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 97130,
+    "title": "Ancient Gurubashi Secrets",
+    "level": 40,
+    "min": 34,
+    "side": "Alliance",
+    "giverNpc": 31439,
+    "giverName": "Archmage Timear",
+    "zone": "Alterac Mountains",
+    "x": 15.4,
+    "y": 74.0,
+    "pre": [],
+    "sources": "DM,FDS"
+   }
+  ],
+  "KroldokStronghold": [
+   {
+    "id": 94672,
+    "title": "Encroaching Twilight",
+    "level": null,
+    "min": 36,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Tran'gul",
+    "zone": "Riverglades",
+    "x": 59.5,
+    "y": 44.0,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 94680,
+    "title": "Twilight Missives",
+    "level": null,
+    "min": 36,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Tran'gul",
+    "zone": "Riverglades",
+    "x": 59.5,
+    "y": 44.0,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 94727,
+    "title": "Digging for Answers",
+    "level": null,
+    "min": 36,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Tran'gul",
+    "zone": "Riverglades",
+    "x": 59.5,
+    "y": 44.0,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 94744,
+    "title": "The Wayward Warrior",
+    "level": null,
+    "min": 38,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Krom'rosh",
+    "zone": "Riverglades",
+    "x": 59.4,
+    "y": 45.6,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 94745,
+    "title": "Carving a Path",
+    "level": null,
+    "min": 38,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Da'grosh",
+    "zone": "Riverglades",
+    "x": 33.4,
+    "y": 38,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 94748,
+    "title": "Break Their Chains",
+    "level": null,
+    "min": 38,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Da'grosh",
+    "zone": "Riverglades",
+    "x": 33.4,
+    "y": 38,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 94768,
+    "title": "Bring Me His Head",
+    "level": null,
+    "min": 38,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Da'grosh",
+    "zone": "Riverglades",
+    "x": 33.4,
+    "y": 38,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 94890,
+    "title": "Bring Me His Head",
+    "level": null,
+    "min": 38,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": "Sergeant Riftan",
+    "zone": "Riverglades",
+    "x": 30.5,
+    "y": 48.9,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 94907,
+    "title": "A Small Favor",
+    "level": null,
+    "min": 36,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": "Ashe Amberhall",
+    "zone": "Riverglades",
+    "x": 66.6,
+    "y": 81,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 94968,
+    "title": "Eye of Mugg",
+    "level": null,
+    "min": 40,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Krom'rosh",
+    "zone": "Riverglades",
+    "x": 59.4,
+    "y": 45.5,
+    "pre": [
+     95141,
+     94672,
+     94680,
+     94727,
+     95417,
+     95601,
+     95602,
+     95427,
+     95418,
+     95420,
+     95424,
+     95425,
+     95428,
+     94744,
+     94745,
+     94748,
+     94768,
+     95278,
+     93786,
+     93787,
+     94483,
+     95432,
+     95431
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 94969,
+    "title": "Krol'dok No More!",
+    "level": null,
+    "min": null,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": null,
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 94972,
+    "title": "Tome of Twilight",
+    "level": null,
+    "min": 39,
+    "side": "Horde",
+    "giverNpc": 256710,
+    "giverName": "Tran'gul",
+    "zone": "Riverglades",
+    "x": 59.4,
+    "y": 44.0,
+    "pre": [
+     94672,
+     94680,
+     94727,
+     95417,
+     95601,
+     95602,
+     95427,
+     95418,
+     95420,
+     95424,
+     95425,
+     95428,
+     94744,
+     94745,
+     94748,
+     94768,
+     95278,
+     93786,
+     93787,
+     94483,
+     95432,
+     95431
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 94973,
+    "title": "Krol'dok Moulding",
+    "level": 41,
+    "min": 38,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": null,
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 94975,
+    "title": "A Token of Vengeance",
+    "level": 42,
+    "min": 38,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Da'grosh",
+    "zone": "Riverglades",
+    "x": 33.4,
+    "y": 38.0,
+    "pre": [
+     94672,
+     94680,
+     94727,
+     95417,
+     95601,
+     95602,
+     95427,
+     95418,
+     95420,
+     95424,
+     95425,
+     95428,
+     94744,
+     94745,
+     94748,
+     94768,
+     93786,
+     93787,
+     94483,
+     95432,
+     95431
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 94980,
+    "title": "Krol'dok Moulding",
+    "level": 41,
+    "min": 38,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": null,
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 94982,
+    "title": "Eye of Mugg",
+    "level": 45,
+    "min": 40,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": "Demar Brant",
+    "zone": "Riverglades",
+    "x": 66.5,
+    "y": 80.9,
+    "pre": [
+     94885,
+     94890
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 94983,
+    "title": "Twilight Mementos",
+    "level": 42,
+    "min": 38,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": "Sergeant Riftan",
+    "zone": "Riverglades",
+    "x": 30.5,
+    "y": 48.9,
+    "pre": [
+     94890,
+     94885
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 94984,
+    "title": "Tome of Twilight",
+    "level": 44,
+    "min": 39,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": "Ashe Amberhall",
+    "zone": "Riverglades",
+    "x": 66.6,
+    "y": 81.0,
+    "pre": [
+     94907,
+     94879,
+     94881
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 95141,
+    "title": "Report to Rog'mar",
+    "level": null,
+    "min": 36,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Commander Aggro'gosh",
+    "zone": "Stranglethorn Vale",
+    "x": 32.1,
+    "y": 28.8,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95278,
+    "title": "It Is Time, Brother...",
+    "level": null,
+    "min": 38,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Da'grosh",
+    "zone": "Riverglades",
+    "x": 33.4,
+    "y": 38,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95417,
+    "title": "The Purple Ones",
+    "level": null,
+    "min": 36,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Clubtoe",
+    "zone": "Riverglades",
+    "x": 49.9,
+    "y": 46.9,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95418,
+    "title": "Spread the Word",
+    "level": null,
+    "min": 36,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Clubtoe",
+    "zone": "Riverglades",
+    "x": 49.9,
+    "y": 46.9,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95420,
+    "title": "Land of Giants",
+    "level": null,
+    "min": 36,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Tran'gul",
+    "zone": "Riverglades",
+    "x": 59.5,
+    "y": 44.0,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95424,
+    "title": "Might Makes Right",
+    "level": null,
+    "min": 36,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Clugfist",
+    "zone": "Riverglades",
+    "x": 64.5,
+    "y": 14.7,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95425,
+    "title": "Unworthy Champion",
+    "level": null,
+    "min": 36,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Clugfist",
+    "zone": "Riverglades",
+    "x": 64.5,
+    "y": 14.7,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95427,
+    "title": "Twilight No More!",
+    "level": null,
+    "min": 36,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Clubtoe",
+    "zone": "Riverglades",
+    "x": 49.9,
+    "y": 46.9,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95428,
+    "title": "Clugfist's Decree",
+    "level": null,
+    "min": 36,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Clugfist",
+    "zone": "Riverglades",
+    "x": 64.5,
+    "y": 14.7,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95601,
+    "title": "The Purple Ones",
+    "level": null,
+    "min": 36,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Twilight Brute",
+    "zone": "Riverglades",
+    "x": 49.3,
+    "y": 46.9,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95602,
+    "title": "Sickening Lights",
+    "level": null,
+    "min": 36,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Clubtoe",
+    "zone": "Riverglades",
+    "x": 49.9,
+    "y": 46.9,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 96771,
+    "title": "Vengeance of the Highborne",
+    "level": 45,
+    "min": 37,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": "Ranath Nightstride",
+    "zone": "Alterac Mountains",
+    "x": 17.8,
+    "y": 66.0,
+    "pre": [],
+    "sources": "DM,FDS"
+   }
+  ],
+  "AlcazPrison": [
+   {
+    "id": 95194,
+    "title": "Our Man in Theramore",
+    "level": null,
+    "min": 48,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": "Master Mathias Shaw",
+    "zone": "Stormwind City",
+    "x": 75.8,
+    "y": 59.8,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95196,
+    "title": "Watch Yer Back",
+    "level": null,
+    "min": 48,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": "Shaw's Agent",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95198,
+    "title": "The Return of the King?",
+    "level": null,
+    "min": 48,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": "Sully McCleary",
+    "zone": "Dustwallow Marsh",
+    "x": 66.2,
+    "y": 45.2,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95262,
+    "title": "The Secret Prison",
+    "level": null,
+    "min": 48,
+    "side": "Alliance",
+    "giverNpc": 260271,
+    "giverName": "Sully McCleary",
+    "zone": "Dustwallow Marsh",
+    "x": 63.5,
+    "y": 42.3,
+    "pre": [
+     95194,
+     95196,
+     95198
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 95263,
+    "title": "Somber News",
+    "level": null,
+    "min": 48,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": null,
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [
+     95262,
+     96335
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 95284,
+    "title": "The Elite of the Elite",
+    "level": null,
+    "min": 48,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Nazeer Bloodpike",
+    "zone": "Dustwallow Marsh",
+    "x": 35.3,
+    "y": 30.7,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95285,
+    "title": "Right Place, Wrong Time",
+    "level": null,
+    "min": 48,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Sergeant Ulka",
+    "zone": "Dustwallow Marsh",
+    "x": 70.3,
+    "y": 19.0,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 95309,
+    "title": "No Orc Left Behind",
+    "level": null,
+    "min": 48,
+    "side": "Horde",
+    "giverNpc": 260383,
+    "giverName": "Sergeant Ulka",
+    "zone": "Dustwallow Marsh",
+    "x": 70.4,
+    "y": 19.0,
+    "pre": [],
+    "sources": "DM,FDS(pre)"
+   },
+   {
+    "id": 95454,
+    "title": "The Honor of the Kor'kron",
+    "level": null,
+    "min": 48,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Commander Folkar",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM,FDS(pre)"
+   },
+   {
+    "id": 95483,
+    "title": "Thrall Needs to Know",
+    "level": 53,
+    "min": 48,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Commander Folkar",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [
+     95284,
+     95285,
+     95309,
+     95454,
+     96369
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 96332,
+    "title": "A Little Payback",
+    "level": 53,
+    "min": 48,
+    "side": "Horde",
+    "giverNpc": 260383,
+    "giverName": "Sergeant Ulka",
+    "zone": "Dustwallow Marsh",
+    "x": 70.4,
+    "y": 19.0,
+    "pre": [
+     95284,
+     95285
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 96334,
+    "title": "Blood Red Bandanas",
+    "level": 53,
+    "min": 48,
+    "side": "Horde",
+    "giverNpc": 260383,
+    "giverName": "Sergeant Ulka",
+    "zone": "Dustwallow Marsh",
+    "x": 70.4,
+    "y": 19.0,
+    "pre": [
+     95284,
+     95285
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 96335,
+    "title": "The Man in the Iron Chains",
+    "level": 53,
+    "min": 48,
+    "side": null,
+    "giverNpc": null,
+    "giverName": "Mason Connery",
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM,FDS(pre)"
+   },
+   {
+    "id": 96337,
+    "title": "More Valuable Than Gold",
+    "level": 53,
+    "min": 48,
+    "side": null,
+    "giverNpc": null,
+    "giverName": "Mason Connery",
+    "zone": null,
+    "x": 43.4,
+    "y": 67.8,
+    "pre": [],
+    "sources": "DM,FDS(pre)"
+   },
+   {
+    "id": 96369,
+    "title": "Bad News for Folkar",
+    "level": null,
+    "min": 48,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": null,
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [
+     95454
+    ],
+    "sources": "DM,FDS(pre)"
+   },
+   {
+    "id": 96377,
+    "title": "State Secrets",
+    "level": 53,
+    "min": 48,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": "Renzik \"The Shiv\"",
+    "zone": "Stormwind City",
+    "x": 75.8,
+    "y": 60.2,
+    "pre": [
+     96335,
+     96337
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 96379,
+    "title": "State Secrets",
+    "level": null,
+    "min": 48,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Rix Xizzix",
+    "zone": "Stranglethorn Vale",
+    "x": 28.5,
+    "y": 75.7,
+    "pre": [
+     96335,
+     96337
+    ],
+    "sources": "FDS"
+   },
+   {
+    "id": 96381,
+    "title": "A Bit of Wet Work",
+    "level": 53,
+    "min": 48,
+    "side": "Alliance",
+    "giverNpc": 260271,
+    "giverName": "Sully McCleary",
+    "zone": "Dustwallow Marsh",
+    "x": 63.5,
+    "y": 42.3,
+    "pre": [
+     95194,
+     95196,
+     95198
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 96772,
+    "title": "The Dragon's Journal",
+    "level": 53,
+    "min": 46,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": "Archmage Lan'dalock",
+    "zone": "Alterac Mountains",
+    "x": 15.5,
+    "y": 73.7,
+    "pre": [],
+    "sources": "DM,FDS"
+   }
+  ],
+  "BlackmawHold": [
+   {
+    "id": 92065,
+    "title": "Blackmaw Reclamation",
+    "level": null,
+    "min": null,
+    "side": null,
+    "giverNpc": 236573,
+    "giverName": "Gatekeeper Rageroar",
+    "zone": "Azshara",
+    "x": 42.4,
+    "y": 20.2,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 92066,
+    "title": "The Twin Bears",
+    "level": 55,
+    "min": 47,
+    "side": null,
+    "giverNpc": 249853,
+    "giverName": "Lorekeeper Nok",
+    "zone": "Azshara",
+    "x": 41.4,
+    "y": 20.0,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 92067,
+    "title": "Feeding Time!",
+    "level": null,
+    "min": null,
+    "side": null,
+    "giverNpc": null,
+    "giverName": null,
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 92069,
+    "title": "Claws That Rend, Tusks that Gore",
+    "level": 58,
+    "min": 45,
+    "side": null,
+    "giverNpc": 8405,
+    "giverName": "Ogtinc",
+    "zone": "Azshara",
+    "x": 42.4,
+    "y": 42.6,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 92070,
+    "title": "A Lost Memento",
+    "level": null,
+    "min": 47,
+    "side": null,
+    "giverNpc": 272307,
+    "giverName": null,
+    "zone": "Azshara",
+    "x": 36.0,
+    "y": 26.2,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 92343,
+    "title": "Get to the Roots of It",
+    "level": null,
+    "min": 45,
+    "side": "Horde",
+    "giverNpc": 5770,
+    "giverName": "Nara Wildmane",
+    "zone": "Thunder Bluff",
+    "x": 75.6,
+    "y": 31.6,
+    "pre": [
+     92346
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 92344,
+    "title": "Get to the Roots of It",
+    "level": 55,
+    "min": 45,
+    "side": "Alliance",
+    "giverNpc": 4217,
+    "giverName": "Mathrengyl Bearwalker",
+    "zone": "Darnassus",
+    "x": 35.4,
+    "y": 8.4,
+    "pre": [
+     92345
+    ],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 92346,
+    "title": "Beneath Nordrassil",
+    "level": null,
+    "min": 45,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Jediga",
+    "zone": "Azshara",
+    "x": 22.5,
+    "y": 51.4,
+    "pre": [],
+    "sources": "FDS(pre)"
+   },
+   {
+    "id": 96246,
+    "title": "Blackmaw Pouches",
+    "level": null,
+    "min": 52,
+    "side": null,
+    "giverNpc": null,
+    "giverName": "Ekkal",
+    "zone": "Azshara",
+    "x": 42.0,
+    "y": 38.9,
+    "pre": [],
+    "sources": "FDS"
+   },
+   {
+    "id": 97173,
+    "title": "Blackmaw Magic",
+    "level": 59,
+    "min": 52,
+    "side": "Alliance",
+    "giverNpc": 31439,
+    "giverName": "Archmage Timear",
+    "zone": "Alterac Mountains",
+    "x": 15.4,
+    "y": 74.0,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 97198,
+    "title": "Blackmaw Magic",
+    "level": null,
+    "min": 52,
+    "side": "Horde",
+    "giverNpc": 259118,
+    "giverName": "Muln Earthfury",
+    "zone": "Mulgore",
+    "x": 33.4,
+    "y": 22.4,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 97327,
+    "title": "Blackmaw Pouches",
+    "level": 60,
+    "min": null,
+    "side": null,
+    "giverNpc": 235903,
+    "giverName": "Ekkal",
+    "zone": "Azshara",
+    "x": 42.0,
+    "y": 38.8,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 99187,
+    "title": "The Reliquary of Tyr",
+    "level": 58,
+    "min": null,
+    "side": null,
+    "giverNpc": 276110,
+    "giverName": "Knight of Mourning",
+    "zone": "Tirisfal Glades",
+    "x": 17.6,
+    "y": 67.6,
+    "pre": [],
+    "sources": "DM"
+   }
+  ],
+  "ShapersTerrace": [
+   {
+    "id": 95790,
+    "title": "Digestible Research",
+    "level": 60,
+    "min": 55,
+    "side": "Alliance",
+    "giverNpc": null,
+    "giverName": null,
+    "zone": null,
+    "x": null,
+    "y": null,
+    "pre": [],
+    "sources": "DM"
+   },
+   {
+    "id": 95924,
+    "title": "Panic at the Digsite",
+    "level": 60,
+    "min": 55,
+    "side": "Alliance",
+    "giverNpc": 8256,
+    "giverName": "Curator Thorius",
+    "zone": "Ironforge",
+    "x": 71.4,
+    "y": 16.2,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 95925,
+    "title": "Mapping the Way Forward",
+    "level": 60,
+    "min": 55,
+    "side": "Alliance",
+    "giverNpc": 8256,
+    "giverName": "Curator Thorius",
+    "zone": "Ironforge",
+    "x": 71.4,
+    "y": 16.2,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 95926,
+    "title": "The Dark Crystal",
+    "level": 60,
+    "min": 55,
+    "side": "Horde",
+    "giverNpc": 2055,
+    "giverName": "Master Apothecary Faranell",
+    "zone": "Undercity",
+    "x": 48.4,
+    "y": 69.4,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 95928,
+    "title": "Crystalline Elements",
+    "level": 60,
+    "min": 55,
+    "side": "Horde",
+    "giverNpc": null,
+    "giverName": "Mayena Earthseeker",
+    "zone": "Mulgore",
+    "x": 34.8,
+    "y": 22.0,
+    "pre": [],
+    "sources": "DM,FDS"
+   },
+   {
+    "id": 97049,
+    "title": "Essence of Seeping Slimes",
+    "level": 60,
+    "min": 55,
+    "side": "Horde",
+    "giverNpc": 10136,
+    "giverName": "Chemist Fuely",
+    "zone": "Undercity",
+    "x": 47.6,
+    "y": 73,
+    "pre": [],
+    "sources": "DM,FDS"
+   }
+  ]
+ },
+ "conflicts": [
+  "TheDrownedCity boss level mismatch DM bossLevels vs FDS (set null): Zul'Alai DM=40 FDS=37; Var'Taka DM=40 FDS=38; Captain Dreadrise DM=40 FDS=38; Deathless Marrow DM=40 FDS=39; Primeval Elemental DM=40 FDS=38",
+  "TheDrownedCity display mismatch FDS vs FDJ (set null): Primeval Elemental FDS=143898 FDJ=129945; Min'loth the Serpent FDS=142286 FDJ=142322",
+  "KroldokStronghold boss level mismatch DM bossLevels vs FDS (set null): Slavecrusher Grox DM=43 FDS=42; Twilight Commander Zarmok DM=44 FDS=43; Bossman Toof DM=45 FDS=42; Nar'gurk DM=45 FDS=44; Overlord Mugg DM=46 FDS=45",
+  "AlcazPrison boss level mismatch DM bossLevels vs FDS (set null): Overseer Wrex DM=52 FDS=50; Tidemistress Ca'zass DM=51 FDS=50; The Questioner DM=52 FDS=51",
+  "AlcazPrison display mismatch FDS vs FDJ (set null): Blazeroar FDS=149885 FDJ=6374",
+  "BlackmawHold boss level mismatch DM bossLevels vs FDS (set null): Withermaw DM=61 FDS=58; Bonesnout the Unbroken DM=61 FDS=58; Impaan the Imprisoner DM=61 FDS=57; Varrox Bleakhoof DM=61 FDS=60; Moontouched Wanderer DM=61 FDS=55",
+  "Drowned City Min'loth the Serpent: npc 260243 (DM + caller) vs 260274 (FDJ, marked unconfirmed, from ForeverChanges); kept 260243, 260274 in otherNpcs",
+  "Alcaz Prison: caller's id order is shifted; 255702 is Blazeroar (DM, FDS, FDJ) and Katerina the Cleaner is 257016. AtlasLoot/GF list 'Zarla Ober' (no drops) with no npcID in any source: left unmapped (npc null); Blazeroar kept as a separate entry, possible equivalence unknown",
+  "Shaper's Terrace duo: FDJ gives Izha'Rel 253218 / Tor'Rel 261811; DM and caller give 261811 as 'Ravasaur Hunters'; npc=261811, otherNpcs=[253218]",
+  "Names differ between sources: DM 'Handler Ashka'/'Overseer Mugg' vs AtlasLoot/GF/FDS/FDJ 'War Handler Ashka'/'Overlord Mugg'; AtlasLoot names used",
+  "FDS boss ids 270882-270886/270888 are client 'Staging Area' copies (also noted by FDJ), not real npcIDs; ignored for npc",
+  "King Op (Shaper's Terrace rare): npcID found in no source, npc null",
+  "Deathless Marrow (AtlasLoot/GF/FDS/FDJ) assumed same encounter as DM 'Deathless Guardians' 269586: DM loot of 269586 includes 274614, the Deathless Marrow item in GF rates",
+  "quest 95262 The Secret Prison: coords DM=(63.5,42.3) vs FDS=(66.2,45.2); DM kept",
+  "quest 96381 A Bit of Wet Work: coords DM=(63.5,42.3) vs FDS=(66.2,45.2); DM kept",
+  "quest 97327 Blackmaw Pouches: min DM=55 vs FDS=52; FDS kept",
+  "Quest level = DM only (questLevels / Curated); FDS has no quest level. Quest zone derived from uiMapID/areaID of the giver. giverNpc only available from DM Curated npcID; many DM entries have no npcID. Quests from FDS 'prequests' included as separate entries (sources FDS(pre)); DM chain step ids with no FDS entry are only in 'pre'"
+ ]
+}

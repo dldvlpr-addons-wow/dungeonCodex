@@ -8,6 +8,7 @@ SITE_DUNGEONS : donjons Forever décrits par le site seul (instanceID 0 : à ven
 ENTRANCES : entrée de chaque donjon (UiMapID de zone, x, y), quand elle est connue.
 POSITIONS : npcID -> (UiMapID, x, y) quand le journal retail n'a pas le boss ; placé à vue sur la carte.
 HIDDEN    : npcID écartés du journal.
+ANNEX_NAMES : noms localisés des listes annexes d'AtlasLoot (trash, livres, plans, tribut), repris de ses fichiers de locale (GPL-2).
 """
 
 FLOORS = {
@@ -129,25 +130,74 @@ DUNGEON_NAMES = {
 # Zone : celle de l'AreaTableID de l'entrée ; Razorfen Kraul et Downs : Barrens, à la main (l'aire retail est fausse sur Forever).
 # Dire Maul : trois points sans attribution dans les tables, répartis selon la géographie (ouest, nord, est).
 # Maraudon : trois points, le premier de la table. Scarlet Monastery : Halls (bibliothèque, armurerie), Monastery (cimetière, cathédrale).
-# Forever : Hall of Thanes seul (wowforeverguides.com, Dun Morogh d'après foreverchanges.pro) ; aucune entrée connue pour les autres.
+# Arbitrage 2026-11 sur les addons DungeonMaster, ForeverDungeonScout, ForeverDungeonJournal et MapUtils, notre valeur
+# comptant pour une voix (écart sous 0.03 = accord) ; non vérifié en jeu, le relevé d'entrée de Run.lua (db.entrances,
+# tools/found_export.lua) sert à le valider. Remplacés à la majorité : Deadmines, Blackfathom (Ashenvale), Stockade,
+# Gnomeregan, Scarlet armurerie et cathédrale, Uldaman (Badlands), Maraudon, Temple, Blackrock Depths, Stratholme
+# (porte principale), Hall of Thanes (Ironforge), Ruins of Lordaeron. Krol'dok : FDJ, FDS et DM contre MU.
+# Blackmaw : FDJ, MU et DM contre FDS. Shaper's Terrace : ForeverDungeonScout seul.
 ENTRANCES = {
-    "Ragefire": (1454, 0.532, 0.487), "WailingCaverns": (1413, 0.477, 0.350), "TheDeadmines": (1436, 0.382, 0.775),
-    "ShadowfangKeep": (1421, 0.446, 0.677), "BlackfathomDeeps": (1439, 0.334, 0.934), "TheStockade": (1453, 0.503, 0.661),
-    "Gnomeregan": (1426, 0.180, 0.389), "RazorfenKraul": (1413, 0.422, 0.898), "RazorfenDowns": (1413, 0.509, 0.929),
-    "ScarletMonasteryGraveyard": (1420, 0.848, 0.303), "ScarletMonasteryCathedral": (1420, 0.848, 0.303),
-    "ScarletMonasteryLibrary": (1420, 0.854, 0.323), "ScarletMonasteryArmory": (1420, 0.854, 0.323),
-    "Uldaman": (1432, 0.348, 0.852), "Zul'Farrak": (1446, 0.387, 0.199), "Maraudon": (1443, 0.305, 0.545),
-    "TheTempleOfAtal'Hakkar": (1435, 0.770, 0.439), "BlackrockDepths": (1427, 0.276, 0.724),
+    "Ragefire": (1454, 0.532, 0.487), "WailingCaverns": (1413, 0.477, 0.350), "TheDeadmines": (1436, 0.425, 0.717),
+    "ShadowfangKeep": (1421, 0.446, 0.677), "BlackfathomDeeps": (1440, 0.145, 0.142), "TheStockade": (1453, 0.524, 0.700),
+    "Gnomeregan": (1426, 0.243, 0.398), "RazorfenKraul": (1413, 0.422, 0.898), "RazorfenDowns": (1413, 0.509, 0.929),
+    "ScarletMonasteryGraveyard": (1420, 0.848, 0.303), "ScarletMonasteryCathedral": (1420, 0.826, 0.338),
+    "ScarletMonasteryLibrary": (1420, 0.854, 0.323), "ScarletMonasteryArmory": (1420, 0.826, 0.338),
+    "Uldaman": (1418, 0.443, 0.120), "Zul'Farrak": (1446, 0.387, 0.199), "Maraudon": (1443, 0.291, 0.625),
+    "TheTempleOfAtal'Hakkar": (1435, 0.695, 0.535), "BlackrockDepths": (1427, 0.348, 0.840),
     "LowerBlackrockSpire": (1428, 0.365, 0.254), "UpperBlackrockSpire": (1428, 0.360, 0.227),
     "DireMaulEast": (1444, 0.648, 0.301), "DireMaulNorth": (1444, 0.626, 0.249), "DireMaulWest": (1444, 0.603, 0.314),
-    "Scholomance": (1422, 0.690, 0.727), "Stratholme": (1423, 0.263, 0.104),
-    "HallOfThanes": (1426, 0.435, 0.520),
-    # Relevés web du 2026-11-03, non vérifiés en jeu. Excavation : pierre de rencontre (warcraft.wiki.gg 53.4, 65.3 ;
-    # warcrafttavern 53.9, 65.3). Dalaran : grille d'égout du mur ouest (warcraft.wiki.gg seul).
+    "Scholomance": (1422, 0.690, 0.727), "Stratholme": (1423, 0.307, 0.154),
+    "HallOfThanes": (1455, 0.435, 0.520),
+    # Relevés web du 2026-11-03, confirmés par l'arbitrage. Excavation : pierre de rencontre. Dalaran : grille d'égout.
     "ExcavationSite": (1437, 0.534, 0.653), "CityOfDalaran": (1416, 0.080, 0.610),
-    # Ruins : devant l'entrée d'Undercity, cour des ruines (indication de l'utilisateur, position estimée à relever en jeu).
-    "RuinsOfLordaeron": (1420, 0.619, 0.690),
+    "RuinsOfLordaeron": (1420, 0.634, 0.674),
+    "TheDrownedCity": (1434, 0.213, 0.278), "KroldokStronghold": (2548, 0.375, 0.372), "AlcazPrison": (1445, 0.752, 0.144),
+    "BlackmawHold": (1447, 0.386, 0.332), "ShapersTerrace": (1449, 0.481, 0.06),
 }
+
+# Passages d'un étage à l'autre : étage -> [(x, y, étage cible)], sur l'art des cartes retail. Faits relevés dans
+# MapUtils (2026-11), non vérifiés en jeu ; ses positions par défaut (0.125, 0.080) et les étages 287-288, absents
+# de FLOORS, sont écartés.
+FLOOR_LINKS = {
+    221: [(0.621, 0.741, 222)],
+    222: [(0.477, 0.707, 223), (0.35, 0.29, 221)],
+    223: [(0.3, 0.612, 222)],
+    226: [(0.345, 0.64, 227), (0.47, 0.87, 227), (0.551, 0.44, 227)],
+    227: [(0.245, 0.58, 228), (0.43, 0.83, 226), (0.64, 0.58, 226)],
+    228: [(0.488, 0.71, 229), (0.273, 0.308, 229), (0.445, 0.43, 227)],
+    229: [(0.481, 0.54, 228), (0.71, 0.773, 228)],
+    230: [(0.485, 0.21, 231)],
+    231: [(0.645, 0.41, 230)],
+    236: [(0.27, 0.19, 237), (0.304, 0.43, 238)],
+    237: [(0.415, 0.12, 236)],
+    238: [(0.745, 0.4, 236)],
+    239: [(0.505, 0.63, 240)],
+    240: [(0.633, 0.844, 239)],
+    242: [(0.655, 0.294, 243)],
+    243: [(0.595, 0.547, 242)],
+    280: [(0.145, 0.57, 281)],
+    281: [(0.295, 0.04, 280)],
+    291: [(0.655, 0.667, 292)],
+    292: [(0.123, 0.883, 291)],
+    310: [(0.367, 0.392, 311), (0.148, 0.866, 311), (0.355, 0.666, 316)],
+    311: [(0.593, 0.121, 310), (0.273, 0.881, 310)],
+    312: [(0.516, 0.904, 316), (0.533, 0.6, 313)],
+    313: [(0.442, 0.749, 314), (0.526, 0.872, 312)],
+    314: [(0.437, 0.743, 315), (0.49, 0.78, 313)],
+    315: [(0.42, 0.842, 314)],
+    316: [(0.239, 0.745, 310), (0.436, 0.331, 312)],
+    317: [(0.9, 0.33, 318)],
+    318: [(0.355, 0.39, 317), (0.57, 0.77, 317)],
+}
+
+# Seconde entrée, choisie quand le joueur est sur sa carte. Ruins : Undercity, ForeverDungeonScout (70.9, 12.0) et
+# MapUtils (72.2, 11.5) concordent (2026-11), moyenne retenue, non vérifiée en jeu. Dalaran : Silverpine, MapUtils seul,
+# sans contradiction. Stratholme (porte de service, 1423) écartée : même carte que l'entrée principale, le choix par carte
+# ne les départage pas.
+# Uldaman : ancienne entrée du Loch Modan. Blackrock Spire : entrée de la montagne côté Searing Gorge (FDJ).
+SECOND_ENTRANCES = {"RuinsOfLordaeron": (1458, 0.716, 0.117), "CityOfDalaran": (1421, 0.692, 0.455),
+                    "Uldaman": (1432, 0.348, 0.852), "LowerBlackrockSpire": (1427, 0.348, 0.840),
+                    "UpperBlackrockSpire": (1427, 0.348, 0.840)}
 
 ALIASES = {
     "Nekrum Gutchewer": ["Nekrum & Sezz'ziz"],
@@ -327,4 +377,12 @@ MANUAL_BOSS_NAMES = {
 # Donneurs de quête absents de foreverNpcDB.lua (Questie les cite dans startedBy) : npcID -> nom anglais (wowhead forever).
 MANUAL_NPC_NAMES = {
     269127: "Image of Archmage Modera",  # 92457, 92458, 96984
+}
+
+# Listes annexes d'AtlasLoot (sans PNJ) : noms localisés repris d'AtlasLootClassic*/Locales/constants.*.lua (GPL-2).
+ANNEX_NAMES = {
+    "Trash": {"frFR": "Ennemis communs", "esES": "Bichos", "ptBR": "Lixo", "ruRU": "Треш", "koKR": "일반몹", "zhCN": "小怪", "zhTW": "小怪"},
+    "Books": {"frFR": "Livres", "deDE": "Bücher", "esES": "Libros", "ruRU": "Книги", "koKR": "도서", "zhCN": "书籍", "zhTW": "書籍"},
+    "Plans": {"deDE": "Pläne", "esES": "Diseños", "ptBR": "Instruções", "ruRU": "Чертежи", "koKR": "도면", "zhCN": "计划", "zhTW": "計劃"},
+    "Tribute": {"deDE": "Tribut", "esES": "Tributo a Gordok", "ptBR": "Homenagem a Gordok", "ruRU": "Приношения Гордока", "koKR": "공물", "zhCN": "戈多克贡品", "zhTW": "戈多克貢品"},
 }
